@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚖️ Case CRM | Sue Dat Azz | James Consumer Law Group</title>
+  <meta name="description" content="Violation case management CRM. Lead → Consult → Retain → File → Settle. James Consumer Law Group." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    /* ════════════════════════════════════════════════
+       SUE DAT AZZ — VIOLATION CASE CRM
+       James Consumer Law Group | March 6, 2026
+       Lead → Consult → Retain → File → Settle
+    ════════════════════════════════════════════════ */
+    :root {
+      --gold:#F5C842;--gold-d:#e6b800;
+      --d900:#0a0c10;--d800:#0f1117;--d700:#161a22;--d600:#1e2330;--d500:#252c3a;
+      --tp:#edf0f7;--ts:#8892a4;--tm:#5a6275;
+      --border:rgba(255,255,255,.07);
+      --green:#26de81;--red:#fc5c65;--yellow:#fed330;--blue:#4fc3f7;--purple:#a78bfa;
+      --r8:8px;--r12:12px;--r16:16px;--r20:20px;
+      --ff:'Inter',sans-serif;--fh:'Space Grotesk',sans-serif;
+
+      /* Status colors */
+      --s-new:#4fc3f7; --s-consult:#a78bfa; --s-retained:#F5C842;
+      --s-demand:#fed330; --s-filed:#fc5c65; --s-discovery:#ff7675;
+      --s-settle:#26de81; --s-won:#26de81; --s-lost:#8892a4; --s-declined:#5a6275;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--ff);background:var(--d900);color:var(--tp);line-height:1.6;-webkit-font-smoothing:antialiased;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+    /* ── Nav ── */
+    .top-nav{background:var(--d800);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0}
+    .nav-logo{font-family:var(--fh);font-size:.95rem;font-weight:800;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:6px}
+    .nav-links{display:flex;gap:5px;flex-wrap:wrap}
+    .nav-link{padding:5px 10px;border:1px solid var(--border);border-radius:7px;color:var(--ts);text-decoration:none;font-size:.75rem;font-weight:500;transition:all .2s}
+    .nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold)}
+    .nav-actions{display:flex;gap:8px;align-items:center}
+    .nav-btn{padding:7px 14px;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0a0c10;border:none;border-radius:8px;font-weight:800;font-size:.78rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+    .nav-btn:hover{transform:translateY(-1px)}
+
+    /* ── Main layout ── */
+    .crm-layout{display:flex;flex:1;overflow:hidden}
+
+    /* ── Left sidebar: pipeline ── */
+    .pipeline-sidebar{width:260px;flex-shrink:0;background:var(--d800);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+    .ps-header{padding:16px;border-bottom:1px solid var(--border);flex-shrink:0}
+    .ps-title{font-family:var(--fh);font-size:.95rem;font-weight:800;margin-bottom:10px}
+    .ps-search{width:100%;padding:8px 12px;background:var(--d700);border:1.5px solid var(--border);border-radius:8px;color:var(--tp);font-size:.82rem;font-family:var(--ff);transition:border-color .2s}
+    .ps-search:focus{outline:none;border-color:var(--gold)}
+    .ps-filters{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}
+    .ps-filter-btn{padding:4px 10px;border:1px solid var(--border);border-radius:100px;font-size:.68rem;font-weight:600;cursor:pointer;background:transparent;color:var(--ts);transition:all .2s}
+    .ps-filter-btn:hover,.ps-filter-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(245,200,66,.06)}
+    .ps-list{flex:1;overflow-y:auto;padding:8px}
+    .ps-list::-webkit-scrollbar{width:4px} .ps-list::-webkit-scrollbar-thumb{background:var(--d500);border-radius:4px}
+
+    /* ── Case card (sidebar) ── */
+    .case-card{background:var(--d700);border:1.5px solid var(--border);border-radius:var(--r12);padding:12px;margin-bottom:8px;cursor:pointer;transition:all .2s}
+    .case-card:hover{border-color:rgba(245,200,66,.3);transform:translateX(2px)}
+    .case-card.active{border-color:var(--gold);background:rgba(245,200,66,.04)}
+    .cc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:6px}
+    .cc-num{font-size:.68rem;font-weight:700;color:var(--tm);font-family:monospace}
+    .cc-priority{font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em}
+    .cc-name{font-weight:700;font-size:.88rem;margin-bottom:3px}
+    .cc-type{font-size:.72rem;color:var(--ts)}
+    .cc-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:8px}
+    .cc-status{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:100px;text-transform:uppercase;letter-spacing:.05em}
+    .cc-damages{font-size:.75rem;font-weight:700;color:var(--gold)}
+    .cc-sol{font-size:.65rem;color:var(--tm)}
+    .cc-sol.urgent{color:var(--red)}
+
+    /* ── Center: case detail ── */
+    .case-detail{flex:1;overflow-y:auto;padding:24px;background:var(--d900)}
+    .case-detail::-webkit-scrollbar{width:6px} .case-detail::-webkit-scrollbar-thumb{background:var(--d500);border-radius:4px}
+    .cd-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;color:var(--tm)}
+    .cd-empty i{font-size:3rem;margin-bottom:16px;opacity:.3}
+
+    /* ── Case header ── */
+    .cd-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+    .cdh-left .cdh-case-num{font-size:.72rem;font-weight:700;color:var(--tm);font-family:monospace;margin-bottom:4px}
+    .cdh-left h2{font-family:var(--fh);font-size:1.5rem;font-weight:800;margin-bottom:4px}
+    .cdh-left .cdh-type{font-size:.85rem;color:var(--ts)}
+    .cdh-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .cdh-btn{padding:8px 16px;border-radius:8px;border:1.5px solid var(--border);background:var(--d700);color:var(--ts);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s}
+    .cdh-btn:hover{border-color:var(--gold);color:var(--gold)}
+    .cdh-btn.primary{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0a0c10;border-color:transparent;font-weight:800}
+    .cdh-btn.danger{border-color:rgba(252,92,101,.3);color:var(--red)}
+
+    /* ── Pipeline stages bar ── */
+    .pipeline-stages{display:flex;gap:0;margin-bottom:24px;overflow-x:auto;padding-bottom:4px}
+    .ps-stage{flex:1;min-width:90px;padding:10px 8px;text-align:center;cursor:pointer;transition:all .2s;position:relative;background:var(--d700);border:1px solid var(--border);border-right:none}
+    .ps-stage:last-child{border-right:1px solid var(--border);border-radius:0 8px 8px 0}
+    .ps-stage:first-child{border-radius:8px 0 0 8px}
+    .ps-stage:hover{background:var(--d600)}
+    .ps-stage.active-stage{background:var(--d600);border-bottom:2px solid var(--gold)}
+    .ps-stage::after{content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:var(--tm);font-size:.7rem;z-index:1}
+    .ps-stage:last-child::after{content:''}
+    .ps-stage-icon{font-size:.9rem;margin-bottom:3px}
+    .ps-stage-name{font-size:.62rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ts)}
+    .ps-stage.active-stage .ps-stage-name{color:var(--gold)}
+
+    /* ── Grid: info cards ── */
+    .cd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+    @media(max-width:1000px){.cd-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:700px){.cd-grid{grid-template-columns:1fr}}
+    .info-card{background:var(--d700);border:1px solid var(--border);border-radius:var(--r12);padding:16px}
+    .ic-label{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);margin-bottom:4px}
+    .ic-value{font-size:.95rem;font-weight:600;color:var(--tp)}
+    .ic-value.gold{color:var(--gold);font-family:var(--fh);font-size:1.1rem;font-weight:800}
+    .ic-value.green{color:var(--green)}
+    .ic-value.red{color:var(--red)}
+
+    /* ── Damages breakdown ── */
+    .damages-row{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+    .dmg-item{flex:1;min-width:140px;background:var(--d700);border:1px solid var(--border);border-radius:var(--r12);padding:14px;text-align:center}
+    .dmg-lbl{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);margin-bottom:4px}
+    .dmg-val{font-family:var(--fh);font-size:1.4rem;font-weight:800;color:var(--gold)}
+
+    /* ── Violations list ── */
+    .violations-section{background:var(--d700);border:1px solid var(--border);border-radius:var(--r12);padding:18px;margin-bottom:20px}
+    .vs-title{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);margin-bottom:12px}
+    .violation-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(252,92,101,.08);border:1px solid rgba(252,92,101,.2);border-radius:8px;font-size:.78rem;color:var(--red);margin:4px;font-weight:600}
+
+    /* ── Timeline ── */
+    .timeline-section{background:var(--d700);border:1px solid var(--border);border-radius:var(--r12);padding:18px;margin-bottom:20px}
+    .timeline{display:flex;flex-direction:column;gap:0}
+    .tl-item{display:flex;gap:14px;padding-bottom:20px;position:relative}
+    .tl-item::before{content:'';position:absolute;left:15px;top:32px;bottom:0;width:2px;background:var(--border)}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-item:last-child::before{display:none}
+    .tl-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0;border:2px solid;z-index:1;background:var(--d800)}
+    .tl-dot.done{border-color:var(--gold);color:var(--gold)}
+    .tl-dot.active{border-color:var(--blue);color:var(--blue);box-shadow:0 0 12px rgba(79,195,247,.2)}
+    .tl-dot.pending{border-color:var(--border);color:var(--tm)}
+    .tl-content{flex:1;padding-top:4px}
+    .tl-title{font-weight:700;font-size:.88rem;margin-bottom:2px}
+    .tl-date{font-size:.75rem;color:var(--tm)}
+    .tl-note{font-size:.82rem;color:var(--ts);margin-top:4px;line-height:1.55}
+
+    /* ── Notes area ── */
+    .notes-section{background:var(--d700);border:1px solid var(--border);border-radius:var(--r12);padding:18px;margin-bottom:20px}
+    .notes-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .notes-title{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)}
+    .add-note-btn{padding:5px 12px;background:var(--d600);border:1px solid var(--border);border-radius:7px;color:var(--ts);font-size:.72rem;font-weight:600;cursor:pointer;transition:all .2s}
+    .add-note-btn:hover{border-color:var(--gold);color:var(--gold)}
+    .notes-textarea{width:100%;min-height:80px;padding:10px 12px;background:var(--d600);border:1.5px solid var(--border);border-radius:8px;color:var(--tp);font-size:.85rem;font-family:var(--ff);resize:vertical;transition:border-color .2s;display:none}
+    .notes-textarea:focus{outline:none;border-color:var(--gold)}
+    .save-note-btn{margin-top:8px;padding:7px 16px;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0a0c10;border:none;border-radius:8px;font-weight:800;font-size:.78rem;cursor:pointer;display:none}
+    .note-entry{background:var(--d600);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+    .ne-meta{font-size:.7rem;color:var(--tm);margin-bottom:4px}
+    .ne-body{font-size:.84rem;color:var(--ts);line-height:1.55}
+
+    /* ── Right sidebar: quick actions ── */
+    .quick-sidebar{width:220px;flex-shrink:0;background:var(--d800);border-left:1px solid var(--border);padding:16px;overflow-y:auto}
+    .quick-sidebar::-webkit-scrollbar{width:4px} .quick-sidebar::-webkit-scrollbar-thumb{background:var(--d500);border-radius:4px}
+    .qs-title{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);margin-bottom:12px}
+    .qs-action{width:100%;padding:9px 12px;margin-bottom:6px;background:var(--d700);border:1px solid var(--border);border-radius:8px;color:var(--ts);font-size:.78rem;font-weight:600;cursor:pointer;text-align:left;transition:all .2s;display:flex;align-items:center;gap:8px}
+    .qs-action:hover{border-color:var(--gold);color:var(--gold)}
+    .qs-action i{color:var(--gold);width:14px;text-align:center}
+    .qs-divider{height:1px;background:var(--border);margin:14px 0}
+    .qs-stat{margin-bottom:12px}
+    .qs-stat-lbl{font-size:.65rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-bottom:2px}
+    .qs-stat-val{font-family:var(--fh);font-size:1.2rem;font-weight:800;color:var(--gold)}
+    .sol-warning{background:rgba(252,92,101,.08);border:1px solid rgba(252,92,101,.2);border-radius:10px;padding:12px;margin-bottom:12px}
+    .sol-title{font-size:.7rem;font-weight:700;color:var(--red);margin-bottom:6px}
+    .sol-item{font-size:.73rem;color:var(--ts);margin-bottom:4px;display:flex;gap:6px}
+    .sol-item strong{color:var(--red)}
+
+    /* ── Modal ── */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(10px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+    .modal-overlay.open{display:flex}
+    .modal{background:var(--d700);border:1.5px solid var(--border);border-radius:var(--r20);width:100%;max-width:560px;max-height:90vh;overflow-y:auto;padding:28px}
+    .modal::-webkit-scrollbar{width:4px} .modal::-webkit-scrollbar-thumb{background:var(--d500);border-radius:4px}
+    .modal-close{float:right;background:none;border:none;color:var(--tm);font-size:1.1rem;cursor:pointer;transition:color .2s}
+    .modal-close:hover{color:var(--tp)}
+    .modal-title{font-family:var(--fh);font-size:1.2rem;font-weight:800;margin-bottom:18px;clear:both}
+    .mf-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:500px){.mf-grid{grid-template-columns:1fr}}
+    .mf-field{margin-bottom:0}
+    .mf-field.full{grid-column:span 2}
+    @media(max-width:500px){.mf-field.full{grid-column:span 1}}
+    .mf-field label{display:block;font-size:.75rem;font-weight:600;color:var(--ts);margin-bottom:5px}
+    .mf-field input,.mf-field select,.mf-field textarea{width:100%;padding:10px 14px;background:var(--d600);border:1.5px solid var(--border);border-radius:8px;color:var(--tp);font-size:.88rem;font-family:var(--ff);transition:border-color .2s}
+    .mf-field input:focus,.mf-field select:focus,.mf-field textarea:focus{outline:none;border-color:var(--gold)}
+    .mf-field select option{background:var(--d700)}
+    .mf-field textarea{resize:vertical;min-height:80px}
+    .modal-footer{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+    .mf-cancel{padding:10px 20px;background:var(--d600);border:1px solid var(--border);border-radius:8px;color:var(--ts);font-weight:600;font-size:.88rem;cursor:pointer}
+    .mf-save{padding:10px 24px;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0a0c10;border:none;border-radius:8px;font-weight:800;font-size:.88rem;cursor:pointer;transition:all .2s}
+    .mf-save:hover{transform:translateY(-1px)}
+
+    /* ── Status badge ── */
+    .status-badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+
+    /* ── Toast ── */
+    .toast{position:fixed;bottom:20px;right:20px;background:var(--d600);border:1px solid var(--border);border-left:3px solid var(--gold);padding:11px 16px;border-radius:10px;font-size:.83rem;color:var(--tp);z-index:400;display:none;max-width:280px;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+    .toast.show{display:block;animation:toastIn .25s ease}
+    @keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:900px){.quick-sidebar{display:none}}
+    @media(max-width:660px){.pipeline-sidebar{width:200px}}
+    @media(max-width:500px){.pipeline-sidebar{display:none}}
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-logo">⚖️ SUE DAT AZZ</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="stage1.html" class="nav-link"><i class="fas fa-door-open"></i> Intake</a>
+    <a href="shield-dat-azz.html" class="nav-link"><i class="fas fa-shield-alt"></i> Shield Dat Azz™</a>
+    <a href="email-sequences.html" class="nav-link"><i class="fas fa-envelope"></i> Emails</a>
+    <a href="crm.html" class="nav-link active"><i class="fas fa-briefcase"></i> CRM</a>
+    <a href="b2b-report.html" class="nav-link"><i class="fas fa-file-pdf"></i> B2B Report</a>
+  </div>
+  <div class="nav-actions">
+    <button class="nav-btn" onclick="openNewCaseModal()">
+      <i class="fas fa-plus"></i> New Case
+    </button>
+  </div>
+</nav>
+
+<div class="crm-layout">
+
+  <!-- ══════════ LEFT SIDEBAR ══════════ -->
+  <div class="pipeline-sidebar">
+    <div class="ps-header">
+      <div class="ps-title">📁 Cases <span id="case-count" style="color:var(--tm);font-size:.78rem;font-weight:400"></span></div>
+      <input class="ps-search" id="case-search" type="text" placeholder="Search client, case #, defendant…" oninput="filterCases()" />
+      <div class="ps-filters">
+        <button class="ps-filter-btn active" data-filter="all" onclick="setFilter('all',this)">All</button>
+        <button class="ps-filter-btn" data-filter="active" onclick="setFilter('active',this)">Active</button>
+        <button class="ps-filter-btn" data-filter="urgent" onclick="setFilter('urgent',this)">Urgent</button>
+        <button class="ps-filter-btn" data-filter="settled" onclick="setFilter('settled',this)">Closed</button>
+      </div>
+    </div>
+    <div class="ps-list" id="case-list">
+      <div style="padding:24px;text-align:center;color:var(--tm);font-size:.83rem">Loading cases…</div>
+    </div>
+  </div>
+
+  <!-- ══════════ CENTER CASE DETAIL ══════════ -->
+  <div class="case-detail" id="case-detail">
+    <div class="cd-empty">
+      <i class="fas fa-briefcase"></i>
+      <h3 style="font-family:var(--fh);font-size:1.2rem;font-weight:700;margin-bottom:8px;color:var(--ts)">Select a Case</h3>
+      <p style="font-size:.88rem;max-width:340px;line-height:1.6">Pick a case from the left to view its full profile, pipeline stage, damages breakdown, and timeline.</p>
+      <button onclick="openNewCaseModal()" style="margin-top:20px;padding:12px 24px;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0a0c10;border:none;border-radius:10px;font-weight:800;font-size:.9rem;cursor:pointer">
+        <i class="fas fa-plus"></i> Create First Case
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════ RIGHT QUICK SIDEBAR ══════════ -->
+  <div class="quick-sidebar" id="quick-sidebar">
+    <div class="qs-title">⚡ Pipeline Stats</div>
+    <div class="qs-stat"><div class="qs-stat-lbl">Total Cases</div><div class="qs-stat-val" id="qs-total">0</div></div>
+    <div class="qs-stat"><div class="qs-stat-lbl">Active</div><div class="qs-stat-val" id="qs-active">0</div></div>
+    <div class="qs-stat"><div class="qs-stat-lbl">Potential Damages</div><div class="qs-stat-val" id="qs-potential" style="font-size:.9rem">$0</div></div>
+    <div class="qs-stat"><div class="qs-stat-lbl">Settlements (YTD)</div><div class="qs-stat-val" id="qs-settled" style="font-size:.9rem">$0</div></div>
+
+    <div class="qs-divider"></div>
+
+    <div id="sol-warnings">
+      <div class="qs-title">⏰ SOL Warnings</div>
+      <div style="font-size:.75rem;color:var(--tm)">No urgent deadlines</div>
+    </div>
+
+    <div class="qs-divider"></div>
+
+    <div class="qs-title">Quick Actions</div>
+    <button class="qs-action" onclick="openNewCaseModal()"><i class="fas fa-plus"></i> New Case</button>
+    <button class="qs-action" onclick="importLeads()"><i class="fas fa-download"></i> Import from Leads</button>
+    <button class="qs-action" onclick="exportCSV()"><i class="fas fa-file-csv"></i> Export CSV</button>
+    <button class="qs-action" onclick="loadCases()"><i class="fas fa-sync"></i> Refresh</button>
+  </div>
+
+</div><!-- end crm-layout -->
+
+
+<!-- ══════════ NEW/EDIT CASE MODAL ══════════ -->
+<div class="modal-overlay" id="case-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-title" id="modal-title">New Case</div>
+    <input type="hidden" id="modal-case-id" />
+
+    <div class="mf-grid">
+      <div class="mf-field">
+        <label>Client First Name *</label>
+        <input type="text" id="mf-first" placeholder="Jamaree" required />
+      </div>
+      <div class="mf-field">
+        <label>Client Last Name *</label>
+        <input type="text" id="mf-last" placeholder="James" required />
+      </div>
+      <div class="mf-field">
+        <label>Email *</label>
+        <input type="email" id="mf-email" placeholder="client@email.com" required />
+      </div>
+      <div class="mf-field">
+        <label>Phone</label>
+        <input type="tel" id="mf-phone" placeholder="(555) 555-5555" oninput="fmtPhone(this)" />
+      </div>
+      <div class="mf-field">
+        <label>Case Type *</label>
+        <select id="mf-type">
+          <option value="fdcpa">FDCPA — Debt Collection</option>
+          <option value="fcra">FCRA — Credit Report</option>
+          <option value="tcpa">TCPA — Robocalls/Texts</option>
+          <option value="b2b_audit">B2B Compliance Audit</option>
+          <option value="b2b_retainer">B2B Retainer</option>
+          <option value="defense">Defense Retainer</option>
+        </select>
+      </div>
+      <div class="mf-field">
+        <label>Status</label>
+        <select id="mf-status">
+          <option value="new">New Lead</option>
+          <option value="consult_scheduled">Consult Scheduled</option>
+          <option value="consult_done">Consult Done</option>
+          <option value="retained">Retained</option>
+          <option value="demand_sent">Demand Sent</option>
+          <option value="filed">Filed</option>
+          <option value="discovery">Discovery</option>
+          <option value="settlement_negotiation">Settlement Negotiation</option>
+          <option value="settled">Settled</option>
+          <option value="closed_won">Closed — Won</option>
+          <option value="closed_lost">Closed — Lost</option>
+          <option value="declined">Declined</option>
+        </select>
+      </div>
+      <div class="mf-field">
+        <label>Defendant (Collector/Bureau)</label>
+        <input type="text" id="mf-defendant" placeholder="ABC Collections LLC" />
+      </div>
+      <div class="mf-field">
+        <label>Priority</label>
+        <select id="mf-priority">
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+          <option value="high">High</option>
+          <option value="urgent">🚨 Urgent</option>
+        </select>
+      </div>
+      <div class="mf-field">
+        <label>Violations Count</label>
+        <input type="number" id="mf-violations" placeholder="3" min="0" oninput="calcDamages()" />
+      </div>
+      <div class="mf-field">
+        <label>Potential Damages ($)</label>
+        <input type="number" id="mf-damages" placeholder="3000" min="0" />
+      </div>
+      <div class="mf-field">
+        <label>SOL Deadline</label>
+        <input type="date" id="mf-sol" />
+      </div>
+      <div class="mf-field">
+        <label>Consult Date</label>
+        <input type="date" id="mf-consult-date" />
+      </div>
+      <div class="mf-field full">
+        <label>Notes / Situation Summary</label>
+        <textarea id="mf-notes" placeholder="Describe the violations, client situation, key facts…"></textarea>
+      </div>
+      <div class="mf-field">
+        <label>Assigned To</label>
+        <input type="text" id="mf-assigned" placeholder="Jamaree" value="Jamaree R. James" />
+      </div>
+      <div class="mf-field">
+        <label>Referral Source</label>
+        <input type="text" id="mf-referral" placeholder="stage1-intake / organic / referral" />
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="mf-cancel" onclick="closeModal()">Cancel</button>
+      <button class="mf-save" onclick="saveCase()"><i class="fas fa-save"></i> Save Case</button>
+    </div>
+  </div>
+</div>
+
+<!-- Status update modal -->
+<div class="modal-overlay" id="status-modal">
+  <div class="modal" style="max-width:420px">
+    <button class="modal-close" onclick="closeStatusModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-title">Update Case Status</div>
+    <div class="mf-field" style="margin-bottom:14px">
+      <label>New Status</label>
+      <select id="sm-status">
+        <option value="new">New Lead</option>
+        <option value="consult_scheduled">Consult Scheduled</option>
+        <option value="consult_done">Consult Done</option>
+        <option value="retained">Retained</option>
+        <option value="demand_sent">Demand Sent</option>
+        <option value="filed">Filed</option>
+        <option value="discovery">Discovery</option>
+        <option value="settlement_negotiation">Settlement Negotiation</option>
+        <option value="settled">Settled</option>
+        <option value="closed_won">Closed — Won</option>
+        <option value="closed_lost">Closed — Lost</option>
+        <option value="declined">Declined</option>
+      </select>
+    </div>
+    <div class="mf-field" id="sm-settlement-wrap" style="display:none;margin-bottom:14px">
+      <label>Settlement Amount ($)</label>
+      <input type="number" id="sm-settlement" placeholder="2500" min="0" />
+    </div>
+    <div class="mf-field" style="margin-bottom:14px">
+      <label>Status Note</label>
+      <textarea id="sm-note" rows="2" placeholder="What happened at this stage?" style="width:100%;padding:10px;background:var(--d600);border:1.5px solid var(--border);border-radius:8px;color:var(--tp);font-size:.85rem;font-family:var(--ff);resize:vertical"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="mf-cancel" onclick="closeStatusModal()">Cancel</button>
+      <button class="mf-save" onclick="saveStatusUpdate()"><i class="fas fa-check"></i> Update Status</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// SUE DAT AZZ — VIOLATION CASE CRM
+// James Consumer Law Group | March 6, 2026
+// Lead → Consult → Retained → Demand → Filed → Discovery → Settle
+// ══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────────
+// DATA LAYER
+// ────────────────────────────────────────────────
+let allCases = [];
+let activeCaseId = null;
+let activeFilter = 'all';
+let caseCounter = 0;
+
+const STATUS_META = {
+  new:                    { label:'New Lead',             color:'#4fc3f7', icon:'fas fa-user-plus' },
+  consult_scheduled:      { label:'Consult Scheduled',   color:'#a78bfa', icon:'fas fa-calendar-check' },
+  consult_done:           { label:'Consult Done',        color:'#fed330', icon:'fas fa-comments' },
+  retained:               { label:'Retained',            color:'#F5C842', icon:'fas fa-handshake' },
+  demand_sent:            { label:'Demand Sent',         color:'#fed330', icon:'fas fa-envelope' },
+  filed:                  { label:'Filed',               color:'#fc5c65', icon:'fas fa-gavel' },
+  discovery:              { label:'Discovery',           color:'#ff7675', icon:'fas fa-search' },
+  settlement_negotiation: { label:'Negotiating',         color:'#26de81', icon:'fas fa-balance-scale' },
+  settled:                { label:'Settled',             color:'#26de81', icon:'fas fa-check-double' },
+  closed_won:             { label:'Won ✓',               color:'#26de81', icon:'fas fa-trophy' },
+  closed_lost:            { label:'Closed — Lost',       color:'#8892a4', icon:'fas fa-times' },
+  declined:               { label:'Declined',            color:'#5a6275', icon:'fas fa-ban' },
+};
+
+const PIPELINE_STAGES = [
+  { key:'new',                    name:'New',       icon:'👤' },
+  { key:'consult_scheduled',      name:'Consult',   icon:'📅' },
+  { key:'retained',               name:'Retained',  icon:'🤝' },
+  { key:'demand_sent',            name:'Demand',    icon:'✉️' },
+  { key:'filed',                  name:'Filed',     icon:'⚖️' },
+  { key:'settlement_negotiation', name:'Settle',    icon:'💬' },
+  { key:'settled',                name:'Closed',    icon:'✅' },
+];
+
+const CASE_TYPE_LABELS = {
+  fdcpa:'FDCPA', fcra:'FCRA', tcpa:'TCPA',
+  b2b_audit:'B2B Audit', b2b_retainer:'B2B Retainer', defense:'Defense'
+};
+
+// ────────────────────────────────────────────────
+// LOAD CASES FROM API
+// ────────────────────────────────────────────────
+async function loadCases() {
+  try {
+    const res = await fetch('tables/cases?limit=100&sort=created_at');
+    if (res.ok) {
+      const data = await res.json();
+      allCases = data.data || [];
+    }
+  } catch(e) {
+    console.warn('[CRM] API unavailable — using demo data');
+  }
+
+  // Seed demo data if empty
+  if (allCases.length === 0) seedDemoData();
+
+  renderCaseList();
+  updateStats();
+}
+
+function seedDemoData() {
+  const now = Date.now();
+  allCases = [
+    { id:'demo-1', case_number:'JCLG-2026-0001', client_name:'Denise Williams', client_email:'d.williams@email.com', client_phone:'(404) 555-0101', case_type:'fdcpa', status:'settlement_negotiation', violations_count:4, potential_damages:4000, settlement_amount:2800, defendant:'Atlas Recovery Group', priority:'high', sol_deadline:new Date(now+2592000000).toISOString(), consult_date:new Date(now-864000000).toISOString(), retained_date:new Date(now-777600000).toISOString(), demand_sent_date:new Date(now-604800000).toISOString(), notes:'Collector called after 9 PM x4, threatened arrest, failed to send validation notice. Strong case.', assigned_to:'Jamaree R. James', created_at:now-1728000000 },
+    { id:'demo-2', case_number:'JCLG-2026-0002', client_name:'Marcus Thompson', client_email:'m.thompson@email.com', client_phone:'(713) 555-0202', case_type:'fcra', status:'filed', violations_count:2, potential_damages:2000, defendant:'TransUnion LLC', priority:'high', sol_deadline:new Date(now+7776000000).toISOString(), consult_date:new Date(now-1296000000).toISOString(), retained_date:new Date(now-1209600000).toISOString(), filed_date:new Date(now-259200000).toISOString(), notes:'Zombie debt re-aging on report. Two separate accounts, both past 7-year limit. § 1681c violation.', assigned_to:'Jamaree R. James', created_at:now-2592000000 },
+    { id:'demo-3', case_number:'JCLG-2026-0003', client_name:'Keisha Johnson', client_email:'k.johnson@email.com', client_phone:'(678) 555-0303', case_type:'tcpa', status:'retained', violations_count:12, potential_damages:18000, defendant:'National Credit Services', priority:'urgent', sol_deadline:new Date(now+7776000000).toISOString(), consult_date:new Date(now-432000000).toISOString(), retained_date:new Date(now-172800000).toISOString(), notes:'12 robocalls confirmed via call log screenshots. Post-5th Circuit Feb 2026 ruling changes consent analysis. Very strong TCPA case.', assigned_to:'Jamaree R. James', created_at:now-864000000 },
+    { id:'demo-4', case_number:'JCLG-2026-0004', client_name:'Raymond Cruz', client_email:'r.cruz@email.com', client_phone:'(312) 555-0404', case_type:'fdcpa', status:'consult_scheduled', violations_count:1, potential_damages:1000, defendant:'Midland Funding LLC', priority:'medium', sol_deadline:new Date(now+15552000000).toISOString(), notes:'Single violation — called workplace after being told not to. Evaluating case viability.', assigned_to:'Jamaree R. James', created_at:now-432000000 },
+    { id:'demo-5', case_number:'JCLG-2026-0005', client_name:'TechFlow Inc.', client_email:'legal@techflow.io', client_phone:'(415) 555-0505', case_type:'b2b_audit', status:'retained', violations_count:0, potential_damages:0, defendant:'N/A — Audit', priority:'high', notes:'B2B compliance audit. Score: 68/100 (HIGH risk). CFPB supervision threshold approaching, TCPA consent architecture review needed.', assigned_to:'Jamaree R. James', created_at:now-259200000 },
+    { id:'demo-6', case_number:'JCLG-2026-0006', client_name:'Brittany Moore', client_email:'b.moore@email.com', client_phone:'(214) 555-0606', case_type:'fdcpa', status:'closed_won', violations_count:3, potential_damages:3000, settlement_amount:3200, defendant:'Portfolio Recovery', priority:'low', closed_date:new Date(now-1296000000).toISOString(), notes:'Settled for $3,200. Calls after 9 PM + threatening language + fake attorney letterhead.', assigned_to:'Jamaree R. James', created_at:now-5184000000 },
+  ];
+}
+
+// ────────────────────────────────────────────────
+// RENDER CASE LIST (sidebar)
+// ────────────────────────────────────────────────
+function renderCaseList() {
+  const query = document.getElementById('case-search').value.toLowerCase();
+  let filtered = allCases.filter(function(c){
+    if (activeFilter === 'active') return !['closed_won','closed_lost','declined','settled'].includes(c.status);
+    if (activeFilter === 'urgent') return c.priority === 'urgent' || c.priority === 'high';
+    if (activeFilter === 'settled') return ['closed_won','settled','closed_lost'].includes(c.status);
+    return true;
+  }).filter(function(c){
+    if (!query) return true;
+    return (c.client_name||'').toLowerCase().includes(query) ||
+           (c.case_number||'').toLowerCase().includes(query) ||
+           (c.defendant||'').toLowerCase().includes(query);
+  });
+
+  document.getElementById('case-count').textContent = '('+filtered.length+')';
+
+  if (filtered.length === 0) {
+    document.getElementById('case-list').innerHTML = '<div style="padding:20px;text-align:center;color:var(--tm);font-size:.82rem">No cases found</div>';
+    return;
+  }
+
+  document.getElementById('case-list').innerHTML = filtered.map(function(c){
+    const sm = STATUS_META[c.status] || STATUS_META.new;
+    const pColor = {urgent:'#fc5c65',high:'#fed330',medium:'#4fc3f7',low:'#5a6275'}[c.priority] || '#5a6275';
+    const solClass = isSolUrgent(c.sol_deadline) ? ' urgent' : '';
+    return '<div class="case-card'+(c.id===activeCaseId?' active':'')+'" onclick="openCase(\''+c.id+'\')">'+
+      '<div class="cc-top">'+
+        '<div class="cc-num">'+(c.case_number||'—')+'</div>'+
+        '<div class="cc-priority" style="background:'+pColor+'18;color:'+pColor+'">'+c.priority+'</div>'+
+      '</div>'+
+      '<div class="cc-name">'+(c.client_name||'Unknown')+'</div>'+
+      '<div class="cc-type">'+(CASE_TYPE_LABELS[c.case_type]||c.case_type)+' · '+(c.defendant||'—').substring(0,20)+'</div>'+
+      '<div class="cc-bottom">'+
+        '<div class="cc-status" style="background:'+sm.color+'18;color:'+sm.color+'">'+sm.label+'</div>'+
+        '<div class="cc-damages">'+(c.potential_damages>0 ? '$'+(c.settlement_amount||c.potential_damages).toLocaleString() : '—')+'</div>'+
+      '</div>'+
+      (c.sol_deadline ? '<div class="cc-sol'+solClass+'">⏰ SOL: '+fmtDate(c.sol_deadline)+'</div>' : '')+
+    '</div>';
+  }).join('');
+}
+
+// ────────────────────────────────────────────────
+// OPEN CASE DETAIL
+// ────────────────────────────────────────────────
+function openCase(id) {
+  activeCaseId = id;
+  document.querySelectorAll('.case-card').forEach(function(c){
+    c.classList.toggle('active', c.onclick.toString().includes("'"+id+"'"));
+  });
+  const c = allCases.find(function(x){ return x.id===id; });
+  if (!c) return;
+  renderCaseDetail(c);
+}
+
+function renderCaseDetail(c) {
+  const sm = STATUS_META[c.status] || STATUS_META.new;
+  const pColor = {urgent:'#fc5c65',high:'#fed330',medium:'#4fc3f7',low:'#5a6275'}[c.priority] || '#5a6275';
+
+  // Pipeline stages bar
+  const stagesHtml = PIPELINE_STAGES.map(function(stage){
+    const isActive = c.status === stage.key ||
+      (stage.key === 'settled' && ['settled','closed_won'].includes(c.status));
+    const isPast = isPipelineStageBeforeOrAt(stage.key, c.status);
+    return '<div class="ps-stage'+(isActive?' active-stage':'')+'" onclick="quickAdvanceStage(\''+stage.key+'\')">'+
+      '<div class="ps-stage-icon" style="opacity:'+(isPast?1:0.3)+'">'+(stage.icon)+'</div>'+
+      '<div class="ps-stage-name" style="color:'+(isPast||isActive?'inherit':'var(--tm)')+'">'+stage.name+'</div>'+
+    '</div>';
+  }).join('');
+
+  // Info cards
+  const cards = [
+    { label:'Status', value:'<span class="status-badge" style="background:'+sm.color+'18;color:'+sm.color+'">'+sm.label+'</span>' },
+    { label:'Case Type', value: CASE_TYPE_LABELS[c.case_type]||c.case_type },
+    { label:'Defendant', value: c.defendant || '—' },
+    { label:'Priority', value: '<span style="color:'+pColor+';font-weight:700">'+(c.priority||'medium').toUpperCase()+'</span>' },
+    { label:'Assigned To', value: c.assigned_to || 'Jamaree R. James' },
+    { label:'SOL Deadline', value: c.sol_deadline ? '<span style="color:'+(isSolUrgent(c.sol_deadline)?'var(--red)':'var(--ts)')+'">'+fmtDate(c.sol_deadline)+'</span>' : '—' },
+  ];
+
+  const infoHtml = cards.map(function(card){
+    return '<div class="info-card"><div class="ic-label">'+card.label+'</div><div class="ic-value">'+card.value+'</div></div>';
+  }).join('');
+
+  // Damages breakdown
+  const statutory = (c.violations_count || 0) * 1000;
+  const potential = c.potential_damages || statutory;
+  const settlement = c.settlement_amount || 0;
+  const damagesHtml =
+    '<div class="dmg-item"><div class="dmg-lbl">Violations</div><div class="dmg-val">'+(c.violations_count||0)+'</div></div>'+
+    '<div class="dmg-item"><div class="dmg-lbl">Statutory Max</div><div class="dmg-val">$'+(statutory).toLocaleString()+'</div></div>'+
+    '<div class="dmg-item"><div class="dmg-lbl">Potential Total</div><div class="dmg-val">$'+(potential).toLocaleString()+'</div></div>'+
+    (settlement ? '<div class="dmg-item" style="border-color:rgba(38,222,129,.25)"><div class="dmg-lbl" style="color:var(--green)">Settlement</div><div class="dmg-val" style="color:var(--green)">$'+settlement.toLocaleString()+'</div></div>' : '');
+
+  // Timeline
+  const tlStages = [
+    { key:'lead',     label:'Lead Captured',          date: c.created_at, note:'Came through Stage 1 intake portal.' },
+    { key:'consult',  label:'Consult Scheduled/Done', date: c.consult_date, note:'Free 15-minute violation review.' },
+    { key:'retained', label:'Client Retained',        date: c.retained_date, note:'Engagement agreement signed.' },
+    { key:'demand',   label:'Demand Letter Sent',     date: c.demand_sent_date, note:'FDCPA demand sent certified mail.' },
+    { key:'filed',    label:'Complaint Filed',        date: c.filed_date, note:'Federal complaint filed.' },
+    { key:'closed',   label:'Case Closed',            date: c.closed_date, note: settlement ? 'Settled for $'+settlement.toLocaleString() : 'Case closed.' },
+  ];
+  const stageOrder = ['new','consult_scheduled','consult_done','retained','demand_sent','filed','discovery','settlement_negotiation','settled','closed_won'];
+  const currentStageIdx = stageOrder.indexOf(c.status);
+
+  const tlHtml = tlStages.map(function(stage, i){
+    const isDone = !!stage.date || i === 0;
+    const isActive = !isDone && i === tlStages.findIndex(function(s){ return !s.date; });
+    const cls = isDone ? 'done' : (isActive ? 'active' : 'pending');
+    const icon = isDone ? 'fas fa-check' : (isActive ? 'fas fa-circle-notch fa-spin' : 'far fa-circle');
+    return '<div class="tl-item">'+
+      '<div class="tl-dot '+cls+'"><i class="'+icon+'"></i></div>'+
+      '<div class="tl-content">'+
+        '<div class="tl-title">'+stage.label+'</div>'+
+        '<div class="tl-date">'+(stage.date ? fmtDateTime(stage.date) : (isActive?'In progress…':'Pending'))+'</div>'+
+        (isDone||isActive ? '<div class="tl-note">'+stage.note+'</div>' : '')+
+      '</div>'+
+    '</div>';
+  }).join('');
+
+  document.getElementById('case-detail').innerHTML =
+    // Header
+    '<div class="cd-header">'+
+      '<div class="cdh-left">'+
+        '<div class="cdh-case-num">'+(c.case_number||'—')+'</div>'+
+        '<h2>'+(c.client_name||'Unknown')+'</h2>'+
+        '<div class="cdh-type">'+
+          '<a href="mailto:'+(c.client_email||'')+'">'+c.client_email+'</a> · '+c.client_phone+
+        '</div>'+
+      '</div>'+
+      '<div class="cdh-actions">'+
+        '<button class="cdh-btn" onclick="editCase(\''+c.id+'\')"><i class="fas fa-edit"></i> Edit</button>'+
+        '<button class="cdh-btn" onclick="openStatusModal(\''+c.id+'\')"><i class="fas fa-exchange-alt"></i> Update Status</button>'+
+        '<button class="cdh-btn primary" onclick="advanceToNextStage(\''+c.id+'\')"><i class="fas fa-arrow-right"></i> Advance</button>'+
+        '<button class="cdh-btn danger" onclick="deleteCase(\''+c.id+'\')"><i class="fas fa-trash"></i></button>'+
+      '</div>'+
+    '</div>'+
+
+    // Pipeline
+    '<div class="pipeline-stages">'+stagesHtml+'</div>'+
+
+    // Info grid
+    '<div class="cd-grid">'+infoHtml+'</div>'+
+
+    // Damages
+    '<div class="damages-row">'+damagesHtml+'</div>'+
+
+    // Violations
+    '<div class="violations-section">'+
+      '<div class="vs-title">Checked Violations ('+((c.violations_count)||0)+')</div>'+
+      (c.violations_count > 0
+        ? generateViolationTags(c.case_type, c.violations_count)
+        : '<span style="color:var(--tm);font-size:.82rem">No violations logged yet — edit the case to add details.</span>')+
+    '</div>'+
+
+    // Timeline
+    '<div class="timeline-section">'+
+      '<div class="vs-title" style="margin-bottom:16px">Case Timeline</div>'+
+      '<div class="timeline">'+tlHtml+'</div>'+
+    '</div>'+
+
+    // Notes
+    '<div class="notes-section">'+
+      '<div class="notes-header">'+
+        '<div class="notes-title">Notes</div>'+
+        '<button class="add-note-btn" onclick="toggleNoteInput(\''+c.id+'\')"><i class="fas fa-plus"></i> Add Note</button>'+
+      '</div>'+
+      '<textarea class="notes-textarea" id="note-textarea-'+c.id+'" placeholder="Add a case note…"></textarea>'+
+      '<button class="save-note-btn" id="save-note-btn-'+c.id+'" onclick="saveNote(\''+c.id+'\')">Save Note</button>'+
+      '<div id="notes-list-'+c.id+'">'+
+        (c.notes
+          ? '<div class="note-entry"><div class="ne-meta">Original notes</div><div class="ne-body">'+escHtml(c.notes)+'</div></div>'
+          : '<div style="color:var(--tm);font-size:.82rem">No notes yet.</div>')+
+      '</div>'+
+    '</div>';
+
+  updateStats();
+}
+
+// ────────────────────────────────────────────────
+// HELPERS
+// ────────────────────────────────────────────────
+function generateViolationTags(caseType, count) {
+  const fdcpaTags = ['Called after 9 PM (§1692c)','Threatened arrest (§1692e(4))','Failed to send validation notice (§1692g)','Contacted third parties (§1692b)','Called workplace (§1692c(a)(3))','Obscene/abusive language (§1692d(2))','Continued after C&D (§1692c(c))','Fake attorney letterhead (§1692e(3))'];
+  const fcraTags = ['Inaccurate account info (§1681e)','Zombie debt re-aging (§1681c)','Failed dispute investigation (§1681i)','Mixed file errors (§1681e(b))'];
+  const tcpaTags = ['Automated call without consent (§227(b))','Text without prior consent (§227(b))','Called DNC-registered number (§227(c))'];
+  const tags = caseType === 'fcra' ? fcraTags : caseType === 'tcpa' ? tcpaTags : fdcpaTags;
+  return tags.slice(0, Math.min(count, tags.length)).map(function(t){
+    return '<div class="violation-tag"><i class="fas fa-exclamation-circle"></i>'+t+'</div>';
+  }).join('');
+}
+
+function isPipelineStageBeforeOrAt(stageKey, currentStatus) {
+  const order = ['new','consult_scheduled','consult_done','retained','demand_sent','filed','discovery','settlement_negotiation','settled','closed_won'];
+  const stageMap = {'new':0,'consult_scheduled':1,'retained':2,'demand_sent':3,'filed':4,'settlement_negotiation':5,'settled':6};
+  return (stageMap[stageKey]||0) <= (order.indexOf(currentStatus)||0);
+}
+
+function isSolUrgent(dateStr) {
+  if (!dateStr) return false;
+  const diff = new Date(dateStr) - Date.now();
+  return diff > 0 && diff < 2592000000; // < 30 days
+}
+
+function fmtDate(d) {
+  if (!d) return '—';
+  return new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
+function fmtDateTime(d) {
+  if (!d) return '—';
+  return new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function fmtPhone(input) {
+  let v = input.value.replace(/\D/g,'').substring(0,10);
+  if(v.length>=7) v='('+v.substring(0,3)+') '+v.substring(3,6)+'-'+v.substring(6);
+  else if(v.length>=4) v='('+v.substring(0,3)+') '+v.substring(3);
+  else if(v.length>0) v='('+v;
+  input.value=v;
+}
+function calcDamages() {
+  const count = parseInt(document.getElementById('mf-violations').value)||0;
+  document.getElementById('mf-damages').value = count * 1000;
+}
+
+// ────────────────────────────────────────────────
+// CASE ACTIONS
+// ────────────────────────────────────────────────
+function openNewCaseModal() {
+  document.getElementById('modal-title').textContent = 'New Case';
+  document.getElementById('modal-case-id').value = '';
+  ['mf-first','mf-last','mf-email','mf-phone','mf-defendant','mf-violations','mf-damages','mf-notes','mf-referral'].forEach(function(id){
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('mf-type').value = 'fdcpa';
+  document.getElementById('mf-status').value = 'new';
+  document.getElementById('mf-priority').value = 'medium';
+  document.getElementById('mf-assigned').value = 'Jamaree R. James';
+  const sol = new Date(); sol.setFullYear(sol.getFullYear() + 1);
+  document.getElementById('mf-sol').value = sol.toISOString().split('T')[0];
+  document.getElementById('mf-consult-date').value = '';
+  document.getElementById('case-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ document.getElementById('mf-first').focus(); }, 100);
+}
+
+function editCase(id) {
+  const c = allCases.find(function(x){ return x.id===id; });
+  if (!c) return;
+  const parts = (c.client_name||'').split(' ');
+  document.getElementById('modal-title').textContent = 'Edit Case — '+c.case_number;
+  document.getElementById('modal-case-id').value = id;
+  document.getElementById('mf-first').value = parts[0] || '';
+  document.getElementById('mf-last').value = parts.slice(1).join(' ') || '';
+  document.getElementById('mf-email').value = c.client_email || '';
+  document.getElementById('mf-phone').value = c.client_phone || '';
+  document.getElementById('mf-type').value = c.case_type || 'fdcpa';
+  document.getElementById('mf-status').value = c.status || 'new';
+  document.getElementById('mf-defendant').value = c.defendant || '';
+  document.getElementById('mf-priority').value = c.priority || 'medium';
+  document.getElementById('mf-violations').value = c.violations_count || '';
+  document.getElementById('mf-damages').value = c.potential_damages || '';
+  document.getElementById('mf-sol').value = c.sol_deadline ? c.sol_deadline.split('T')[0] : '';
+  document.getElementById('mf-consult-date').value = c.consult_date ? c.consult_date.split('T')[0] : '';
+  document.getElementById('mf-notes').value = c.notes || '';
+  document.getElementById('mf-assigned').value = c.assigned_to || '';
+  document.getElementById('mf-referral').value = c.referral_source || '';
+  document.getElementById('case-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+async function saveCase() {
+  const id = document.getElementById('modal-case-id').value;
+  const firstName = document.getElementById('mf-first').value.trim();
+  const lastName = document.getElementById('mf-last').value.trim();
+  if (!firstName || !document.getElementById('mf-email').value.trim()) {
+    showToast('⚠️ First name and email are required.'); return;
+  }
+
+  caseCounter++;
+  const caseData = {
+    client_name: firstName + (lastName ? ' ' + lastName : ''),
+    client_email: document.getElementById('mf-email').value.trim(),
+    client_phone: document.getElementById('mf-phone').value.trim(),
+    case_type: document.getElementById('mf-type').value,
+    status: document.getElementById('mf-status').value,
+    defendant: document.getElementById('mf-defendant').value.trim(),
+    priority: document.getElementById('mf-priority').value,
+    violations_count: parseInt(document.getElementById('mf-violations').value)||0,
+    potential_damages: parseInt(document.getElementById('mf-damages').value)||0,
+    sol_deadline: document.getElementById('mf-sol').value || null,
+    consult_date: document.getElementById('mf-consult-date').value || null,
+    notes: document.getElementById('mf-notes').value.trim(),
+    assigned_to: document.getElementById('mf-assigned').value.trim(),
+    referral_source: document.getElementById('mf-referral').value.trim(),
+  };
+
+  if (id) {
+    // Update existing
+    try {
+      await fetch('tables/cases/'+id, {
+        method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(caseData),
+      });
+    } catch(e) {}
+    const idx = allCases.findIndex(function(c){ return c.id===id; });
+    if (idx !== -1) allCases[idx] = { ...allCases[idx], ...caseData };
+    showToast('✅ Case updated: ' + caseData.client_name);
+  } else {
+    // Create new
+    const newCase = {
+      ...caseData,
+      id: 'case-' + Date.now(),
+      case_number: 'JCLG-2026-' + String(1000 + allCases.length + 1).padStart(4,'0'),
+      created_at: Date.now(),
+    };
+    try {
+      const res = await fetch('tables/cases', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newCase),
+      });
+      if (res.ok) { const saved = await res.json(); newCase.id = saved.id || newCase.id; }
+    } catch(e) {}
+    allCases.unshift(newCase);
+    showToast('✅ Case created: ' + newCase.case_number);
+  }
+
+  closeModal();
+  renderCaseList();
+  updateStats();
+  if (id && id === activeCaseId) {
+    const updated = allCases.find(function(c){ return c.id===id; });
+    if (updated) renderCaseDetail(updated);
+  }
+}
+
+async function deleteCase(id) {
+  if (!confirm('Delete this case? This cannot be undone.')) return;
+  try {
+    await fetch('tables/cases/'+id, { method: 'DELETE' });
+  } catch(e) {}
+  allCases = allCases.filter(function(c){ return c.id!==id; });
+  activeCaseId = null;
+  document.getElementById('case-detail').innerHTML = '<div class="cd-empty"><i class="fas fa-briefcase"></i><h3 style="font-family:var(--fh);color:var(--ts)">Case deleted</h3><p>Select another case from the left.</p></div>';
+  renderCaseList();
+  updateStats();
+  showToast('🗑️ Case deleted');
+}
+
+// ────────────────────────────────────────────────
+// STATUS UPDATES
+// ────────────────────────────────────────────────
+function openStatusModal(id) {
+  activeCaseId = id;
+  const c = allCases.find(function(x){ return x.id===id; });
+  if (c) document.getElementById('sm-status').value = c.status || 'new';
+  document.getElementById('sm-note').value = '';
+  document.getElementById('sm-settlement').value = '';
+  document.getElementById('sm-settlement-wrap').style.display = 'none';
+  document.getElementById('sm-status').addEventListener('change', function(){
+    const show = ['settled','closed_won'].includes(this.value);
+    document.getElementById('sm-settlement-wrap').style.display = show ? 'block' : 'none';
+  });
+  document.getElementById('status-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeStatusModal() {
+  document.getElementById('status-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+async function saveStatusUpdate() {
+  const id = activeCaseId;
+  const status = document.getElementById('sm-status').value;
+  const settlement = parseInt(document.getElementById('sm-settlement').value)||0;
+  const note = document.getElementById('sm-note').value.trim();
+
+  const updates = { status };
+  if (settlement) updates.settlement_amount = settlement;
+  const dateFields = {
+    consult_done:'consult_date', retained:'retained_date',
+    demand_sent:'demand_sent_date', filed:'filed_date',
+    closed_won:'closed_date', settled:'closed_date',
+  };
+  if (dateFields[status]) updates[dateFields[status]] = new Date().toISOString();
+
+  try {
+    await fetch('tables/cases/'+id, {
+      method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updates),
+    });
+  } catch(e) {}
+
+  const idx = allCases.findIndex(function(c){ return c.id===id; });
+  if (idx !== -1) {
+    allCases[idx] = { ...allCases[idx], ...updates };
+    if (note) allCases[idx].notes = (allCases[idx].notes ? allCases[idx].notes + '\n\n' : '') + '[' + new Date().toLocaleDateString() + '] ' + note;
+  }
+
+  closeStatusModal();
+  renderCaseList();
+  const updated = allCases.find(function(c){ return c.id===id; });
+  if (updated) renderCaseDetail(updated);
+  showToast('✅ Status updated: ' + (STATUS_META[status]||{}).label);
+}
+
+const NEXT_STATUS = {
+  new:'consult_scheduled', consult_scheduled:'consult_done', consult_done:'retained',
+  retained:'demand_sent', demand_sent:'filed', filed:'discovery',
+  discovery:'settlement_negotiation', settlement_negotiation:'settled',
+};
+
+function advanceToNextStage(id) {
+  const c = allCases.find(function(x){ return x.id===id; });
+  if (!c) return;
+  const next = NEXT_STATUS[c.status];
+  if (!next) { showToast('✅ Case is already at final stage'); return; }
+  activeCaseId = id;
+  document.getElementById('sm-status').value = next;
+  document.getElementById('sm-note').value = 'Advanced to ' + (STATUS_META[next]||{}).label + '.';
+  document.getElementById('sm-settlement-wrap').style.display = ['settled','closed_won'].includes(next) ? 'block' : 'none';
+  document.getElementById('status-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function quickAdvanceStage(stageKey) {
+  if (!activeCaseId) return;
+  activeCaseId = activeCaseId;
+  document.getElementById('sm-status').value = stageKey;
+  document.getElementById('sm-note').value = '';
+  document.getElementById('sm-settlement-wrap').style.display = ['settled','closed_won'].includes(stageKey) ? 'block' : 'none';
+  document.getElementById('status-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+// ────────────────────────────────────────────────
+// NOTES
+// ────────────────────────────────────────────────
+function toggleNoteInput(id) {
+  const ta = document.getElementById('note-textarea-'+id);
+  const btn = document.getElementById('save-note-btn-'+id);
+  if (ta && btn) {
+    const show = ta.style.display !== 'block';
+    ta.style.display = show ? 'block' : 'none';
+    btn.style.display = show ? 'block' : 'none';
+    if (show) ta.focus();
+  }
+}
+async function saveNote(id) {
+  const ta = document.getElementById('note-textarea-'+id);
+  const text = ta ? ta.value.trim() : '';
+  if (!text) return;
+
+  const timestamp = new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  const noteEntry = '[' + timestamp + '] ' + text;
+
+  const idx = allCases.findIndex(function(c){ return c.id===id; });
+  if (idx !== -1) {
+    allCases[idx].notes = (allCases[idx].notes ? allCases[idx].notes + '\n\n' : '') + noteEntry;
+    try {
+      await fetch('tables/cases/'+id, {
+        method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ notes: allCases[idx].notes }),
+      });
+    } catch(e) {}
+  }
+
+  const nl = document.getElementById('notes-list-'+id);
+  if (nl) {
+    const entry = document.createElement('div');
+    entry.className = 'note-entry';
+    entry.innerHTML = '<div class="ne-meta">'+timestamp+'</div><div class="ne-body">'+escHtml(text)+'</div>';
+    nl.insertBefore(entry, nl.firstChild);
+  }
+  if (ta) ta.value = '';
+  showToast('📝 Note saved');
+}
+
+// ────────────────────────────────────────────────
+// FILTER + SEARCH
+// ────────────────────────────────────────────────
+function setFilter(filter, btn) {
+  activeFilter = filter;
+  document.querySelectorAll('.ps-filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  renderCaseList();
+}
+function filterCases() { renderCaseList(); }
+
+// ────────────────────────────────────────────────
+// STATS
+// ────────────────────────────────────────────────
+function updateStats() {
+  const active = allCases.filter(function(c){ return !['closed_won','closed_lost','declined','settled'].includes(c.status); });
+  const settled = allCases.filter(function(c){ return ['settled','closed_won'].includes(c.status); });
+  const potentialDmg = active.reduce(function(a,c){ return a+(c.potential_damages||0); }, 0);
+  const settledAmt = settled.reduce(function(a,c){ return a+(c.settlement_amount||0); }, 0);
+
+  document.getElementById('qs-total').textContent = allCases.length;
+  document.getElementById('qs-active').textContent = active.length;
+  document.getElementById('qs-potential').textContent = '$' + potentialDmg.toLocaleString();
+  document.getElementById('qs-settled').textContent = '$' + settledAmt.toLocaleString();
+
+  // SOL warnings
+  const urgent = allCases.filter(function(c){ return isSolUrgent(c.sol_deadline); });
+  if (urgent.length > 0) {
+    document.getElementById('sol-warnings').innerHTML =
+      '<div class="qs-title">⏰ SOL Warnings ('+urgent.length+')</div>'+
+      '<div class="sol-warning">'+
+        urgent.slice(0,3).map(function(c){
+          const daysLeft = Math.ceil((new Date(c.sol_deadline)-Date.now())/86400000);
+          return '<div class="sol-item"><strong>'+daysLeft+'d</strong> '+c.client_name+'</div>';
+        }).join('')+
+      '</div>';
+  }
+}
+
+// ────────────────────────────────────────────────
+// IMPORT + EXPORT
+// ────────────────────────────────────────────────
+async function importLeads() {
+  showToast('⏳ Importing qualified leads from Stage 1…');
+  try {
+    const res = await fetch('tables/leads?limit=100&sort=created_at');
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    const leads = (data.data || []).filter(function(l){
+      return l.violations_checked > 0 && !allCases.find(function(c){ return c.client_email===l.email; });
+    });
+    if (leads.length === 0) { showToast('ℹ️ No new qualified leads to import.'); return; }
+    leads.forEach(function(lead){
+      const newCase = {
+        id: 'case-' + Date.now() + Math.random(),
+        case_number: 'JCLG-2026-' + String(1000+allCases.length+1).padStart(4,'0'),
+        client_name: lead.full_name || lead.email,
+        client_email: lead.email,
+        client_phone: lead.phone || '',
+        case_type: 'fdcpa',
+        status: 'new',
+        violations_count: lead.violations_checked || 0,
+        potential_damages: (lead.violations_checked || 0) * 1000,
+        defendant: 'Unknown',
+        priority: lead.violations_checked >= 3 ? 'high' : 'medium',
+        notes: lead.situation || '',
+        assigned_to: 'Jamaree R. James',
+        referral_source: lead.utm_source || 'stage1-intake',
+        lead_id: lead.id,
+        created_at: lead.created_at || Date.now(),
+      };
+      allCases.unshift(newCase);
+    });
+    renderCaseList();
+    updateStats();
+    showToast('✅ Imported ' + leads.length + ' qualified lead(s) as new cases.');
+  } catch(e) {
+    showToast('⚠️ Could not connect to leads API. Are you on the live site?');
+  }
+}
+
+function exportCSV() {
+  const headers = ['Case #','Client','Email','Phone','Type','Status','Defendant','Violations','Potential $','Settlement $','Priority','SOL Deadline'];
+  const rows = allCases.map(function(c){
+    return [c.case_number,c.client_name,c.client_email,c.client_phone,c.case_type,c.status,c.defendant,c.violations_count,c.potential_damages,c.settlement_amount||'',c.priority,c.sol_deadline||''].map(function(v){ return '"'+(v||'').toString().replace(/"/g,'""')+'"'; }).join(',');
+  });
+  const csv = [headers.join(','),...rows].join('\n');
+  const blob = new Blob([csv], { type:'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'jclg-cases-'+new Date().toISOString().split('T')[0]+'.csv';
+  a.click(); URL.revokeObjectURL(url);
+  showToast('📊 CSV exported');
+}
+
+// ────────────────────────────────────────────────
+// MODAL CLOSE
+// ────────────────────────────────────────────────
+function closeModal() {
+  document.getElementById('case-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('click', function(e){
+  if(e.target===document.getElementById('case-modal')) closeModal();
+  if(e.target===document.getElementById('status-modal')) closeStatusModal();
+});
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 4000);
+}
+
+// ────────────────────────────────────────────────
+// INIT
+// ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function(){
+  loadCases();
+  console.log('%c⚖️ Case CRM — SUE DAT AZZ | James Consumer Law Group | March 6, 2026', 'color:#F5C842;font-weight:bold;');
+  console.log('%cLead → Consult → Retained → Demand → Filed → Settle | Full pipeline tracking', 'color:#8892a4;font-size:11px;');
+});
+</script>
+</body>
+</html>
