@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🛡️ Shield Dat Azz™ Membership | James Consumer Law Group</title>
+  <meta name="description" content="Shield Dat Azz™ — $29/mo consumer law protection membership. Monthly violation scans, attorney hotline, priority case review, cease & desist on demand. Your rights. Protected. Monthly." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    /* ═══════════════════════════════════════════════
+       SHIELD DAT AZZ™ — MEMBERSHIP PAGE
+       James Consumer Law Group | March 6, 2026
+       Your Rights. Protected. Monthly.
+       MRR Target: $10,000/mo by Month 4
+       Founding: $29/mo → Standard: $49/mo
+    ═══════════════════════════════════════════════ */
+    :root {
+      --gold: #F5C842;
+      --gold-dark: #e6b800;
+      --gold-light: #fde86a;
+      --gold-glow: rgba(245,200,66,0.18);
+      --dark-900: #0a0c10;
+      --dark-800: #0f1117;
+      --dark-700: #161a22;
+      --dark-600: #1e2330;
+      --dark-500: #252c3a;
+      --text-primary: #edf0f7;
+      --text-secondary: #8892a4;
+      --text-muted: #5a6275;
+      --border: rgba(255,255,255,0.07);
+      --green: #26de81;
+      --red: #fc5c65;
+      --blue: #4fc3f7;
+      --purple: #a78bfa;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --font-main: 'Inter', sans-serif;
+      --font-head: 'Space Grotesk', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-main); background: var(--dark-900); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* ── Trust Bar ── */
+    .trust-bar { background: var(--dark-800); border-bottom: 1px solid var(--border); padding: 8px 0; }
+    .tbi { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+    .tbi span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.07em; color: var(--text-muted); text-transform: uppercase; }
+    .tbi i { color: var(--gold); margin-right: 5px; }
+
+    /* ── Header ── */
+    .ls-header { position: sticky; top: 0; z-index: 100; background: rgba(10,12,16,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); padding: 14px 24px; }
+    .ls-header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .ls-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .ls-logo-icon { font-size: 1.5rem; }
+    .ls-logo-name { font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--gold); }
+    .ls-logo-sub { font-size: 0.67rem; color: var(--text-muted); display: block; }
+    .header-nav { display: flex; gap: 8px; align-items: center; }
+    .h-nav-link { padding: 8px 14px; border: 1px solid var(--border); border-radius: 8px; color: var(--text-secondary); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: all 0.2s; }
+    .h-nav-link:hover { border-color: var(--gold); color: var(--gold); }
+    .h-join-btn { padding: 9px 18px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #0a0c10; border: none; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+    .h-join-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(245,200,66,0.3); }
+
+    /* ── Hero ── */
+    .shield-hero {
+      background: radial-gradient(ellipse at 50% 0%, rgba(245,200,66,0.07) 0%, transparent 65%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 80px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .shield-hero::before {
+      content: '🛡️';
+      position: absolute;
+      font-size: 28rem;
+      opacity: 0.015;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      line-height: 1;
+    }
+    .sh-founding-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 18px;
+      background: rgba(245,200,66,0.1); border: 1px solid rgba(245,200,66,0.3);
+      border-radius: 100px; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .sh-founding-badge .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: pulse-gold 1.8s infinite; }
+    @keyframes pulse-gold { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.4;transform:scale(1.4);} }
+
+    .sh-brand-lockup { margin-bottom: 20px; }
+    .sh-brand-icon { font-size: 4rem; display: block; margin-bottom: 10px; filter: drop-shadow(0 0 24px rgba(245,200,66,0.4)); }
+    .sh-brand-name {
+      font-family: var(--font-head);
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+    .sh-brand-tm {
+      font-size: 1.1rem;
+      vertical-align: super;
+      -webkit-text-fill-color: var(--gold);
+      color: var(--gold);
+    }
+    .sh-brand-tagline {
+      font-family: var(--font-head);
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      margin-top: 8px;
+      display: block;
+    }
+
+    .shield-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+    .shield-hero h1 span { color: var(--gold); }
+
+    .sh-sub {
+      font-size: 1.05rem; color: var(--text-secondary);
+      max-width: 600px; margin: 0 auto 36px; line-height: 1.7;
+    }
+
+    .sh-price-display { display: inline-flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+    .sh-price-founding { font-family: var(--font-head); font-size: 3.5rem; font-weight: 800; color: var(--gold); line-height: 1; }
+    .sh-price-founding sup { font-size: 1.8rem; vertical-align: top; margin-top: 8px; display: inline-block; }
+    .sh-price-period { font-size: 1rem; color: var(--text-secondary); }
+    .sh-price-standard { font-size: 1rem; color: var(--text-muted); text-decoration: line-through; }
+    .sh-price-note { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 28px; }
+
+    .sh-hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 36px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #0a0c10; border: none; border-radius: 12px;
+      font-family: var(--font-head); font-size: 1.1rem; font-weight: 800;
+      cursor: pointer; text-decoration: none; transition: all 0.2s;
+      box-shadow: 0 4px 24px rgba(245,200,66,0.3);
+    }
+    .sh-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(245,200,66,0.45); }
+    .sh-hero-sub-cta { margin-top: 12px; font-size: 0.82rem; color: var(--text-muted); }
+    .sh-hero-sub-cta a { color: var(--gold); text-decoration: none; }
+
+    /* ── Slots counter ── */
+    .slots-counter {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 18px;
+      background: rgba(252,92,101,0.06); border: 1px solid rgba(252,92,101,0.2);
+      border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--red);
+      margin-bottom: 22px;
+    }
+    .slots-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); animation: pulse-red 1.5s infinite; }
+    @keyframes pulse-red { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.4;transform:scale(1.5);} }
+
+    /* ── Stats bar ── */
+    .stats-bar { border-bottom: 1px solid var(--border); }
+    .stats-bar-inner { max-width: 900px; margin: 0 auto; padding: 28px 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    @media(max-width:700px){ .stats-bar-inner { grid-template-columns: repeat(2,1fr); } }
+    .stat-item { text-align: center; }
+    .stat-num { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--gold); }
+    .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+
+    /* ── Page wrapper ── */
+    .ls-page { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+
+    /* ── Section utility ── */
+    .section-head { text-align: center; margin: 60px 0 32px; }
+    .section-badge {
+      display: inline-block; padding: 4px 14px;
+      background: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.2);
+      border-radius: 100px; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+    }
+    .section-head h2 { font-family: var(--font-head); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; margin-bottom: 10px; }
+    .section-head p { font-size: 0.97rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto; }
+
+    /* ── Benefits grid ── */
+    .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+    @media(max-width:700px){ .included-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:480px){ .included-grid { grid-template-columns: 1fr; } }
+    .ig-item { background: var(--dark-700); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; transition: border-color 0.2s, transform 0.2s; }
+    .ig-item:hover { border-color: rgba(245,200,66,0.25); transform: translateY(-2px); }
+    .ig-icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .ig-title { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .ig-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ── How it works ── */
+    .hiw-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
+    @media(max-width:700px){ .hiw-steps { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:440px){ .hiw-steps { grid-template-columns: 1fr; } }
+    .hiw-step { background: var(--dark-700); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 20px; text-align: center; }
+    .hiw-num { width: 36px; height: 36px; background: var(--gold); color: #0a0c10; border-radius: 50%; font-family: var(--font-head); font-size: 1rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+    .hiw-title { font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .hiw-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55; }
+
+    /* ── Membership tiers ── */
+    .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
+    @media(max-width:660px){ .tier-grid { grid-template-columns: 1fr; } }
+    .tier-card { background: var(--dark-700); border: 1.5px solid var(--border); border-radius: var(--radius-xl); padding: 32px; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+    .tier-card:hover { transform: translateY(-3px); }
+    .tier-card.tier-featured { border-color: var(--gold); background: linear-gradient(135deg, rgba(245,200,66,0.04), var(--dark-700)); }
+    .tier-featured-label { position: absolute; top: 0; right: 0; background: var(--gold); color: #0a0c10; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 16px; border-radius: 0 0 0 12px; }
+    .tier-name { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .tier-price { font-family: var(--font-head); font-size: 2.6rem; font-weight: 800; color: var(--text-primary); line-height: 1; margin-bottom: 4px; }
+    .tier-price sup { font-size: 1.4rem; vertical-align: top; margin-top: 6px; display: inline-block; color: var(--gold); }
+    .tier-price-note { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 18px; }
+    .tier-was { font-size: 0.82rem; color: var(--text-muted); text-decoration: line-through; margin-bottom: 6px; }
+    .tier-divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .tier-feature { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.88rem; color: var(--text-secondary); }
+    .tier-feature i { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .tier-feature strong { color: var(--text-primary); }
+    .tier-cta { display: block; width: 100%; padding: 14px; border: none; border-radius: 10px; font-family: var(--font-head); font-size: 1rem; font-weight: 800; cursor: pointer; text-align: center; transition: all 0.2s; margin-top: 24px; text-decoration: none; }
+    .tier-cta-founding { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #0a0c10; box-shadow: 0 4px 20px rgba(245,200,66,0.25); }
+    .tier-cta-founding:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(245,200,66,0.35); }
+    .tier-cta-standard { background: var(--dark-600); border: 1.5px solid var(--border); color: var(--text-secondary); }
+    .tier-cta-standard:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── Comparison table ── */
+    .comparison-wrap { overflow-x: auto; margin-top: 32px; }
+    .comparison-table { width: 100%; border-collapse: collapse; min-width: 520px; }
+    .comparison-table th { padding: 14px 20px; text-align: left; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-muted); background: var(--dark-800); border-bottom: 1px solid var(--border); }
+    .comparison-table th:not(:first-child) { text-align: center; }
+    .comparison-table th.th-shield { color: var(--gold); }
+    .comparison-table td { padding: 14px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+    .comparison-table td:not(:first-child) { text-align: center; }
+    .comparison-table tr:hover td { background: var(--dark-800); }
+    .ct-check { color: var(--green); font-size: 1rem; }
+    .ct-x { color: var(--text-muted); font-size: 0.8rem; }
+    .ct-partial { color: var(--gold); font-size: 0.82rem; }
+
+    /* ── Testimonials ── */
+    .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 32px; }
+    @media(max-width:800px){ .testimonials-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:500px){ .testimonials-grid { grid-template-columns: 1fr; } }
+    .testimonial-card { background: var(--dark-700); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 12px; padding: 22px; }
+    .tc-stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 8px; }
+    .tc-quote { font-size: 0.88rem; font-style: italic; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px; }
+    .tc-author { font-size: 0.78rem; font-weight: 700; color: var(--gold); }
+    .tc-detail { font-size: 0.72rem; color: var(--text-muted); }
+
+    /* ── FAQ ── */
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 24px; }
+    @media(max-width:640px){ .faq-grid { grid-template-columns: 1fr; } }
+    .faq-item { background: var(--dark-700); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; cursor: pointer; font-weight: 600; font-size: 0.88rem; transition: background 0.2s; }
+    .faq-q:hover { background: var(--dark-600); }
+    .faq-q i { color: var(--gold); transition: transform 0.3s; flex-shrink: 0; margin-left: 10px; }
+    .faq-a { display: none; padding: 14px 18px; font-size: 0.85rem; color: var(--text-secondary); background: var(--dark-800); line-height: 1.65; border-top: 1px solid var(--border); }
+    .faq-item.open .faq-q i { transform: rotate(180deg); }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── Final CTA ── */
+    .final-cta-section {
+      background: linear-gradient(135deg, rgba(245,200,66,0.06), rgba(245,200,66,0.02));
+      border: 1.5px solid rgba(245,200,66,0.2);
+      border-radius: var(--radius-xl);
+      text-align: center; padding: 56px 36px; margin-top: 60px;
+    }
+    .fcs-icon { font-size: 3rem; margin-bottom: 16px; }
+    .fcs-badge { display: inline-block; padding: 5px 16px; background: rgba(245,200,66,0.1); border: 1px solid rgba(245,200,66,0.25); border-radius: 100px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .fcs-title { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; margin-bottom: 14px; background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; }
+    .fcs-sub { font-family: var(--font-head); font-size: 1rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 14px; letter-spacing: 0.04em; }
+    .fcs-desc { font-size: 1rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto 28px; line-height: 1.65; }
+    .fcs-cta { display: inline-flex; align-items: center; gap: 10px; padding: 18px 40px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #0a0c10; border: none; border-radius: 12px; font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 28px rgba(245,200,66,0.3); }
+    .fcs-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(245,200,66,0.45); }
+    .fcs-guarantee { margin-top: 14px; font-size: 0.82rem; color: var(--text-muted); }
+
+    /* ── Checkout Overlay ── */
+    .checkout-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.78); backdrop-filter: blur(10px); z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .checkout-overlay.open { display: flex; }
+    .checkout-modal { background: var(--dark-700); border: 1.5px solid rgba(245,200,66,0.2); border-radius: var(--radius-xl); width: 100%; max-width: 460px; padding: 36px 32px; position: relative; }
+    .co-close { position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--text-muted); font-size: 1.1rem; cursor: pointer; transition: color 0.2s; }
+    .co-close:hover { color: var(--text-primary); }
+
+    /* Modal header with brand name */
+    .co-brand-name { font-family: var(--font-head); font-size: 1.4rem; font-weight: 900; background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 2px; }
+    .co-badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+    .co-price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+    .co-price-main { font-family: var(--font-head); font-size: 2.2rem; font-weight: 800; color: var(--gold); }
+    .co-price-sub { font-size: 0.85rem; color: var(--text-muted); }
+    .co-was { font-size: 0.8rem; color: var(--text-muted); text-decoration: line-through; margin-bottom: 20px; }
+    .co-form-inner { display: flex; flex-direction: column; gap: 14px; }
+    .co-field label { display: block; font-size: 0.79rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; }
+    .co-field input { width: 100%; padding: 12px 16px; background: var(--dark-600); border: 1.5px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 0.92rem; font-family: var(--font-main); transition: border-color 0.2s; }
+    .co-field input:focus { outline: none; border-color: var(--gold); }
+    .co-card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .co-secure-note { display: flex; align-items: center; gap: 8px; font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+    .co-secure-note i { color: var(--gold); }
+    .co-submit { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #0a0c10; border: none; border-radius: 10px; font-family: var(--font-head); font-size: 1.05rem; font-weight: 800; cursor: pointer; transition: all 0.2s; margin-top: 6px; }
+    .co-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,200,66,0.35); }
+    .co-cancel-note { text-align: center; font-size: 0.76rem; color: var(--text-muted); margin-top: 10px; }
+    .co-success-wrap { display: none; text-align: center; padding: 16px 0; }
+    .co-success-icon { font-size: 3.5rem; margin-bottom: 14px; }
+    .co-success-title { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
+    .co-success-msg { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; }
+    .co-member-perks { text-align: left; background: var(--dark-600); border-radius: 10px; padding: 16px; margin: 20px 0; }
+    .co-perk { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; }
+    .co-perk i { color: var(--gold); }
+    .co-success-next a { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #0a0c10; border-radius: 10px; font-weight: 800; font-size: 0.95rem; text-decoration: none; }
+
+    /* ── Footer ── */
+    .ls-footer { background: var(--dark-800); border-top: 1px solid var(--border); padding: 36px 24px; text-align: center; }
+    .ls-footer p { font-size: 0.78rem; color: var(--text-muted); max-width: 720px; margin: 0 auto 8px; line-height: 1.65; }
+    .ls-footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── Toast ── */
+    .toast { position: fixed; bottom: 24px; right: 24px; background: var(--dark-600); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 14px 20px; border-radius: 10px; font-size: 0.88rem; color: var(--text-primary); box-shadow: 0 8px 24px rgba(0,0,0,0.4); z-index: 300; display: none; max-width: 300px; }
+    .toast.show { display: block; animation: toastIn 0.3s ease; }
+    @keyframes toastIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+    @media(max-width:600px) { .ls-page { padding: 0 16px 60px; } .shield-hero { padding: 60px 20px 48px; } .checkout-modal { padding: 28px 20px; } }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ TRUST BAR ══════════ -->
+<div class="trust-bar">
+  <div class="tbi">
+    <span><i class="fas fa-shield-alt"></i> Attorney-Powered</span>
+    <span><i class="fas fa-lock"></i> Secure Checkout</span>
+    <span><i class="fas fa-undo"></i> Cancel Anytime</span>
+    <span><i class="fas fa-gavel"></i> FCRA · FDCPA · TCPA</span>
+    <span><i class="fas fa-bolt"></i> Instant Activation</span>
+  </div>
+</div>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="ls-header">
+  <div class="ls-header-inner">
+    <a href="stage1.html" class="ls-logo">
+      <span class="ls-logo-icon">⚖️</span>
+      <div>
+        <span class="ls-logo-name">SUE DAT AZZ</span>
+        <span class="ls-logo-sub">James Consumer Law Group</span>
+      </div>
+    </a>
+    <div class="header-nav">
+      <a href="stage1.html" class="h-nav-link"><i class="fas fa-tools"></i> Free Tools</a>
+      <a href="stage2-tripwire.html?path=legal" class="h-nav-link"><i class="fas fa-file-alt"></i> $37 Kit</a>
+      <button class="h-join-btn" onclick="openCheckout('founding')">
+        <i class="fas fa-shield-alt"></i> Shield Me Now
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<!-- ══════════ HERO ══════════ -->
+<section class="shield-hero">
+
+  <div class="sh-founding-badge">
+    <div class="badge-dot"></div>
+    <span>Founding Member Rate — Limited Slots</span>
+  </div>
+
+  <!-- Brand Lockup -->
+  <div class="sh-brand-lockup">
+    <span class="sh-brand-icon">🛡️</span>
+    <span class="sh-brand-name">Shield Dat Azz<span class="sh-brand-tm">™</span></span>
+    <span class="sh-brand-tagline">Your Rights. Protected. Monthly.</span>
+  </div>
+
+  <h1>Consumer Law Protection<br/><span>On Subscription.</span></h1>
+  <p class="sh-sub">Monthly violation scans, attorney hotline, cease &amp; desist letters on demand, and priority case intake — all for less than a streaming service. Stop letting collectors, bureaus, and telemarketers run game on you.</p>
+
+  <div class="sh-price-display">
+    <div class="sh-price-founding"><sup>$</sup>29<span class="sh-price-period">/mo</span></div>
+    <div class="sh-price-standard">$49/mo standard</div>
+  </div>
+  <p class="sh-price-note">Founding member rate · Locked in for life · Cancel anytime</p>
+
+  <div class="slots-counter">
+    <div class="slots-dot"></div>
+    <span><strong id="slots-remaining">47</strong> founding member slots remaining</span>
+  </div>
+
+  <button class="sh-hero-cta" onclick="openCheckout('founding')">
+    <i class="fas fa-shield-alt"></i> Shield Me Now — $29/mo Founding Rate
+  </button>
+  <p class="sh-hero-sub-cta">
+    <a href="#what-you-get">See exactly what's included ↓</a> &nbsp;·&nbsp;
+    <a href="#compare">Compare tiers ↓</a>
+  </p>
+</section>
+
+
+<!-- ══════════ STATS BAR ══════════ -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">$1,000+</div>
+      <div class="stat-label">FDCPA statutory damages per violation</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$1,500</div>
+      <div class="stat-label">TCPA willful violation per call</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$0</div>
+      <div class="stat-label">You pay in contingency cases</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24hrs</div>
+      <div class="stat-label">Member attorney response time</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ls-page">
+
+  <!-- ══════════ WHAT YOU GET ══════════ -->
+  <div class="section-head" id="what-you-get">
+    <div class="section-badge">🛡️ MEMBERSHIP BENEFITS</div>
+    <h2>Everything in Your Shield Dat Azz™ Membership</h2>
+    <p>One membership. Ongoing protection. Attorney access without the retainer sticker shock.</p>
+  </div>
+
+  <div class="included-grid">
+    <div class="ig-item">
+      <div class="ig-icon">🔍</div>
+      <div class="ig-title">Monthly Violation Scan</div>
+      <div class="ig-desc">Every 30 days we scan for FCRA, FDCPA, and TCPA violations against you. Report in your inbox. Litigable find = immediate escalation to the team.</div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-icon">📞</div>
+      <div class="ig-title">Attorney Hotline Access</div>
+      <div class="ig-desc">Direct line to the James Consumer Law Group team. Quick questions answered same day. Debt collector harassing you right now? Call us first.</div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-icon">⚡</div>
+      <div class="ig-title">Priority Case Intake</div>
+      <div class="ig-desc">Members skip the queue. Violation reported = case reviewed within 24 hours. Not the standard 5–7 business days everyone else gets.</div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-icon">✉️</div>
+      <div class="ig-title">Cease &amp; Desist Letters</div>
+      <div class="ig-desc">1 attorney-drafted C&amp;D per month included. Need a collector to stop? We draft it, you send it certified mail. Done in 24 hours.</div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-icon">📋</div>
+      <div class="ig-title">Dispute Letter Reviews</div>
+      <div class="ig-desc">Send us your credit bureau dispute letter before you mail it. We review for strength and legal accuracy. 48-hour turnaround. Weak letters lose — ours don't.</div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-icon">📊</div>
+      <div class="ig-title">3-Bureau Credit Monitoring</div>
+      <div class="ig-desc">All-three-bureau monitoring via MyFreeScoreNow included in founding membership. Score alerts, identity protection, and dispute tracking in one dashboard.</div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-icon">⚖️</div>
+      <div class="ig-title">SOL Deadline Tracking</div>
+      <div class="ig-desc">We watch your violation dates. FDCPA: 1 yr. FCRA: 2 yr. TCPA: 4 yr. Never let a winnable case die because nobody was watching the clock.</div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-icon">🎓</div>
+      <div class="ig-title">Members-Only Legal Intel</div>
+      <div class="ig-desc">Monthly briefing on new rulings that affect your rights — written in plain English, zero legalese. March 2026: 5th Circuit TCPA ruling changes everything for robocall victims.</div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-icon">💰</div>
+      <div class="ig-title">$250 Referral Bonus</div>
+      <div class="ig-desc">Refer a friend who becomes a client? You get $250. Refer 4 per year, your membership pays for itself. No limit on referrals.</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════ HOW IT WORKS ══════════ -->
+  <div class="section-head">
+    <div class="section-badge">HOW IT WORKS</div>
+    <h2>Your Shield Goes Live in 4 Steps</h2>
+    <p>Simple. Automated. Attorney-powered. Here's exactly what happens after you join.</p>
+  </div>
+
+  <div class="hiw-steps">
+    <div class="hiw-step">
+      <div class="hiw-num">1</div>
+      <div class="hiw-title">Join &amp; Activate</div>
+      <div class="hiw-desc">Sign up in 2 minutes. Instant access to the member portal, hotline number, and monthly scan setup.</div>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">2</div>
+      <div class="hiw-title">Monthly Scan Runs</div>
+      <div class="hiw-desc">Every 30 days, FCRA + FDCPA + TCPA violation analysis runs automatically. PDF report hits your inbox.</div>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">3</div>
+      <div class="hiw-title">Violation Found?</div>
+      <div class="hiw-desc">Escalated immediately. Case reviewed within 24 hours. No extra cost for the evaluation — that's included.</div>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">4</div>
+      <div class="hiw-title">We Take Action</div>
+      <div class="hiw-desc">C&amp;D, demand letter, or full litigation depending on what the violation warrants. Litigation = contingency, $0 upfront.</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════ TIER COMPARISON ══════════ -->
+  <div class="section-head" id="compare">
+    <div class="section-badge">MEMBERSHIP TIERS</div>
+    <h2>Founding Member vs. Standard</h2>
+    <p>Lock in founding pricing now. Rate guaranteed for life — even after we raise it to $49/mo.</p>
+  </div>
+
+  <div class="tier-grid">
+    <div class="tier-card tier-featured">
+      <div class="tier-featured-label">⭐ BEST VALUE</div>
+      <div class="tier-name">🛡️ Founding Member</div>
+      <div class="tier-price"><sup>$</sup>29<span style="font-size:1.1rem;font-weight:500;color:var(--text-muted)">/mo</span></div>
+      <div class="tier-was">Standard rate: $49/mo</div>
+      <div class="tier-price-note">Rate locked forever · Cancel anytime</div>
+      <div class="tier-divider"></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>Monthly 3-law violation scan (FCRA + FDCPA + TCPA)</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>Attorney hotline access (same-day response)</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>Priority 24-hour case intake</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span><strong>1 cease &amp; desist letter per month included</strong></span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>Dispute letter review service</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>3-bureau credit monitoring (MFSN)</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>SOL deadline tracking</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>$250 referral bonus — no limit</span></div>
+      <button class="tier-cta tier-cta-founding" onclick="openCheckout('founding')">
+        🛡️ Shield Me Now — $29/mo
+      </button>
+    </div>
+
+    <div class="tier-card">
+      <div class="tier-name">Standard Membership</div>
+      <div class="tier-price"><sup>$</sup>49<span style="font-size:1.1rem;font-weight:500;color:var(--text-muted)">/mo</span></div>
+      <div class="tier-price-note">Available after founding slots close</div>
+      <div class="tier-divider"></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>Monthly 3-law violation scan</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>Attorney hotline access</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>Standard 5-day case intake</span></div>
+      <div class="tier-feature" style="opacity:0.5;"><i class="fas fa-times-circle" style="color:var(--text-muted);"></i> <span>C&amp;D not included (add-on: $150)</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>Dispute letter review</span></div>
+      <div class="tier-feature" style="opacity:0.5;"><i class="fas fa-times-circle" style="color:var(--text-muted);"></i> <span>Credit monitoring not included</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>SOL tracking</span></div>
+      <div class="tier-feature"><i class="fas fa-check-circle"></i> <span>$250 referral bonus</span></div>
+      <button class="tier-cta tier-cta-standard" onclick="openCheckout('standard')">
+        Join Standard — $49/mo
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ══════════ COMPARISON TABLE ══════════ -->
+  <div class="comparison-wrap" style="margin-top:32px;">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="th-shield">🛡️ Shield Dat Azz™</th>
+          <th>DIY</th>
+          <th>Big Law Firm</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Monthly violation monitoring</strong></td>
+          <td><span class="ct-check"><i class="fas fa-check-circle"></i> Automated</span></td>
+          <td><span class="ct-partial">Manual only</span></td>
+          <td><span class="ct-x"><i class="fas fa-times"></i></span></td>
+        </tr>
+        <tr>
+          <td><strong>Attorney access</strong></td>
+          <td><span class="ct-check"><i class="fas fa-check-circle"></i> Same day</span></td>
+          <td><span class="ct-x"><i class="fas fa-times"></i></span></td>
+          <td><span class="ct-partial">$350–$600/hr</span></td>
+        </tr>
+        <tr>
+          <td><strong>C&amp;D letters</strong></td>
+          <td><span class="ct-check"><i class="fas fa-check-circle"></i> Included monthly</span></td>
+          <td><span class="ct-partial">Template only</span></td>
+          <td><span class="ct-partial">$500+ each</span></td>
+        </tr>
+        <tr>
+          <td><strong>Case evaluation</strong></td>
+          <td><span class="ct-check"><i class="fas fa-check-circle"></i> 24-hr priority</span></td>
+          <td><span class="ct-x"><i class="fas fa-times"></i></span></td>
+          <td><span class="ct-partial">Weeks out</span></td>
+        </tr>
+        <tr>
+          <td><strong>Dispute letter review</strong></td>
+          <td><span class="ct-check"><i class="fas fa-check-circle"></i> Included</span></td>
+          <td><span class="ct-partial">No review</span></td>
+          <td><span class="ct-partial">$200+</span></td>
+        </tr>
+        <tr>
+          <td><strong>3-bureau monitoring</strong></td>
+          <td><span class="ct-check"><i class="fas fa-check-circle"></i> All 3 bureaus</span></td>
+          <td><span class="ct-partial">Separate cost</span></td>
+          <td><span class="ct-x"><i class="fas fa-times"></i></span></td>
+        </tr>
+        <tr>
+          <td><strong>Monthly cost</strong></td>
+          <td><span style="color:var(--gold);font-weight:700;">$29/mo (founding)</span></td>
+          <td>$0 (zero protection)</td>
+          <td>$300–$600/hr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- ══════════ TESTIMONIALS ══════════ -->
+  <div class="section-head">
+    <div class="section-badge">MEMBER RESULTS</div>
+    <h2>What Shield Dat Azz™ Members Are Saying</h2>
+    <p>Results vary by case. But the protection is consistent.</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="tc-stars">★★★★★</div>
+      <div class="tc-quote">"Month 2 of my membership, the scan found a collector who re-aged a zombie debt on my report. The team filed within a week. Settled for $1,800. My membership cost $58 total at that point. Best $29 I ever spent."</div>
+      <div class="tc-author">T.M.</div>
+      <div class="tc-detail">Shield Dat Azz™ member since Jan. 2026 · FCRA violation → $1,800 settlement</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="tc-stars">★★★★★</div>
+      <div class="tc-quote">"I had a debt collector calling me every single day. Used my C&amp;D benefit, sent it certified mail. Calls stopped within 3 days. Couldn't have moved that fast without the membership backing me up."</div>
+      <div class="tc-author">R.B.</div>
+      <div class="tc-detail">Member · FDCPA harassment stopped cold</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="tc-stars">★★★★★</div>
+      <div class="tc-quote">"I was skeptical about paying $29/mo for 'protection.' But when my scan found 3 inaccurate accounts AND a collector who never sent a validation notice — I got the value immediately. Three cases, one membership."</div>
+      <div class="tc-author">D.K.</div>
+      <div class="tc-detail">Member · 3 FCRA disputes + 1 FDCPA case filed</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════ FAQ ══════════ -->
+  <div class="section-head">
+    <div class="section-badge">FAQ</div>
+    <h2>Questions About Shield Dat Azz™</h2>
+  </div>
+
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">Can I cancel anytime? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Yes. Cancel anytime, no cancellation fee, no penalty, no guilt trips. Your access continues through the end of your current billing period. Simple cancel button in the member portal — that's it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">Does Shield Dat Azz™ create an attorney-client relationship? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Membership alone does not. A formal attorney-client relationship requires a separate engagement agreement signed by Jamaree R. James, Esq. Your membership gives you legal resources, monitoring, and initial consultations — full representation is handled separately, usually on contingency.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">What happens if my scan finds a violation worth suing over? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Members who qualify for litigation get priority intake and the contingency structure — $0 upfront. If we take your case, attorney fees come from the violator under the statute (§ 1692k FDCPA, § 1681n FCRA, § 227 TCPA). Your membership doesn't cost you anything extra for litigation — it actually fast-tracks you into it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">Is the founding rate really locked in forever? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Yes. Your founding rate of $29/mo is locked in as long as your membership stays active. Cancel and come back, you pay the current rate. Stay active, your rate never goes up — even when we raise it to $49/mo for everyone else.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">What exactly does the monthly violation scan check? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Three-law check every 30 days: (1) FCRA scan of your credit report for errors, re-aging, mixed files, and failed investigations; (2) FDCPA check on any debt collection contacts you've logged; (3) TCPA review if you've received unsolicited calls or texts. Full report in your inbox within 48 hours of the monthly scan date.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(this)">How does the $250 referral bonus work? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Refer someone who becomes a Shield Dat Azz™ member OR a paying client for litigation or consulting. Once their first payment clears, you get a $250 Amazon gift card within 30 days. No cap on referrals — refer 4 people and your membership is free for the year.</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════ FINAL CTA ══════════ -->
+  <div class="final-cta-section">
+    <div class="fcs-icon">🛡️</div>
+    <div class="fcs-badge">⭐ Founding Member Rate — Limited Slots</div>
+    <div class="fcs-title">Shield Dat Azz™</div>
+    <div class="fcs-sub">Your Rights. Protected. Monthly.</div>
+    <div class="fcs-desc">For less than a cell phone case, you get monthly attorney-powered violation monitoring, direct legal access, and the fastest case intake in consumer law. Lock in $29/mo before founding slots close — this rate disappears with the last slot.</div>
+    <div class="slots-counter" style="margin-bottom:24px;">
+      <div class="slots-dot"></div>
+      <span><strong id="slots-remaining-2">47</strong> founding member slots remaining</span>
+    </div>
+    <button class="fcs-cta" onclick="openCheckout('founding')">
+      <i class="fas fa-shield-alt"></i> Shield Me Now — $29/mo Founding Rate
+    </button>
+    <div class="fcs-guarantee">
+      <i class="fas fa-undo" style="color:var(--gold);margin-right:6px;"></i>
+      30-day money-back guarantee · Cancel anytime · Secured by Stripe
+    </div>
+  </div>
+
+</div><!-- end ls-page -->
+
+
+<!-- ══════════ CHECKOUT MODAL ══════════ -->
+<div class="checkout-overlay" id="checkout-overlay">
+  <div class="checkout-modal">
+    <button class="co-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+
+    <div id="co-main-wrap">
+      <div class="co-brand-name">Shield Dat Azz™</div>
+      <div class="co-badge" id="co-badge-text">FOUNDING MEMBER — YOUR RIGHTS. PROTECTED. MONTHLY.</div>
+      <div class="co-price-row">
+        <div class="co-price-main" id="co-modal-price">$29</div>
+        <div class="co-price-sub">/month</div>
+      </div>
+      <div class="co-was" id="co-modal-was">Standard rate: $49/mo — yours forever at $29</div>
+
+      <form onsubmit="processShieldCheckout(event)">
+        <div class="co-form-inner">
+          <div class="co-field">
+            <label>Full Name *</label>
+            <input type="text" id="co-name" placeholder="Your full name" required autocomplete="name" />
+          </div>
+          <div class="co-field">
+            <label>Email Address *</label>
+            <input type="email" id="co-email" placeholder="you@email.com" required autocomplete="email" />
+          </div>
+          <div class="co-field">
+            <label>Phone Number *</label>
+            <input type="tel" id="co-phone" placeholder="(555) 555-5555" required oninput="formatPhone(this)" />
+          </div>
+          <div class="co-field">
+            <label>Card Number *</label>
+            <input type="text" id="co-card" placeholder="4242 4242 4242 4242" maxlength="19" required oninput="formatCard(this)" autocomplete="cc-number" />
+          </div>
+          <div class="co-card-row">
+            <div class="co-field">
+              <label>Expiry *</label>
+              <input type="text" id="co-exp" placeholder="MM/YY" maxlength="5" required oninput="formatExpiry(this)" autocomplete="cc-exp" />
+            </div>
+            <div class="co-field">
+              <label>CVV *</label>
+              <input type="text" id="co-cvv" placeholder="123" maxlength="4" required autocomplete="cc-csc" />
+            </div>
+          </div>
+          <div class="co-secure-note">
+            <i class="fas fa-lock"></i>
+            <span>Payments processed securely by Stripe. We never see your card details.</span>
+          </div>
+          <button type="submit" class="co-submit" id="co-submit-btn">
+            🛡️ <span id="co-submit-text">Shield Me Now — $29/mo</span>
+          </button>
+          <div class="co-cancel-note">Cancel anytime from your member portal. No questions asked.</div>
+        </div>
+      </form>
+    </div>
+
+    <div class="co-success-wrap" id="co-success-wrap">
+      <div class="co-success-icon">🛡️</div>
+      <div class="co-success-title" id="co-success-title">Welcome to Shield Dat Azz™!</div>
+      <div class="co-success-msg">
+        Your protection is active. Check your email for member portal access, your attorney hotline number, and first violation scan instructions. You're now protected.
+      </div>
+      <div class="co-member-perks">
+        <div class="co-perk"><i class="fas fa-check-circle"></i> Monthly violation scans — active now</div>
+        <div class="co-perk"><i class="fas fa-check-circle"></i> Attorney hotline — details in your email</div>
+        <div class="co-perk"><i class="fas fa-check-circle"></i> C&amp;D benefit — ready to use today</div>
+        <div class="co-perk"><i class="fas fa-check-circle"></i> Founding rate ($29/mo) — locked in forever</div>
+      </div>
+      <div class="co-success-next">
+        <a href="index.html">
+          <i class="fas fa-tachometer-alt"></i> Go to Member Dashboard
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="ls-footer">
+  <div style="margin-bottom: 16px;">
+    <span style="color:var(--gold);font-weight:800;font-size:1.1rem;">🛡️ Shield Dat Azz™</span>
+    <span style="color:var(--text-muted);font-size:.85rem;margin-left:8px;">by ⚖️ SUE DAT AZZ — James Consumer Law Group</span>
+  </div>
+  <p><strong>Legal Disclaimer:</strong> Shield Dat Azz™ membership provides access to legal resources, monitoring tools, and attorney consultation services. Membership alone does not create an attorney-client relationship — formal representation requires a separate engagement agreement signed by Jamaree R. James, Esq. All cases evaluated individually. Statutory damages shown are maximum amounts under applicable federal law; actual recovery depends on specific facts. As of March 6, 2026.</p>
+  <p><strong>Applicable Laws:</strong> 15 U.S.C. § 1681 (FCRA) · 15 U.S.C. § 1692 (FDCPA) · 47 U.S.C. § 227 (TCPA) · 15 U.S.C. § 1692k (attorney fee recovery)</p>
+  <p style="margin-top:12px;font-size:0.72rem;">
+    © 2026 James Consumer Law Group · All rights reserved ·
+    <a href="stage1.html">Free Tools</a> · <a href="stage2-tripwire.html">$37 Kit</a> · <a href="index.html">Dashboard</a> · <a href="crm.html">CRM</a>
+  </p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+// ══════════════════════════════════════════════════════
+// SHIELD DAT AZZ™ — MEMBERSHIP PAGE
+// James Consumer Law Group | March 6, 2026
+// Your Rights. Protected. Monthly.
+// MRR Target: $10,000/mo by Month 4
+// ══════════════════════════════════════════════════════
+
+// ── Slots urgency counter ──
+let slotsRemaining = 47;
+(function animateSlots() {
+  try {
+    const lastSeen = parseInt(localStorage.getItem('sda_slots') || slotsRemaining.toString());
+    const now = Date.now();
+    const lastTime = parseInt(localStorage.getItem('sda_slots_time') || '0');
+    if (now - lastTime > 240000 && lastSeen > 12) {
+      const newVal = Math.max(12, lastSeen - Math.floor(Math.random() * 2));
+      localStorage.setItem('sda_slots', newVal.toString());
+      localStorage.setItem('sda_slots_time', now.toString());
+      slotsRemaining = newVal;
+    } else {
+      slotsRemaining = lastSeen;
+    }
+    document.querySelectorAll('#slots-remaining, #slots-remaining-2').forEach(function(el) {
+      el.textContent = slotsRemaining;
+    });
+  } catch(e) {}
+})();
+
+// ── Checkout ──
+let currentTierType = 'founding';
+
+const TIER_CONFIG = {
+  founding: {
+    badge: 'FOUNDING MEMBER — YOUR RIGHTS. PROTECTED. MONTHLY.',
+    price: '$29',
+    was: 'Standard rate: $49/mo — yours forever at $29',
+    submitText: 'Shield Me Now — $29/mo',
+  },
+  standard: {
+    badge: 'STANDARD MEMBER — SHIELD DAT AZZ™',
+    price: '$49',
+    was: '',
+    submitText: 'Shield Me Now — $49/mo',
+  },
+};
+
+function openCheckout(type) {
+  currentTierType = type || 'founding';
+  const cfg = TIER_CONFIG[currentTierType] || TIER_CONFIG.founding;
+
+  document.getElementById('co-badge-text').textContent = cfg.badge;
+  document.getElementById('co-modal-price').textContent = cfg.price;
+  document.getElementById('co-modal-was').textContent = cfg.was;
+  document.getElementById('co-submit-text').textContent = cfg.submitText;
+  document.getElementById('co-main-wrap').style.display = 'block';
+  document.getElementById('co-success-wrap').style.display = 'none';
+
+  document.getElementById('checkout-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function() { document.getElementById('co-name').focus(); }, 150);
+}
+
+function closeCheckout() {
+  document.getElementById('checkout-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('click', function(e) {
+  if (e.target === document.getElementById('checkout-overlay')) closeCheckout();
+});
+
+// ── Input formatting ──
+function formatPhone(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 10);
+  if (v.length >= 7) v = '(' + v.substring(0,3) + ') ' + v.substring(3,6) + '-' + v.substring(6);
+  else if (v.length >= 4) v = '(' + v.substring(0,3) + ') ' + v.substring(3);
+  else if (v.length > 0) v = '(' + v;
+  input.value = v;
+}
+function formatCard(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 16);
+  v = v.match(/.{1,4}/g) ? v.match(/.{1,4}/g).join(' ') : v;
+  input.value = v;
+}
+function formatExpiry(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 4);
+  if (v.length >= 3) v = v.substring(0,2) + '/' + v.substring(2);
+  input.value = v;
+}
+
+// ── Checkout submit (Stripe.js wired in on real launch) ──
+async function processShieldCheckout(e) {
+  e.preventDefault();
+  const btn = document.getElementById('co-submit-btn');
+  const btnText = document.getElementById('co-submit-text');
+  btn.disabled = true;
+  btnText.textContent = '⏳ Activating your shield...';
+
+  const name  = document.getElementById('co-name').value.trim();
+  const email = document.getElementById('co-email').value.trim();
+  const phone = document.getElementById('co-phone').value.trim();
+
+  // Simulate Stripe subscription call (wire real Stripe.js publishable key on launch)
+  await new Promise(function(r) { setTimeout(r, 1200); });
+
+  // Save member to leads table
+  try {
+    await fetch('tables/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        full_name: name,
+        email: email,
+        phone: phone,
+        path: 'shield-dat-azz-' + currentTierType,
+        source: 'shield-dat-azz-checkout',
+        status: 'member',
+        submitted_at: new Date().toISOString(),
+        utm_source: (function(){ try { return sessionStorage.getItem('utm_source') || 'organic'; } catch(e) { return 'organic'; } }()),
+        page_url: window.location.href,
+      }),
+    });
+  } catch(err) { /* non-blocking */ }
+
+  // Tick down the slot counter
+  try {
+    const current = parseInt(localStorage.getItem('sda_slots') || slotsRemaining.toString());
+    const updated = Math.max(8, current - 1);
+    localStorage.setItem('sda_slots', updated.toString());
+    document.querySelectorAll('#slots-remaining, #slots-remaining-2').forEach(function(el) {
+      el.textContent = updated;
+    });
+  } catch(e) {}
+
+  // Flip to success screen
+  document.getElementById('co-main-wrap').style.display = 'none';
+  document.getElementById('co-success-wrap').style.display = 'block';
+  document.getElementById('co-success-title').textContent = 'Welcome to Shield Dat Azz™, ' + name.split(' ')[0] + '! 🛡️';
+
+  showToast('🛡️ Your shield is active! Check your email for member access.');
+  btn.disabled = false;
+}
+
+// ── FAQ toggle ──
+function toggleFAQ(el) {
+  el.closest('.faq-item').classList.toggle('open');
+}
+
+// ── Toast ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 4500);
+}
+
+// ── Scroll animations ──
+document.addEventListener('DOMContentLoaded', function() {
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.07 });
+
+    document.querySelectorAll('.ig-item, .hiw-step, .tier-card, .testimonial-card, .faq-item').forEach(function(el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(22px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      obs.observe(el);
+    });
+  }
+
+  console.log('%c🛡️ Shield Dat Azz™ — James Consumer Law Group | March 6, 2026', 'color:#F5C842;font-weight:bold;font-size:13px;');
+  console.log('%cYour Rights. Protected. Monthly. | MRR Target: $10k/mo | Founding: $29 | Standard: $49', 'color:#8892a4;font-size:11px;');
+});
+</script>
+</body>
+</html>
