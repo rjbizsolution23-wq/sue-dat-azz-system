@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚖️ Sue Dat Azz | Tripwire Offers | James Consumer Law Group</title>
+  <meta name="description" content="$37 Demand Letter Starter Kit · $1 MFSN 7-Day Trial · $97 Credit Warfare Course. James Consumer Law Group — Jamaree R. James, Esq." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    /* ═══════════════════════════════════════════
+       SUE DAT AZZ — STAGE 2 TRIPWIRE
+       James Consumer Law Group | March 6, 2026
+    ═══════════════════════════════════════════ */
+    :root {
+      --gold: #F5C842;
+      --gold-dark: #e6b800;
+      --gold-glow: rgba(245,200,66,0.18);
+      --dark-900: #0a0c10;
+      --dark-800: #0f1117;
+      --dark-700: #161a22;
+      --dark-600: #1e2330;
+      --dark-500: #252c3a;
+      --text-primary: #edf0f7;
+      --text-secondary: #8892a4;
+      --text-muted: #5a6275;
+      --legal-color: #fc5c65;
+      --credit-color: #4fc3f7;
+      --edu-color: #26de81;
+      --b2b-color: #a78bfa;
+      --border: rgba(255,255,255,0.07);
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --font-main: 'Inter', sans-serif;
+      --font-head: 'Space Grotesk', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-main);
+      background: var(--dark-900);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Trust bar ── */
+    .trust-bar {
+      background: var(--dark-800);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 0;
+      overflow: hidden;
+    }
+    .trust-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .trust-bar-inner span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+    .trust-bar-inner i { color: var(--gold); margin-right: 6px; }
+
+    /* ── Header ── */
+    .tw-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,12,16,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+    }
+    .tw-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tw-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .tw-logo-icon { font-size: 1.5rem; }
+    .tw-logo-name {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--gold);
+    }
+    .tw-logo-sub {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      display: block;
+    }
+    .tw-header-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.83rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .tw-header-back:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── Page wrapper ── */
+    .tw-page { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+
+    /* ── Path Tabs ── */
+    .path-tabs {
+      display: flex;
+      gap: 8px;
+      margin: 32px 0 24px;
+      flex-wrap: wrap;
+    }
+    .path-tab {
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--dark-700);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .path-tab:hover { border-color: var(--gold); color: var(--gold); }
+    .path-tab.active-legal { border-color: var(--legal-color); color: var(--legal-color); background: rgba(252,92,101,0.06); }
+    .path-tab.active-credit { border-color: var(--credit-color); color: var(--credit-color); background: rgba(79,195,247,0.06); }
+    .path-tab.active-education { border-color: var(--edu-color); color: var(--edu-color); background: rgba(38,222,129,0.06); }
+    .path-tab.active-b2b { border-color: var(--b2b-color); color: var(--b2b-color); background: rgba(167,139,250,0.06); }
+
+    /* ── Offer Panels ── */
+    .offer-panel { display: none; }
+    .offer-panel.active { display: block; }
+
+    /* ── Offer Hero ── */
+    .offer-hero {
+      text-align: center;
+      padding: 48px 0 40px;
+    }
+    .oh-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .oh-eyebrow-legal { background: rgba(252,92,101,0.1); color: var(--legal-color); border: 1px solid rgba(252,92,101,0.2); }
+    .oh-eyebrow-credit { background: rgba(79,195,247,0.1); color: var(--credit-color); border: 1px solid rgba(79,195,247,0.2); }
+    .oh-eyebrow-edu { background: rgba(38,222,129,0.1); color: var(--edu-color); border: 1px solid rgba(38,222,129,0.2); }
+    .oh-eyebrow-b2b { background: rgba(167,139,250,0.1); color: var(--b2b-color); border: 1px solid rgba(167,139,250,0.2); }
+
+    .offer-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 2.9rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .offer-hero h1 span { color: var(--gold); }
+    .offer-hero .oh-sub {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+
+    /* ── Countdown Timer ── */
+    .countdown-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 14px 24px;
+      background: rgba(252,92,101,0.06);
+      border: 1px solid rgba(252,92,101,0.2);
+      border-radius: 12px;
+      margin-bottom: 32px;
+    }
+    .cdb-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--legal-color);
+      letter-spacing: 0.05em;
+    }
+    .cdb-timer {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: 0.04em;
+    }
+    .cdb-timer span { color: var(--legal-color); }
+
+    /* ── Offer Card ── */
+    .offer-card {
+      background: var(--dark-700);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .offer-card-glow {
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.04;
+    }
+    .offer-card-header {
+      padding: 32px 36px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .oc-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .oc-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .oc-badge-legal { background: rgba(252,92,101,0.12); color: var(--legal-color); }
+    .oc-badge-credit { background: rgba(79,195,247,0.12); color: var(--credit-color); }
+    .oc-badge-edu { background: rgba(38,222,129,0.12); color: var(--edu-color); }
+    .oc-badge-b2b { background: rgba(167,139,250,0.12); color: var(--b2b-color); }
+
+    .oc-title {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .oc-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+    }
+    .oc-price-wrap {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .oc-price-was {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+    .oc-price {
+      font-family: var(--font-head);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .oc-price sup { font-size: 1.2rem; vertical-align: top; margin-top: 6px; display: inline-block; }
+    .oc-price-note { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+    .offer-card-body { padding: 28px 36px; }
+
+    /* ── What's Included ── */
+    .wi-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .wi-items { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+    @media (max-width: 520px) { .wi-items { grid-template-columns: 1fr; } }
+    .wi-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      background: var(--dark-600);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .wi-item i { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+    .wi-item-text { font-size: 0.88rem; color: var(--text-secondary); }
+    .wi-item-text strong { display: block; color: var(--text-primary); font-size: 0.92rem; margin-bottom: 2px; }
+
+    /* ── CTA Button ── */
+    .tw-cta-btn {
+      display: block;
+      width: 100%;
+      padding: 18px 28px;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 0.01em;
+    }
+    .tw-cta-btn-legal {
+      background: linear-gradient(135deg, #fc5c65, #c0392b);
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(252,92,101,0.3);
+    }
+    .tw-cta-btn-legal:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(252,92,101,0.4); }
+    .tw-cta-btn-credit {
+      background: linear-gradient(135deg, #4fc3f7, #0288d1);
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(79,195,247,0.3);
+    }
+    .tw-cta-btn-credit:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(79,195,247,0.4); }
+    .tw-cta-btn-edu {
+      background: linear-gradient(135deg, #26de81, #0da55e);
+      color: #0a0c10;
+      box-shadow: 0 4px 24px rgba(38,222,129,0.3);
+    }
+    .tw-cta-btn-edu:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(38,222,129,0.4); }
+    .tw-cta-btn-b2b {
+      background: linear-gradient(135deg, #a78bfa, #7c3aed);
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(167,139,250,0.3);
+    }
+    .tw-cta-btn-b2b:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(167,139,250,0.4); }
+
+    .btn-sub-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+    .btn-sub-note i { color: var(--gold); margin-right: 4px; }
+
+    /* ── Testimonial block ── */
+    .testimonial-block {
+      background: var(--dark-600);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .tb-quote {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      line-height: 1.65;
+    }
+    .tb-author {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .tb-stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 8px; }
+
+    /* ── FAQ ── */
+    .faq-section { margin-top: 40px; }
+    .faq-title {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      cursor: pointer;
+      background: var(--dark-700);
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: background 0.2s;
+    }
+    .faq-q:hover { background: var(--dark-600); }
+    .faq-q i { color: var(--gold); transition: transform 0.3s; flex-shrink: 0; margin-left: 12px; }
+    .faq-a {
+      display: none;
+      padding: 16px 20px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      background: var(--dark-800);
+      line-height: 1.65;
+    }
+    .faq-item.open .faq-q i { transform: rotate(180deg); }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── Cross-sell bar ── */
+    .cross-sell-bar {
+      background: var(--dark-700);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+    @media (max-width: 600px) { .cross-sell-bar { grid-template-columns: 1fr; } }
+    .csb-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .csb-headline {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .csb-desc { font-size: 0.88rem; color: var(--text-secondary); }
+    .csb-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #0a0c10;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .csb-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,200,66,0.3); }
+
+    /* ── Stripe checkout overlay ── */
+    .checkout-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .checkout-overlay.open { display: flex; }
+    .checkout-modal {
+      background: var(--dark-700);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-xl);
+      width: 100%;
+      max-width: 460px;
+      padding: 36px 32px;
+      position: relative;
+    }
+    .checkout-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .checkout-close:hover { color: var(--text-primary); }
+    .co-offer-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .co-title {
+      font-family: var(--font-head);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .co-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .co-price-main {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+    }
+    .co-price-sub { font-size: 0.85rem; color: var(--text-muted); }
+    .co-form { display: flex; flex-direction: column; gap: 14px; }
+    .co-field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    .co-field input {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--dark-600);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 0.92rem;
+      font-family: var(--font-main);
+      transition: border-color 0.2s;
+    }
+    .co-field input:focus { outline: none; border-color: var(--gold); }
+    .co-card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .co-stripe-note {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.77rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .co-stripe-note i { color: var(--gold); }
+    .co-submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #0a0c10;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 4px;
+    }
+    .co-submit-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,200,66,0.35); }
+    .co-success {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .co-success-icon { font-size: 3rem; margin-bottom: 12px; }
+    .co-success h3 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+    .co-success p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+    .co-success-next { margin-top: 20px; }
+    .co-success-next a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #0a0c10;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    /* ── Legal Shield teaser ── */
+    .shield-teaser {
+      background: linear-gradient(135deg, rgba(245,200,66,0.06), rgba(245,200,66,0.02));
+      border: 1.5px solid rgba(245,200,66,0.2);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .st-icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .st-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      background: rgba(245,200,66,0.1);
+      border: 1px solid rgba(245,200,66,0.25);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .st-title {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .st-desc { font-size: 0.95rem; color: var(--text-secondary); max-width: 480px; margin: 0 auto 20px; line-height: 1.6; }
+    .st-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      max-width: 440px;
+      margin: 0 auto 24px;
+    }
+    @media (max-width: 480px) { .st-features { grid-template-columns: 1fr; } }
+    .st-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: left;
+    }
+    .st-feature i { color: var(--gold); flex-shrink: 0; }
+    .st-price {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .st-price-note { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 20px; }
+    .st-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #0a0c10;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .st-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,200,66,0.35); }
+
+    /* ── Footer ── */
+    .tw-footer {
+      background: var(--dark-800);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .tw-footer p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 8px;
+      line-height: 1.65;
+    }
+    .tw-footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      background: var(--dark-600);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      color: var(--text-primary);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 300;
+      display: none;
+      max-width: 300px;
+    }
+    .toast.show { display: block; animation: toastIn 0.3s ease; }
+    @keyframes toastIn { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
+
+    @media (max-width: 600px) {
+      .tw-page { padding: 0 16px 60px; }
+      .offer-card-header, .offer-card-body { padding: 20px 20px; }
+      .wi-items { grid-template-columns: 1fr; }
+      .checkout-modal { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ TRUST BAR ══════════ -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span><i class="fas fa-lock"></i> Secure Payment</span>
+    <span><i class="fas fa-shield-alt"></i> Attorney-Client Protected</span>
+    <span><i class="fas fa-gavel"></i> FCRA · FDCPA · TCPA</span>
+    <span><i class="fas fa-bolt"></i> Instant Access After Purchase</span>
+    <span><i class="fas fa-undo"></i> 30-Day Money-Back Guarantee</span>
+  </div>
+</div>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="tw-header">
+  <div class="tw-header-inner">
+    <a href="stage1.html" class="tw-logo">
+      <span class="tw-logo-icon">⚖️</span>
+      <div>
+        <span class="tw-logo-name">SUE DAT AZZ</span>
+        <span class="tw-logo-sub">James Consumer Law Group</span>
+      </div>
+    </a>
+    <a href="stage1.html" class="tw-header-back">
+      <i class="fas fa-arrow-left"></i> Back to Free Tools
+    </a>
+  </div>
+</header>
+
+<div class="tw-page">
+
+  <!-- ── Path Tabs ── -->
+  <div class="path-tabs" id="path-tabs">
+    <button class="path-tab" data-path="legal" onclick="switchPath('legal')">
+      <i class="fas fa-gavel"></i> Legal ($37 Kit)
+    </button>
+    <button class="path-tab" data-path="credit" onclick="switchPath('credit')">
+      <i class="fas fa-chart-line"></i> Credit ($1 Trial)
+    </button>
+    <button class="path-tab" data-path="education" onclick="switchPath('education')">
+      <i class="fas fa-graduation-cap"></i> Education ($97 Course)
+    </button>
+    <button class="path-tab" data-path="b2b" onclick="switchPath('b2b')">
+      <i class="fas fa-building"></i> B2B (Audit)
+    </button>
+  </div>
+
+  <!-- ══════════════════════════════════════
+     OFFER PANEL A — LEGAL ($37 DEMAND LETTER KIT)
+  ══════════════════════════════════════ -->
+  <div class="offer-panel" id="panel-legal">
+
+    <!-- Countdown -->
+    <div class="countdown-bar">
+      <span class="cdb-label"><i class="fas fa-fire"></i> Founding Price Expires In:</span>
+      <span class="cdb-timer" id="legal-timer"><span id="lt-h">00</span>:<span id="lt-m">14</span>:<span id="lt-s">59</span></span>
+    </div>
+
+    <div class="offer-hero">
+      <div class="oh-eyebrow oh-eyebrow-legal"><i class="fas fa-gavel"></i> CONSUMER LAW — TRIPWIRE</div>
+      <h1>The <span>Demand Letter</span><br/>Starter Kit</h1>
+      <p class="oh-sub">Everything you need to put a debt collector on notice TODAY and trigger your rights under the FDCPA — without paying a retainer.</p>
+    </div>
+
+    <div class="offer-card">
+      <div class="offer-card-glow" style="background:#fc5c65;"></div>
+      <div class="offer-card-header">
+        <div class="oc-top">
+          <div>
+            <div class="oc-badge oc-badge-legal">DEMAND LETTER STARTER KIT</div>
+            <div class="oc-title">$1,000+ Violation Demand Package</div>
+            <div class="oc-desc">Battle-tested FDCPA demand letter template + violation tracker + SOL calculator. Written by Jamaree R. James, Esq. — not some paralegal on Fiverr.</div>
+          </div>
+          <div class="oc-price-wrap">
+            <div class="oc-price-was">Value: $297</div>
+            <div class="oc-price"><sup>$</sup>37</div>
+            <div class="oc-price-note">One-time · Instant access</div>
+          </div>
+        </div>
+      </div>
+      <div class="offer-card-body">
+        <div class="wi-title">✅ What's Included</div>
+        <div class="wi-items">
+          <div class="wi-item">
+            <i class="fas fa-file-alt"></i>
+            <div class="wi-item-text">
+              <strong>FDCPA Demand Letter Template</strong>
+              Plug-and-play. Cites exact statutes. Ready to mail today.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-search"></i>
+            <div class="wi-item-text">
+              <strong>23-Point Violation Checklist (PDF)</strong>
+              Every FDCPA violation, citation, and damage amount.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-calculator"></i>
+            <div class="wi-item-text">
+              <strong>Damages Calculator Worksheet</strong>
+              Run the math on your potential statutory + actual damages.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-clock"></i>
+            <div class="wi-item-text">
+              <strong>Statute of Limitations Tracker</strong>
+              FDCPA: 1 yr · FCRA: 2 yr · TCPA: 4 yr. Never miss a deadline.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-envelope"></i>
+            <div class="wi-item-text">
+              <strong>Debt Validation Letter Template</strong>
+              Force them to prove the debt is valid under § 1692g.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-book-open"></i>
+            <div class="wi-item-text">
+              <strong>FDCPA Cheat Sheet (2026 Edition)</strong>
+              Updated for latest circuit rulings including 5th Circuit Feb 2026.
+            </div>
+          </div>
+        </div>
+
+        <button class="tw-cta-btn tw-cta-btn-legal" onclick="openCheckout('legal')">
+          <i class="fas fa-lock"></i> Yes — Get the $37 Demand Letter Kit Now
+        </button>
+        <p class="btn-sub-note">
+          <i class="fas fa-shield-alt"></i> Secured by Stripe · 30-Day Money-Back Guarantee · Instant PDF delivery
+        </p>
+
+        <div class="testimonial-block">
+          <div class="tb-stars">★★★★★</div>
+          <div class="tb-quote">"I sent the demand letter on a Monday. Collector called to settle by Wednesday. They offered $2,500 to make it go away. The $37 kit paid for itself 67 times over."</div>
+          <div class="tb-author">— D.W., Client, Atlanta, GA</div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+          <div class="faq-title">Frequently Asked Questions</div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">Is this a real attorney-drafted document? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Yes. Jamaree R. James, Esq. personally wrote and reviewed every template. These are not generic internet templates — they cite current statute, current case law, and current regulatory guidance as of March 2026.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">Can I use this without hiring an attorney? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Yes. The Demand Letter Kit is designed for self-use. If you want us to handle the case on contingency after sending your demand, that's what the free consultation is for. Many debt collectors settle at the demand letter stage without litigation.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">What if I need more help after sending the letter? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Kit buyers get 30% off a full legal consultation. If the collector doesn't respond or disputes the violations, we'll take the case on contingency — meaning you pay nothing upfront and we recover fees from the violator.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">Does this create an attorney-client relationship? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">No. Purchase of this educational resource does not create an attorney-client relationship. A formal engagement requires a separate consultation and signed retainer agreement with James Consumer Law Group.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cross-sell to Legal Shield -->
+    <div class="cross-sell-bar">
+      <div>
+        <div class="csb-label">⚡ Next Step After Your Demand Letter</div>
+        <div class="csb-headline">Legal Shield Membership — $49/mo</div>
+        <div class="csb-desc">Ongoing consumer law protection: priority access, monthly violation scans, and direct attorney hotline. Cancel anytime.</div>
+      </div>
+      <a href="shield-dat-azz.html" class="csb-cta">
+        <i class="fas fa-shield-alt"></i> See Legal Shield →
+      </a>
+    </div>
+
+  </div><!-- end panel-legal -->
+
+
+  <!-- ══════════════════════════════════════
+     OFFER PANEL B — CREDIT ($1 MFSN TRIAL)
+  ══════════════════════════════════════ -->
+  <div class="offer-panel" id="panel-credit">
+
+    <div class="offer-hero">
+      <div class="oh-eyebrow oh-eyebrow-credit"><i class="fas fa-chart-line"></i> FINTECH / CREDIT</div>
+      <h1>Your Full <span>3-Bureau Report</span><br/>for $1</h1>
+      <p class="oh-sub">Get Experian, TransUnion, AND Equifax — plus our built-in FCRA violation pre-scan. Most people find at least one error worth disputing.</p>
+    </div>
+
+    <div class="offer-card">
+      <div class="offer-card-glow" style="background:#4fc3f7;"></div>
+      <div class="offer-card-header">
+        <div class="oc-top">
+          <div>
+            <div class="oc-badge oc-badge-credit">MYFREESCORENOW — 7-DAY TRIAL</div>
+            <div class="oc-title">3-Bureau Credit Report + Score Monitoring</div>
+            <div class="oc-desc">Powered by MyFreeScoreNow. Full access to all three bureaus, daily monitoring, and identity alerts. Cancel before day 7 and pay nothing more.</div>
+          </div>
+          <div class="oc-price-wrap">
+            <div class="oc-price-was">$29.90/mo after</div>
+            <div class="oc-price"><sup>$</sup>1</div>
+            <div class="oc-price-note">7-day trial · Cancel anytime</div>
+          </div>
+        </div>
+      </div>
+      <div class="offer-card-body">
+        <div class="wi-title">✅ What You Get Instantly</div>
+        <div class="wi-items">
+          <div class="wi-item">
+            <i class="fas fa-file-alt"></i>
+            <div class="wi-item-text">
+              <strong>Full 3-Bureau Credit Report</strong>
+              Experian, TransUnion, Equifax — all three, right now.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-chart-bar"></i>
+            <div class="wi-item-text">
+              <strong>3 Credit Scores (All Bureaus)</strong>
+              See exactly where you stand with all three agencies.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-bell"></i>
+            <div class="wi-item-text">
+              <strong>Real-Time Score Alerts</strong>
+              Get notified the moment something changes.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-user-shield"></i>
+            <div class="wi-item-text">
+              <strong>Identity Theft Monitoring</strong>
+              Dark web surveillance + SSN monitoring.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-search"></i>
+            <div class="wi-item-text">
+              <strong>FCRA Violation Pre-Scan</strong>
+              Our team reviews your reports for potential violations.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-tools"></i>
+            <div class="wi-item-text">
+              <strong>Dispute Management Tools</strong>
+              Built-in tools to dispute errors directly with bureaus.
+            </div>
+          </div>
+        </div>
+
+        <button class="tw-cta-btn tw-cta-btn-credit" id="mfsn-launch-btn" onclick="launchMFSN()">
+          <i class="fas fa-bolt"></i> Start My $1 Trial — Get All 3 Reports Now
+        </button>
+        <p class="btn-sub-note">
+          <i class="fas fa-lock"></i> Secure enrollment via MyFreeScoreNow · $29.90/mo after 7 days · Cancel anytime
+        </p>
+
+        <div class="testimonial-block">
+          <div class="tb-stars">★★★★★</div>
+          <div class="tb-quote">"I pulled my reports through this and found 4 accounts that weren't mine. Forwarded them to the James team and they found two FCRA violations. Case is filed."</div>
+          <div class="tb-author">— M.T., Client, Houston, TX</div>
+        </div>
+
+        <div class="faq-section">
+          <div class="faq-title">Frequently Asked Questions</div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">Will this hurt my credit score? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">No. This is a soft pull — it does NOT affect your credit score in any way. Under the FCRA, consumers checking their own credit is explicitly allowed and does not count as an inquiry.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">How do I cancel before day 7? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Log in to MyFreeScoreNow and cancel in your account settings, or call their customer service line. Cancel before day 7 and you pay only the $1 trial fee — nothing more.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">What happens after you find an FCRA violation in my report? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">If our team identifies FCRA violations in your report, we'll reach out to schedule a free case review. FCRA litigation is taken on contingency — you pay $0 unless we win. Willful violations = $100–$1,000 each under 15 U.S.C. § 1681n.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cross-sell to Education -->
+    <div class="cross-sell-bar">
+      <div>
+        <div class="csb-label">⚡ While You're Fixing Your Credit</div>
+        <div class="csb-headline">Credit Warfare — 90-Day Course ($97)</div>
+        <div class="csb-desc">The exact dispute framework Jamaree uses with paying clients. Violations you find → we can litigate. Knowledge compounds.</div>
+      </div>
+      <button class="csb-cta" onclick="switchPath('education')">
+        <i class="fas fa-graduation-cap"></i> See the Course →
+      </button>
+    </div>
+
+  </div><!-- end panel-credit -->
+
+
+  <!-- ══════════════════════════════════════
+     OFFER PANEL C — EDUCATION ($97 COURSE)
+  ══════════════════════════════════════ -->
+  <div class="offer-panel" id="panel-education">
+
+    <div class="offer-hero">
+      <div class="oh-eyebrow oh-eyebrow-edu"><i class="fas fa-graduation-cap"></i> EDUCATION — TRIPWIRE</div>
+      <h1><span>Credit Warfare</span><br/>90-Day Dispute System</h1>
+      <p class="oh-sub">The complete consumer law self-help course. Learn to spot violations, write winning disputes, and flip your credit situation — or hand Jamaree a case worth litigating.</p>
+    </div>
+
+    <div class="offer-card">
+      <div class="offer-card-glow" style="background:#26de81;"></div>
+      <div class="offer-card-header">
+        <div class="oc-top">
+          <div>
+            <div class="oc-badge oc-badge-edu">CREDIT WARFARE — 90-DAY COURSE</div>
+            <div class="oc-title">From Violated to Victorious in 90 Days</div>
+            <div class="oc-desc">12 modules, 47 lessons, 6 done-for-you dispute templates, and a community of 1,000+ consumers fighting back. Taught by Jamaree R. James, Esq.</div>
+          </div>
+          <div class="oc-price-wrap">
+            <div class="oc-price-was">Value: $597</div>
+            <div class="oc-price"><sup>$</sup>97</div>
+            <div class="oc-price-note">One-time · Lifetime access</div>
+          </div>
+        </div>
+      </div>
+      <div class="offer-card-body">
+        <div class="wi-title">✅ What's Inside</div>
+        <div class="wi-items">
+          <div class="wi-item">
+            <i class="fas fa-play-circle"></i>
+            <div class="wi-item-text">
+              <strong>Module 1–3: Know Your Rights</strong>
+              FCRA, FDCPA, TCPA — what they protect, what they pay.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-search-dollar"></i>
+            <div class="wi-item-text">
+              <strong>Module 4–6: Violation Hunting</strong>
+              How to read your reports like an attorney and spot the money.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-pen-alt"></i>
+            <div class="wi-item-text">
+              <strong>Module 7–9: Dispute Mastery</strong>
+              6 plug-and-play dispute letter templates that work.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-balance-scale"></i>
+            <div class="wi-item-text">
+              <strong>Module 10–11: When to Sue</strong>
+              How to evaluate when DIY stops and litigation starts.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-star"></i>
+            <div class="wi-item-text">
+              <strong>Module 12: Score Rebuild System</strong>
+              Post-dispute credit optimization for maximum score lift.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-users"></i>
+            <div class="wi-item-text">
+              <strong>Community Access</strong>
+              Private group, weekly Q&amp;A calls, peer support.
+            </div>
+          </div>
+        </div>
+
+        <button class="tw-cta-btn tw-cta-btn-edu" onclick="openCheckout('education')">
+          <i class="fas fa-graduation-cap"></i> Yes — Enroll in Credit Warfare for $97
+        </button>
+        <p class="btn-sub-note">
+          <i class="fas fa-shield-alt"></i> Secured by Stripe · 30-Day Money-Back Guarantee · Instant access after purchase
+        </p>
+
+        <div class="testimonial-block">
+          <div class="tb-stars">★★★★★</div>
+          <div class="tb-quote">"Went through Module 5 on a Thursday night. Found two accounts reporting late that I had paid on time and had receipts for. Filed disputes Friday. Bureau corrected both within 18 days. Score up 74 points."</div>
+          <div class="tb-author">— K.J., Student, Dallas, TX</div>
+        </div>
+
+        <div class="faq-section">
+          <div class="faq-title">Frequently Asked Questions</div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">Is this course enough or will I need an attorney? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">The course handles the DIY side: finding violations, writing disputes, and understanding your rights. For cases that require litigation — where violations are serious enough to sue — course graduates get priority access to our contingency case review. The goal is to educate you AND surface cases worth fighting.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">What format is the course? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Video lessons (watch at your own pace), downloadable PDFs, dispute letter templates, and a private community. Lifetime access — come back anytime regulations change.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">Do graduates get a referral commission? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Yes — course graduates who refer paying clients to James Consumer Law Group earn 20% commission on the referred matter's attorney fees. Details in Module 12.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cross-sell to Legal Shield -->
+    <div class="cross-sell-bar">
+      <div>
+        <div class="csb-label">⚡ Protect What You Build</div>
+        <div class="csb-headline">Legal Shield Membership — $49/mo</div>
+        <div class="csb-desc">After you fix your credit, keep it bulletproof with ongoing monitoring and attorney access. Course graduates get founding member pricing.</div>
+      </div>
+      <a href="shield-dat-azz.html" class="csb-cta">
+        <i class="fas fa-shield-alt"></i> See Legal Shield →
+      </a>
+    </div>
+
+  </div><!-- end panel-education -->
+
+
+  <!-- ══════════════════════════════════════
+     OFFER PANEL D — B2B (COMPLIANCE AUDIT)
+  ══════════════════════════════════════ -->
+  <div class="offer-panel" id="panel-b2b">
+
+    <div class="offer-hero">
+      <div class="oh-eyebrow oh-eyebrow-b2b"><i class="fas fa-building"></i> FINTECH B2B</div>
+      <h1>FinTech <span>Compliance Audit</span><br/>Starting at $5,000</h1>
+      <p class="oh-sub">A full regulatory gap analysis with remediation roadmap. CFPB, FTC, and state law coverage. Fixed-fee, no surprises. Founding clients get 20% off.</p>
+    </div>
+
+    <div class="offer-card">
+      <div class="offer-card-glow" style="background:#a78bfa;"></div>
+      <div class="offer-card-header">
+        <div class="oc-top">
+          <div>
+            <div class="oc-badge oc-badge-b2b">B2B COMPLIANCE AUDIT</div>
+            <div class="oc-title">Full Regulatory Risk Analysis + Remediation Roadmap</div>
+            <div class="oc-desc">We analyze your product, data flows, marketing practices, and contracts against current CFPB/FTC requirements. You get a written report with specific remediation steps — not vague warnings.</div>
+          </div>
+          <div class="oc-price-wrap">
+            <div class="oc-price-was">Standard: $6,250</div>
+            <div class="oc-price" style="font-size:1.8rem;"><sup>$</sup>5,000</div>
+            <div class="oc-price-note">Founding rate · Fixed fee</div>
+          </div>
+        </div>
+      </div>
+      <div class="offer-card-body">
+        <div class="wi-title">✅ Audit Scope</div>
+        <div class="wi-items">
+          <div class="wi-item">
+            <i class="fas fa-clipboard-check"></i>
+            <div class="wi-item-text">
+              <strong>CFPB Supervision Analysis</strong>
+              Do you trigger CFPB exam authority? What does that mean for you?
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-database"></i>
+            <div class="wi-item-text">
+              <strong>Data Practices Audit</strong>
+              GLBA, CCPA, Section 1033 compliance across your data flows.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-phone-alt"></i>
+            <div class="wi-item-text">
+              <strong>TCPA Marketing Review</strong>
+              Post-5th Circuit Feb 2026 consent analysis of all marketing channels.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-robot"></i>
+            <div class="wi-item-text">
+              <strong>AI/Automated Decision Analysis</strong>
+              ECOA, adverse action notices, CA AB 316 state exposure.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-file-contract"></i>
+            <div class="wi-item-text">
+              <strong>Contract &amp; ToS Review</strong>
+              Arbitration clauses, disclosures, and UDAAP exposure in your agreements.
+            </div>
+          </div>
+          <div class="wi-item">
+            <i class="fas fa-map-marked-alt"></i>
+            <div class="wi-item-text">
+              <strong>Written Remediation Roadmap</strong>
+              Prioritized, actionable steps. Not just a list of problems.
+            </div>
+          </div>
+        </div>
+
+        <button class="tw-cta-btn tw-cta-btn-b2b" onclick="openCheckout('b2b')">
+          <i class="fas fa-calendar-check"></i> Request Founding-Rate Audit ($5,000)
+        </button>
+        <p class="btn-sub-note">
+          <i class="fas fa-shield-alt"></i> Deposit secures your slot · Work begins within 5 business days · NDA included
+        </p>
+
+        <div class="testimonial-block">
+          <div class="tb-stars">★★★★★</div>
+          <div class="tb-quote">"We were 3 weeks from launch when we ran the scorecard. Critical risk. Jamaree's audit found 4 CFPB exposure points we had no idea about. Saved us from a potential enforcement action and delayed launch 6 weeks — which was the right call."</div>
+          <div class="tb-author">— A.R., FinTech Founder (BNPL Product, Atlanta)</div>
+        </div>
+
+        <div class="faq-section">
+          <div class="faq-title">Frequently Asked Questions</div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">How long does the audit take? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Typically 10–15 business days from intake document submission. Complex products (multiple state licenses, BaaS arrangements) may take up to 20 business days. Rush options available at additional cost.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">Is this attorney-client privileged? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Yes. All work product is produced under attorney-client privilege and protected by the work product doctrine. A signed engagement letter and NDA precede all audit work.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">What if you find something that requires immediate remediation? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">We escalate immediately. If we find a critical-risk issue mid-audit, we don't wait until the final report — we call you. Our job is to protect your company, not just document the problems.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cross-sell to B2B retainer -->
+    <div class="cross-sell-bar">
+      <div>
+        <div class="csb-label">⚡ After the Audit — Stay Protected</div>
+        <div class="csb-headline">B2B Compliance Retainer — $2,500–$5,000/mo</div>
+        <div class="csb-desc">Monthly regulatory counsel, compliance review of new features, and incident response. The cost of prevention vs. the cost of an enforcement action.</div>
+      </div>
+      <button class="csb-cta" onclick="openCheckout('b2b-retainer')">
+        <i class="fas fa-handshake"></i> Inquire About Retainer →
+      </button>
+    </div>
+
+  </div><!-- end panel-b2b -->
+
+
+  <!-- ══════════ LEGAL SHIELD TEASER ══════════ -->
+  <div class="shield-teaser" id="shield-teaser">
+    <div class="st-icon">🛡️</div>
+    <div class="st-badge">⭐ FOUNDING MEMBER RATE</div>
+    <div class="st-title">Legal Shield Membership</div>
+    <div class="st-desc">Ongoing consumer law protection. Monthly violation scans, attorney hotline, and priority case review — all for less than a Netflix subscription.</div>
+    <div class="st-features">
+      <div class="st-feature"><i class="fas fa-check-circle"></i> Monthly credit + violation scan</div>
+      <div class="st-feature"><i class="fas fa-check-circle"></i> Direct attorney hotline access</div>
+      <div class="st-feature"><i class="fas fa-check-circle"></i> Priority case intake</div>
+      <div class="st-feature"><i class="fas fa-check-circle"></i> Cease &amp; desist on demand</div>
+      <div class="st-feature"><i class="fas fa-check-circle"></i> Dispute letter reviews</div>
+      <div class="st-feature"><i class="fas fa-check-circle"></i> Cancel anytime</div>
+    </div>
+    <div class="st-price"><sup>$</sup>29<span style="font-size:1rem;font-weight:500;color:var(--text-muted)">/mo</span></div>
+    <div class="st-price-note">Founding member rate (normally $49/mo) · Cancel anytime</div>
+    <a href="shield-dat-azz.html" class="st-cta">
+      <i class="fas fa-shield-alt"></i> Claim Founding Member Rate
+    </a>
+  </div>
+
+</div><!-- end tw-page -->
+
+
+<!-- ══════════ CHECKOUT MODAL ══════════ -->
+<div class="checkout-overlay" id="checkout-overlay">
+  <div class="checkout-modal">
+    <button class="checkout-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+
+    <div id="co-form-wrap">
+      <div class="co-offer-label" id="co-offer-label">DEMAND LETTER STARTER KIT</div>
+      <div class="co-title" id="co-title">Complete Your Order</div>
+      <div class="co-price-row">
+        <div class="co-price-main" id="co-price-main">$37</div>
+        <div class="co-price-sub" id="co-price-sub">One-time · Instant access</div>
+      </div>
+
+      <form class="co-form" id="co-form" onsubmit="processCheckout(event)">
+        <div class="co-field">
+          <label>Full Name *</label>
+          <input type="text" id="co-name" placeholder="Jamaree James" required autocomplete="name" />
+        </div>
+        <div class="co-field">
+          <label>Email Address *</label>
+          <input type="email" id="co-email" placeholder="you@email.com" required autocomplete="email" />
+        </div>
+        <div class="co-field">
+          <label>Card Number *</label>
+          <input type="text" id="co-card" placeholder="4242 4242 4242 4242" maxlength="19" required autocomplete="cc-number" oninput="formatCard(this)" />
+        </div>
+        <div class="co-card-row">
+          <div class="co-field">
+            <label>Expiry *</label>
+            <input type="text" id="co-exp" placeholder="MM/YY" maxlength="5" required autocomplete="cc-exp" oninput="formatExpiry(this)" />
+          </div>
+          <div class="co-field">
+            <label>CVV *</label>
+            <input type="text" id="co-cvv" placeholder="123" maxlength="4" required autocomplete="cc-csc" />
+          </div>
+        </div>
+        <div class="co-stripe-note">
+          <i class="fas fa-lock"></i>
+          <span>Payments processed securely by Stripe. We never see your card details.</span>
+        </div>
+        <button type="submit" class="co-submit-btn" id="co-submit-btn">
+          <i class="fas fa-lock"></i> <span id="co-submit-text">Complete Purchase</span>
+        </button>
+      </form>
+
+      <div class="co-success" id="co-success">
+        <div class="co-success-icon">🎉</div>
+        <h3 id="co-success-title">Purchase Complete!</h3>
+        <p id="co-success-msg">Check your email for access instructions. Your download will arrive within 2 minutes.</p>
+        <div class="co-success-next">
+          <a href="shield-dat-azz.html" id="co-success-cta">
+            <i class="fas fa-shield-alt"></i> <span id="co-success-cta-text">View Legal Shield Membership</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="tw-footer">
+  <div style="margin-bottom:16px;">
+    <a href="index.html" style="color:var(--gold);font-weight:700;font-size:1.1rem;text-decoration:none;">⚖️ SUE DAT AZZ — James Consumer Law Group</a>
+  </div>
+  <p><strong>Legal Disclaimer:</strong> The Demand Letter Starter Kit and Credit Warfare course are educational resources and do not constitute legal advice. Purchase does not create an attorney-client relationship. Jamaree R. James, Esq. is a licensed consumer protection attorney. All statutory damage amounts referenced are maximum amounts under applicable federal law — actual recovery depends on the specific facts of each matter. As of March 6, 2026.</p>
+  <p><strong>Applicable Law:</strong> 15 U.S.C. § 1681 (FCRA) · 15 U.S.C. § 1692 (FDCPA) · 47 U.S.C. § 227 (TCPA)</p>
+  <p style="margin-top:12px;font-size:0.72rem;">© 2026 James Consumer Law Group · All rights reserved · <a href="stage1.html">Back to Free Tools</a> · <a href="shield-dat-azz.html">Shield Dat Azz™</a> · <a href="index.html">Dashboard</a></p>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+
+<script>
+// ══════════════════════════════════════════════════════
+// STAGE 2 — TRIPWIRE | SUE DAT AZZ
+// James Consumer Law Group | March 6, 2026
+// ══════════════════════════════════════════════════════
+
+// ── MFSN Config ──
+const MFSN_AID   = 'YOUR_MFSN_AID';      // ← replace with actual AID from MFSN portal
+const MFSN_PID   = 'YOUR_PID_1';         // $29.90/mo, $1 7-day trial, $11/mo commission
+const MFSN_URL   = 'https://myfreescorenow.com/enroll/?AID=' + MFSN_AID + '&PID=' + MFSN_PID;
+
+// ── Stripe placeholder (wire to real Stripe.js when going live) ──
+const STRIPE_PRICES = {
+  legal:      'price_LEGAL_37_PLACEHOLDER',      // $37 one-time
+  education:  'price_EDU_97_PLACEHOLDER',        // $97 one-time
+  'b2b':      'price_B2B_5000_PLACEHOLDER',      // $5,000 deposit
+  'b2b-retainer': 'price_B2BR_2500_PLACEHOLDER', // $2,500/mo retainer
+};
+
+// ── Path Routing ──
+const pathConfig = {
+  legal:     { label: 'DEMAND LETTER STARTER KIT', title: 'Complete Your $37 Order', price: '$37', note: 'One-time · Instant PDF access', successTitle: 'Your Kit Is On Its Way!', successMsg: 'Check your email for your Demand Letter Starter Kit download link and violation checklist. Arrives in 2 minutes.', nextCTA: 'Shield Dat Azz™ — $29/mo Protection', nextURL: 'shield-dat-azz.html' },
+  credit:    { label: '', title: '', price: '', note: '', successTitle: '', successMsg: '', nextCTA: '', nextURL: '' }, // handled via MFSN redirect
+  education: { label: 'CREDIT WARFARE — 90-DAY COURSE', title: 'Enroll in Credit Warfare — $97', price: '$97', note: 'One-time · Lifetime access', successTitle: 'Welcome to Credit Warfare!', successMsg: 'Course access link incoming. Check your email. Start with Module 1 tonight.', nextCTA: 'Shield Dat Azz™ — Protect Your Score Monthly', nextURL: 'shield-dat-azz.html' },
+  'b2b':     { label: 'FINTECH COMPLIANCE AUDIT', title: 'Secure Your Audit Slot — $5,000', price: '$5,000', note: 'Deposit · Work starts within 5 biz days', successTitle: 'Audit Slot Secured!', successMsg: 'Expect an email with your NDA and intake document within 24 hours. Audit begins upon document return.', nextCTA: 'Add Monthly Compliance Retainer', nextURL: 'shield-dat-azz.html' },
+  'b2b-retainer': { label: 'B2B COMPLIANCE RETAINER', title: 'Retainer Inquiry — $2,500/mo', price: '$2,500/mo', note: 'Monthly · Cancel with 30-day notice', successTitle: 'Retainer Inquiry Received!', successMsg: 'Our team will reach out within 24 hours with a retainer proposal tailored to your product.', nextCTA: 'See Shield Dat Azz™ Membership', nextURL: 'shield-dat-azz.html' },
+};
+
+let activeCheckoutType = 'legal';
+
+// ── Init: read ?path= and ?name= from URL ──
+document.addEventListener('DOMContentLoaded', function() {
+  const params = new URLSearchParams(window.location.search);
+  const path = params.get('path') || 'legal';
+  const name = params.get('name') || '';
+
+  switchPath(path);
+
+  if (name) {
+    // Personalize headings
+    document.querySelectorAll('.offer-hero h1, .offer-hero .oh-sub').forEach(function(el) {
+      // Already personalized in HTML; just log
+    });
+    console.log('%c⚖️ Stage 2 Tripwire — SUE DAT AZZ | Visitor: ' + name, 'color:#F5C842;font-weight:bold;');
+  }
+
+  startCountdown();
+  readB2BScore();
+});
+
+// ── Switch offer panel ──
+function switchPath(path) {
+  // Normalize
+  const panelId = 'panel-' + (path === 'b2b-retainer' ? 'b2b' : path);
+
+  document.querySelectorAll('.offer-panel').forEach(function(p) { p.classList.remove('active'); });
+  const target = document.getElementById(panelId);
+  if (target) target.classList.add('active');
+
+  // Update tabs
+  document.querySelectorAll('.path-tab').forEach(function(t) {
+    const tp = t.getAttribute('data-path');
+    t.className = 'path-tab';
+    if (tp === path || (path === 'b2b-retainer' && tp === 'b2b')) {
+      t.classList.add('active-' + (tp === 'b2b' ? 'b2b' : tp));
+    }
+  });
+
+  // Show/hide Legal Shield teaser (hide on b2b panel)
+  const teaser = document.getElementById('shield-teaser');
+  if (teaser) teaser.style.display = (path === 'b2b' || path === 'b2b-retainer') ? 'none' : 'block';
+
+  // Update URL without reload
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.set('path', path);
+    window.history.replaceState({}, '', url.toString());
+  } catch(e) {}
+}
+
+// ── Countdown Timer (15 min) ──
+let countdownSecs;
+function startCountdown() {
+  // Try to restore from sessionStorage for persistence across page refreshes
+  try {
+    const stored = parseInt(sessionStorage.getItem('tw_countdown') || '0');
+    countdownSecs = stored > 0 && stored < 900 ? stored : 899; // 14:59
+  } catch(e) { countdownSecs = 899; }
+
+  setInterval(function() {
+    if (countdownSecs <= 0) { countdownSecs = 899; } // reset
+    countdownSecs--;
+    try { sessionStorage.setItem('tw_countdown', countdownSecs); } catch(e) {}
+    const h = Math.floor(countdownSecs / 3600);
+    const m = Math.floor((countdownSecs % 3600) / 60);
+    const s = countdownSecs % 60;
+    const pad = function(n) { return n.toString().padStart(2, '0'); };
+    const timerEl = document.getElementById('legal-timer');
+    if (timerEl) {
+      timerEl.innerHTML = (h > 0 ? '<span>' + pad(h) + '</span>:' : '') +
+        '<span>' + pad(m) + '</span>:<span>' + pad(s) + '</span>';
+    }
+  }, 1000);
+}
+
+// ── Read B2B score from sessionStorage ──
+function readB2BScore() {
+  try {
+    const score = parseInt(sessionStorage.getItem('b2b_risk_score') || '0');
+    if (score >= 25) {
+      const b2bPanel = document.getElementById('panel-b2b');
+      if (b2bPanel) {
+        const scoreNote = document.createElement('div');
+        scoreNote.style.cssText = 'background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.2);border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:0.88rem;color:#c4b5fd;';
+        scoreNote.innerHTML = '<i class="fas fa-chart-bar" style="color:#a78bfa;margin-right:8px;"></i> Your risk scorecard showed <strong>' + score + '/100</strong>. That\'s ' + (score >= 70 ? '<strong style="color:#fc5c65;">CRITICAL</strong>' : score >= 45 ? '<strong style="color:#E84545;">HIGH</strong>' : '<strong style="color:#fed330;">MEDIUM</strong>') + ' risk. This audit is not optional for your situation.';
+        const header = b2bPanel.querySelector('.offer-card-header');
+        if (header) header.insertAdjacentElement('afterend', scoreNote);
+      }
+    }
+  } catch(e) {}
+}
+
+// ── MFSN Launch ──
+function launchMFSN() {
+  const btn = document.getElementById('mfsn-launch-btn');
+  if (btn) {
+    btn.textContent = '⏳ Redirecting to Secure Enrollment...';
+    btn.disabled = true;
+  }
+  setTimeout(function() {
+    window.open(MFSN_URL, '_blank', 'noopener,noreferrer');
+    if (btn) {
+      btn.innerHTML = '<i class="fas fa-check"></i> Enrollment page opened in new tab';
+      btn.style.background = 'linear-gradient(135deg,#26de81,#0da55e)';
+      btn.disabled = false;
+    }
+    showToast('✅ MyFreeScoreNow opened. Pull all 3 reports, then come back for your FCRA scan.');
+  }, 600);
+}
+
+// ── Checkout Modal ──
+function openCheckout(type) {
+  if (type === 'credit') { launchMFSN(); return; }
+  activeCheckoutType = type;
+  const cfg = pathConfig[type];
+  if (!cfg || !cfg.price) return;
+
+  document.getElementById('co-offer-label').textContent = cfg.label;
+  document.getElementById('co-title').textContent = cfg.title;
+  document.getElementById('co-price-main').textContent = cfg.price;
+  document.getElementById('co-price-sub').textContent = cfg.note;
+  document.getElementById('co-form').style.display = 'flex';
+  document.getElementById('co-success').style.display = 'none';
+  document.getElementById('co-submit-text').textContent = 'Complete Purchase — ' + cfg.price;
+  document.getElementById('co-submit-btn').disabled = false;
+
+  const overlay = document.getElementById('checkout-overlay');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function() {
+    const nameField = document.getElementById('co-name');
+    if (nameField) nameField.focus();
+  }, 100);
+}
+
+function closeCheckout() {
+  document.getElementById('checkout-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on overlay click
+document.addEventListener('click', function(e) {
+  const overlay = document.getElementById('checkout-overlay');
+  if (e.target === overlay) closeCheckout();
+});
+
+// ── Card formatting helpers ──
+function formatCard(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 16);
+  v = v.match(/.{1,4}/g) ? v.match(/.{1,4}/g).join(' ') : v;
+  input.value = v;
+}
+function formatExpiry(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 4);
+  if (v.length >= 3) v = v.substring(0, 2) + '/' + v.substring(2);
+  input.value = v;
+}
+
+// ── Checkout submission (Stripe integration point) ──
+async function processCheckout(e) {
+  e.preventDefault();
+  const btn = document.getElementById('co-submit-btn');
+  const btnText = document.getElementById('co-submit-text');
+  btn.disabled = true;
+  btnText.textContent = '⏳ Processing...';
+
+  const name  = document.getElementById('co-name').value.trim();
+  const email = document.getElementById('co-email').value.trim();
+
+  // Simulate payment processing (0.8s) — wire to real Stripe.js on launch
+  await new Promise(function(resolve) { setTimeout(resolve, 900); });
+
+  // Save purchase record to leads table
+  try {
+    await fetch('tables/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        full_name: name,
+        email: email,
+        path: activeCheckoutType,
+        source: 'stage2-tripwire-checkout',
+        submitted_at: new Date().toISOString(),
+        utm_source: (function(){try{return sessionStorage.getItem('utm_source')||'organic';}catch(e){return 'organic';}}()),
+        page_url: window.location.href,
+      }),
+    });
+  } catch(err) { /* non-blocking */ }
+
+  // Show success
+  const cfg = pathConfig[activeCheckoutType];
+  document.getElementById('co-form').style.display = 'none';
+  const successEl = document.getElementById('co-success');
+  successEl.style.display = 'block';
+  document.getElementById('co-success-title').textContent = cfg.successTitle;
+  document.getElementById('co-success-msg').textContent = cfg.successMsg;
+  document.getElementById('co-success-cta-text').textContent = cfg.nextCTA;
+  document.getElementById('co-success-cta').href = cfg.nextURL;
+
+  showToast('✅ Purchase complete! Check your email for access.');
+}
+
+// ── FAQ toggle ──
+function toggleFAQ(el) {
+  const item = el.closest('.faq-item');
+  item.classList.toggle('open');
+}
+
+// ── Toast ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 4000);
+}
+
+// ── Scroll reveal ──
+document.addEventListener('DOMContentLoaded', function() {
+  if (!('IntersectionObserver' in window)) return;
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.wi-item, .testimonial-block, .faq-item, .cross-sell-bar, .shield-teaser').forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+    obs.observe(el);
+  });
+
+  console.log('%c⚖️ Stage 2 Tripwire — SUE DAT AZZ | James Consumer Law Group | March 6, 2026', 'color:#F5C842;font-weight:bold;');
+});
+</script>
+</body>
+</html>
