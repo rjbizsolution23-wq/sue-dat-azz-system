@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚖️ B2B Compliance Risk Report | Sue Dat Azz | James Consumer Law Group</title>
+  <meta name="description" content="Generate a branded FinTech Compliance Risk Assessment PDF report. Powered by James Consumer Law Group AI scorecard — March 2026." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <!-- jsPDF for PDF generation -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <style>
+    /* ════════════════════════════════════════════════
+       SUE DAT AZZ — B2B COMPLIANCE RISK REPORT
+       James Consumer Law Group | March 6, 2026
+       FinTech Regulatory Risk Scorecard → PDF
+    ════════════════════════════════════════════════ */
+    :root {
+      --gold:#F5C842;--gold-d:#e6b800;
+      --d900:#0a0c10;--d800:#0f1117;--d700:#161a22;--d600:#1e2330;--d500:#252c3a;
+      --tp:#edf0f7;--ts:#8892a4;--tm:#5a6275;
+      --border:rgba(255,255,255,.07);
+      --green:#26de81;--red:#fc5c65;--yellow:#fed330;--blue:#4fc3f7;--purple:#a78bfa;
+      --orange:#fd9644;
+      --r8:8px;--r12:12px;--r16:16px;--r20:20px;
+      --ff:'Inter',sans-serif;--fh:'Space Grotesk',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--ff);background:var(--d900);color:var(--tp);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+
+    /* ── NAV ── */
+    .top-nav{background:var(--d800);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+    .nav-logo{font-family:var(--fh);font-size:.95rem;font-weight:800;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:6px}
+    .nav-links{display:flex;gap:5px;flex-wrap:wrap}
+    .nav-link{padding:5px 10px;border:1px solid var(--border);border-radius:7px;color:var(--ts);text-decoration:none;font-size:.75rem;font-weight:500;transition:all .2s}
+    .nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold)}
+
+    /* ── HERO ── */
+    .hero{background:linear-gradient(135deg,var(--d800) 0%,#0e1420 100%);border-bottom:1px solid var(--border);padding:40px 20px}
+    .hero-inner{max-width:900px;margin:0 auto;text-align:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.2);border-radius:100px;font-size:.75rem;font-weight:700;color:var(--gold);letter-spacing:.06em;margin-bottom:20px}
+    .hero h1{font-family:var(--fh);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.1;margin-bottom:12px}
+    .hero h1 span{color:var(--gold)}
+    .hero p{font-size:1rem;color:var(--ts);max-width:600px;margin:0 auto 24px}
+    .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-primary{padding:13px 28px;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0a0c10;border:none;border-radius:10px;font-weight:800;font-size:.92rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,200,66,.3)}
+    .btn-outline{padding:13px 28px;background:transparent;border:1.5px solid var(--border);color:var(--ts);border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+    /* ── MAIN LAYOUT ── */
+    .main{max-width:1060px;margin:0 auto;padding:32px 20px}
+    .two-col{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:start}
+    @media(max-width:800px){.two-col{grid-template-columns:1fr}}
+
+    /* ── PANELS ── */
+    .panel{background:var(--d700);border:1px solid var(--border);border-radius:var(--r16);padding:24px;margin-bottom:20px}
+    .panel-title{font-family:var(--fh);font-size:1rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px;color:var(--tp)}
+    .panel-title i{color:var(--gold)}
+
+    /* ── FORM ── */
+    .form-section{margin-bottom:18px}
+    .form-label{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ts);margin-bottom:6px;display:block}
+    .form-input,.form-select,.form-textarea{width:100%;padding:11px 14px;background:var(--d600);border:1.5px solid var(--border);border-radius:8px;color:var(--tp);font-size:.9rem;font-family:var(--ff);transition:border-color .2s}
+    .form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--gold)}
+    .form-select option{background:var(--d700)}
+    .form-textarea{resize:vertical;min-height:80px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+    .form-note{font-size:.75rem;color:var(--tm);margin-top:5px}
+
+    /* ── QUESTION ITEMS ── */
+    .question-item{background:var(--d800);border:1px solid var(--border);border-radius:var(--r12);padding:16px;margin-bottom:10px;transition:border-color .2s}
+    .question-item:hover{border-color:rgba(245,200,66,.15)}
+    .question-item.answered{border-color:rgba(38,222,129,.2)}
+    .qi-num{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);margin-bottom:4px}
+    .qi-text{font-size:.88rem;font-weight:600;color:var(--tp);margin-bottom:10px;line-height:1.45}
+    .qi-category{display:inline-block;font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:100px;margin-bottom:8px}
+    .qi-answers{display:flex;flex-direction:column;gap:7px}
+    .qi-answer{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--d700);border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:all .2s;text-align:left}
+    .qi-answer:hover{border-color:rgba(245,200,66,.3);background:rgba(245,200,66,.03)}
+    .qi-answer.selected{border-color:var(--gold);background:rgba(245,200,66,.06)}
+    .qi-answer.selected.risk-high{border-color:var(--red);background:rgba(252,92,101,.06)}
+    .qi-answer.selected.risk-med{border-color:var(--yellow);background:rgba(254,211,48,.06)}
+    .qi-answer.selected.risk-low{border-color:var(--green);background:rgba(38,222,129,.06)}
+    .qa-radio{width:14px;height:14px;border:2px solid var(--border);border-radius:50%;flex-shrink:0;margin-top:2px;transition:all .2s;display:flex;align-items:center;justify-content:center}
+    .qi-answer.selected .qa-radio{border-color:var(--gold);background:var(--gold)}
+    .qi-answer.selected.risk-high .qa-radio{border-color:var(--red);background:var(--red)}
+    .qi-answer.selected.risk-med .qa-radio{border-color:var(--yellow);background:var(--yellow)}
+    .qi-answer.selected.risk-low .qa-radio{border-color:var(--green);background:var(--green)}
+    .qa-label{font-size:.83rem;color:var(--ts);flex:1;line-height:1.4}
+
+    /* ── PROGRESS ── */
+    .progress-bar-wrap{background:var(--d800);border:1px solid var(--border);border-radius:var(--r12);padding:16px;margin-bottom:20px}
+    .pb-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .pb-label{font-size:.75rem;font-weight:600;color:var(--ts)}
+    .pb-count{font-size:.75rem;font-weight:700;color:var(--gold)}
+    .pb-track{height:8px;background:var(--d600);border-radius:100px;overflow:hidden}
+    .pb-fill{height:100%;background:linear-gradient(90deg,var(--gold-d),var(--gold));border-radius:100px;transition:width .4s ease}
+
+    /* ── SCORE PREVIEW ── */
+    .score-preview{background:var(--d800);border:1px solid var(--border);border-radius:var(--r16);padding:20px;margin-bottom:20px;text-align:center}
+    .sp-circle{width:110px;height:110px;border-radius:50%;margin:0 auto 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:4px solid;font-family:var(--fh);transition:all .4s}
+    .sp-score{font-size:2rem;font-weight:800;line-height:1}
+    .sp-max{font-size:.7rem;color:inherit;opacity:.6}
+    .sp-level{font-family:var(--fh);font-size:1.1rem;font-weight:800;margin-bottom:4px}
+    .sp-desc{font-size:.78rem;color:var(--ts);line-height:1.45}
+    .sp-findings{text-align:left;margin-top:16px}
+    .sp-finding{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:var(--d700);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;font-size:.8rem;color:var(--ts)}
+    .sp-finding i{flex-shrink:0;margin-top:2px}
+
+    /* ── ACTION BOX ── */
+    .action-box{background:linear-gradient(135deg,rgba(245,200,66,.06),rgba(245,200,66,.02));border:1.5px solid rgba(245,200,66,.2);border-radius:var(--r16);padding:22px;margin-bottom:20px;text-align:center}
+    .ab-title{font-family:var(--fh);font-size:1.1rem;font-weight:800;margin-bottom:6px}
+    .ab-sub{font-size:.85rem;color:var(--ts);margin-bottom:16px;line-height:1.5}
+    .ab-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .ab-btn{padding:11px 22px;border-radius:9px;border:none;font-weight:800;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:7px}
+    .ab-btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0a0c10}
+    .ab-btn.gold:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(245,200,66,.3)}
+    .ab-btn.outline{background:transparent;border:1.5px solid var(--border);color:var(--ts)}
+    .ab-btn.outline:hover{border-color:var(--gold);color:var(--gold)}
+
+    /* ── INFO STRIPS ── */
+    .info-strip{background:var(--d800);border:1px solid var(--border);border-radius:var(--r12);padding:14px 16px;margin-bottom:12px;display:flex;align-items:flex-start;gap:12px}
+    .is-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+    .is-body{flex:1}
+    .is-title{font-size:.82rem;font-weight:700;margin-bottom:2px}
+    .is-text{font-size:.76rem;color:var(--ts);line-height:1.45}
+
+    /* ── REPORT PREVIEW SECTION ── */
+    .report-preview{background:var(--d700);border:1px solid var(--border);border-radius:var(--r16);overflow:hidden;margin-bottom:20px}
+    .rp-header{background:linear-gradient(135deg,#0a0c10,#111827);padding:20px 24px;border-bottom:1px solid var(--border)}
+    .rp-title{font-family:var(--fh);font-size:.85rem;font-weight:700;color:var(--gold);letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+    .rp-sub{font-size:.75rem;color:var(--tm)}
+    .rp-body{padding:16px 20px}
+    .rp-section{margin-bottom:14px}
+    .rp-section-title{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);margin-bottom:6px}
+    .rp-item{display:flex;gap:8px;margin-bottom:5px;font-size:.8rem}
+    .rp-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
+
+    /* ── TOAST ── */
+    .toast{position:fixed;bottom:20px;right:20px;background:var(--d600);border:1px solid var(--border);border-left:3px solid var(--gold);padding:11px 16px;border-radius:10px;font-size:.83rem;color:var(--tp);z-index:400;display:none;max-width:280px;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+    .toast.show{display:block;animation:toastIn .25s ease}
+    @keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ── PDF BUTTON STATES ── */
+    .generating{opacity:.7;pointer-events:none}
+    .generating i{animation:spin 1s linear infinite}
+    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+    /* ── SEND REPORT MODAL ── */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(10px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+    .modal-overlay.open{display:flex}
+    .modal{background:var(--d700);border:1.5px solid var(--border);border-radius:var(--r20);width:100%;max-width:480px;padding:28px}
+    .modal-close{float:right;background:none;border:none;color:var(--tm);font-size:1.1rem;cursor:pointer}
+    .modal-close:hover{color:var(--tp)}
+    .modal-title{font-family:var(--fh);font-size:1.2rem;font-weight:800;margin-bottom:18px;clear:both}
+    .mf-field{margin-bottom:14px}
+    .mf-field label{display:block;font-size:.75rem;font-weight:600;color:var(--ts);margin-bottom:5px}
+    .mf-field input,.mf-field select,.mf-field textarea{width:100%;padding:10px 14px;background:var(--d600);border:1.5px solid var(--border);border-radius:8px;color:var(--tp);font-size:.88rem;font-family:var(--ff);transition:border-color .2s}
+    .mf-field input:focus,.mf-field select:focus{outline:none;border-color:var(--gold)}
+    .modal-footer{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+    .mf-cancel{padding:10px 20px;background:var(--d600);border:1px solid var(--border);border-radius:8px;color:var(--ts);font-weight:600;font-size:.88rem;cursor:pointer}
+    .mf-save{padding:10px 24px;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0a0c10;border:none;border-radius:8px;font-weight:800;font-size:.88rem;cursor:pointer}
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-logo">⚖️ SUE DAT AZZ</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="stage1.html" class="nav-link"><i class="fas fa-door-open"></i> Intake</a>
+    <a href="email-sequences.html" class="nav-link"><i class="fas fa-envelope"></i> Emails</a>
+    <a href="crm.html" class="nav-link"><i class="fas fa-briefcase"></i> CRM</a>
+    <a href="b2b-report.html" class="nav-link active"><i class="fas fa-file-pdf"></i> B2B Report</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fas fa-shield-alt"></i> FINTECH COMPLIANCE RISK ASSESSMENT</div>
+    <h1>Generate Your <span>Branded PDF</span><br>Compliance Risk Report</h1>
+    <p>Fill in the client scorecard data, run the analysis, and download a professional FinTech regulatory risk report — branded James Consumer Law Group, citing live 2026 regulations.</p>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="scrollToForm()"><i class="fas fa-clipboard-check"></i> Start Scorecard</button>
+      <button class="btn-outline" onclick="loadFromSession()"><i class="fas fa-magic"></i> Load Stage 1 Data</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── MAIN ── -->
+<div class="main">
+  <div class="two-col">
+
+    <!-- ══ LEFT: SCORECARD FORM ══ -->
+    <div id="scorecard-section">
+
+      <!-- Client Info -->
+      <div class="panel" id="form-anchor">
+        <div class="panel-title"><i class="fas fa-building"></i> Client Information</div>
+        <div class="form-grid">
+          <div class="form-section">
+            <label class="form-label">Company / Firm Name *</label>
+            <input class="form-input" id="co-name" type="text" placeholder="TechFlow Financial Inc." />
+          </div>
+          <div class="form-section">
+            <label class="form-label">Contact Name *</label>
+            <input class="form-input" id="co-contact" type="text" placeholder="Alex Chen, CEO" />
+          </div>
+          <div class="form-section">
+            <label class="form-label">Email *</label>
+            <input class="form-input" id="co-email" type="email" placeholder="legal@techflow.io" />
+          </div>
+          <div class="form-section">
+            <label class="form-label">Phone</label>
+            <input class="form-input" id="co-phone" type="tel" placeholder="(415) 555-0100" oninput="fmtPhone(this)" />
+          </div>
+          <div class="form-section">
+            <label class="form-label">Company Type</label>
+            <select class="form-select" id="co-type">
+              <option value="fintech_startup">FinTech Startup</option>
+              <option value="neobank">Neobank / Digital Bank</option>
+              <option value="debt_collector">Debt Collector / ARM</option>
+              <option value="credit_bureau">Credit Bureau / CRA</option>
+              <option value="payment_processor">Payment Processor</option>
+              <option value="lender">Lender / BNPL</option>
+              <option value="insurance_tech">InsurTech</option>
+              <option value="other">Other FinTech</option>
+            </select>
+          </div>
+          <div class="form-section">
+            <label class="form-label">Annual Revenue Range</label>
+            <select class="form-select" id="co-revenue">
+              <option value="pre_revenue">Pre-Revenue / Seed</option>
+              <option value="under_1m">Under $1M</option>
+              <option value="1m_10m">$1M–$10M</option>
+              <option value="10m_50m">$10M–$50M</option>
+              <option value="50m_plus">$50M+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-section">
+          <label class="form-label">Products / Services Overview</label>
+          <textarea class="form-textarea" id="co-desc" placeholder="Briefly describe your core product — e.g., 'Mobile lending app, instant personal loans $500–$5k, automated underwriting, BNPL checkout…'"></textarea>
+        </div>
+      </div>
+
+      <!-- Scorecard Questions -->
+      <div class="panel">
+        <div class="panel-title"><i class="fas fa-tasks"></i> 10-Point Compliance Scorecard</div>
+        <p style="font-size:.82rem;color:var(--ts);margin-bottom:16px;line-height:1.55">Answer all 10 questions based on current company practices. Higher-risk answers = higher regulatory exposure. Be honest — this is attorney-client privileged.</p>
+
+        <!-- Progress bar -->
+        <div class="progress-bar-wrap">
+          <div class="pb-top">
+            <span class="pb-label">Completion Progress</span>
+            <span class="pb-count" id="progress-text">0 / 10 answered</span>
+          </div>
+          <div class="pb-track"><div class="pb-fill" id="progress-fill" style="width:0%"></div></div>
+        </div>
+
+        <div id="questions-container"></div>
+
+        <button class="btn-primary" style="width:100%;margin-top:16px;justify-content:center" onclick="runAnalysis()">
+          <i class="fas fa-calculator"></i> Calculate Risk Score &amp; Generate Report
+        </button>
+      </div>
+    </div>
+
+    <!-- ══ RIGHT: RESULTS + PDF ══ -->
+    <div id="results-section">
+
+      <!-- Live Score Preview -->
+      <div class="score-preview" id="score-panel">
+        <div class="sp-circle" id="score-circle" style="border-color:var(--tm);color:var(--tm)">
+          <div class="sp-score" id="score-num">—</div>
+          <div class="sp-max">/100</div>
+        </div>
+        <div class="sp-level" id="score-level" style="color:var(--tm)">Answer all 10 questions</div>
+        <div class="sp-desc" id="score-desc">Your regulatory risk score will appear here as you complete the scorecard.</div>
+        <div class="sp-findings" id="score-findings"></div>
+      </div>
+
+      <!-- Report Preview -->
+      <div class="report-preview" id="report-preview" style="display:none">
+        <div class="rp-header">
+          <div class="rp-title">⚖️ James Consumer Law Group — Confidential</div>
+          <div class="rp-sub">FinTech Regulatory Risk Assessment Report · March 2026</div>
+        </div>
+        <div class="rp-body" id="report-preview-body"></div>
+      </div>
+
+      <!-- Action Box (PDF download) -->
+      <div class="action-box" id="action-box" style="display:none">
+        <div class="ab-title">📄 Report Ready to Download</div>
+        <div class="ab-sub" id="action-desc">Your branded compliance risk report is ready. Download the PDF or send directly to the client.</div>
+        <div class="ab-btns">
+          <button class="ab-btn gold" id="pdf-btn" onclick="generatePDF()">
+            <i class="fas fa-file-pdf"></i> Download PDF Report
+          </button>
+          <button class="ab-btn outline" onclick="openSendModal()">
+            <i class="fas fa-paper-plane"></i> Capture Lead
+          </button>
+        </div>
+      </div>
+
+      <!-- Info strips -->
+      <div class="info-strip">
+        <div class="is-icon">🔒</div>
+        <div class="is-body">
+          <div class="is-title">Attorney-Client Privilege Protected</div>
+          <div class="is-text">All scorecard responses are confidential. Disclosure protected under ABA Model Rule 1.6 and applicable state ethics rules. No data shared without consent.</div>
+        </div>
+      </div>
+      <div class="info-strip">
+        <div class="is-icon">⚡</div>
+        <div class="is-body">
+          <div class="is-title">2026 Regulatory Currency</div>
+          <div class="is-text">Report cites live 2026 authority — 5th Circuit TCPA Feb. 2026, FCC Global Revocation delay to Jan. 2027, CFPB § 1033 ANPR Aug. 2025, Trump CFPB FCRA preemption Oct. 2025.</div>
+        </div>
+      </div>
+      <div class="info-strip">
+        <div class="is-icon">💰</div>
+        <div class="is-body">
+          <div class="is-title">Remediation Starts at $5,000</div>
+          <div class="is-text">Critical/High findings include a consultation recommendation. Compliance retainers $2.5k–$5k/mo. One-time audits $5k–$25k.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SEND / CAPTURE LEAD MODAL ── -->
+<div class="modal-overlay" id="send-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeSendModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-title">📩 Capture Lead & Send Report</div>
+    <div class="mf-field">
+      <label>Company Name</label>
+      <input type="text" id="sl-company" placeholder="TechFlow Financial Inc." />
+    </div>
+    <div class="mf-field">
+      <label>Contact Name *</label>
+      <input type="text" id="sl-name" placeholder="Alex Chen" required />
+    </div>
+    <div class="mf-field">
+      <label>Email Address *</label>
+      <input type="email" id="sl-email" placeholder="legal@techflow.io" required />
+    </div>
+    <div class="mf-field">
+      <label>Phone</label>
+      <input type="tel" id="sl-phone" placeholder="(415) 555-0100" oninput="fmtPhone(this)" />
+    </div>
+    <div class="mf-field">
+      <label>Risk Level Found</label>
+      <select id="sl-risk">
+        <option value="CRITICAL">🔴 CRITICAL (70+)</option>
+        <option value="HIGH">🟠 HIGH (45–69)</option>
+        <option value="MEDIUM">🟡 MEDIUM (25–44)</option>
+        <option value="LOW">🟢 LOW (&lt;25)</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button class="mf-cancel" onclick="closeSendModal()">Cancel</button>
+      <button class="mf-save" onclick="saveLead()"><i class="fas fa-save"></i> Save Lead + Download PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// SUE DAT AZZ — B2B COMPLIANCE RISK REPORT GENERATOR
+// James Consumer Law Group | March 6, 2026
+// FinTech Regulatory Risk Scorecard → Branded PDF via jsPDF
+// ══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────────
+// SCORECARD QUESTION BANK
+// ────────────────────────────────────────────────
+const QUESTIONS = [
+  {
+    id: 1,
+    category: 'TCPA',
+    categoryColor: '#fc5c65',
+    text: 'How does your company obtain consumer consent for automated calls, texts, or prerecorded messages?',
+    cite: '47 U.S.C. § 227 / 5th Circuit Feb. 2026',
+    answers: [
+      { label: 'We don\'t make automated calls or texts', score: 0, risk: 'low' },
+      { label: 'Separate, clear written consent specific to each communication channel', score: 10, risk: 'low' },
+      { label: 'Buried in terms of service or account signup checkbox', score: 65, risk: 'high' },
+      { label: 'Verbal consent only, or we assume consent from existing relationship', score: 80, risk: 'high' },
+      { label: 'We send texts/make calls without a formal consent process', score: 100, risk: 'high' },
+    ]
+  },
+  {
+    id: 2,
+    category: 'FCRA',
+    categoryColor: '#4fc3f7',
+    text: 'When consumers dispute information on credit reports you furnish, what\'s your investigation process?',
+    cite: '15 U.S.C. § 1681i / Reg V (12 C.F.R. § 1022)',
+    answers: [
+      { label: 'N/A — we don\'t furnish data to credit bureaus', score: 0, risk: 'low' },
+      { label: 'Formal 30-day investigation process with documented ACDV responses', score: 5, risk: 'low' },
+      { label: 'We have a process but it\'s not always completed within 30 days', score: 45, risk: 'med' },
+      { label: 'Disputes are handled inconsistently, no dedicated compliance team', score: 75, risk: 'high' },
+      { label: 'We rely on the bureau to handle disputes, no internal process', score: 90, risk: 'high' },
+    ]
+  },
+  {
+    id: 3,
+    category: 'FDCPA',
+    categoryColor: '#fed330',
+    text: 'If your platform involves debt collection or third-party debt purchasing, how do you handle consumer communications?',
+    cite: '15 U.S.C. § 1692 et seq. / Reg F (12 C.F.R. § 1006)',
+    answers: [
+      { label: 'N/A — not in debt collection', score: 0, risk: 'low' },
+      { label: 'Full FDCPA/Reg F compliance program with trained staff and documented procedures', score: 5, risk: 'low' },
+      { label: 'We follow basic rules but haven\'t done a formal compliance audit', score: 40, risk: 'med' },
+      { label: 'Our collectors use scripts but there\'s no real compliance oversight', score: 70, risk: 'high' },
+      { label: 'We use third-party collectors and don\'t monitor their FDCPA compliance', score: 100, risk: 'high' },
+    ]
+  },
+  {
+    id: 4,
+    category: 'CFPB / UDAAP',
+    categoryColor: '#a78bfa',
+    text: 'How does your company monitor for Unfair, Deceptive, or Abusive Acts or Practices (UDAAP) in marketing and servicing?',
+    cite: 'CFPA § 1031 / CFPB Exam Procedures 2025',
+    answers: [
+      { label: 'Regular UDAAP audits, compliance officer reviews all marketing', score: 5, risk: 'low' },
+      { label: 'Legal reviews major campaigns; informal monitoring otherwise', score: 30, risk: 'med' },
+      { label: 'No formal UDAAP program — we handle issues reactively', score: 70, risk: 'high' },
+      { label: 'UDAAP is not something we\'ve formally addressed', score: 95, risk: 'high' },
+    ]
+  },
+  {
+    id: 5,
+    category: 'Open Banking / 1033',
+    categoryColor: '#26de81',
+    text: 'Does your platform access or aggregate consumer financial data from third-party institutions?',
+    cite: '12 C.F.R. § 1033 / CFPB ANPR Aug. 2025',
+    answers: [
+      { label: 'No — we don\'t access third-party financial account data', score: 0, risk: 'low' },
+      { label: 'Yes, via Plaid/Finicity with proper consumer authorization and data minimization', score: 15, risk: 'low' },
+      { label: 'Yes, we use screen scraping or credential-based access', score: 75, risk: 'high' },
+      { label: 'Yes, but we haven\'t reviewed our practices since § 1033 rulemaking started', score: 60, risk: 'high' },
+    ]
+  },
+  {
+    id: 6,
+    category: 'Reg E / Reg Z',
+    categoryColor: '#fd9644',
+    text: 'For payment products or credit offerings, how current is your Reg E and Reg Z compliance?',
+    cite: '12 C.F.R. § 1005 (Reg E) / 12 C.F.R. § 1026 (Reg Z)',
+    answers: [
+      { label: 'N/A — no payment products or credit offered', score: 0, risk: 'low' },
+      { label: 'Full compliance program; disclosures reviewed by outside counsel annually', score: 5, risk: 'low' },
+      { label: 'We use a template but it hasn\'t been reviewed for 2025-2026 changes', score: 50, risk: 'med' },
+      { label: 'Disclosures were set up at launch and haven\'t been revisited', score: 80, risk: 'high' },
+      { label: 'We don\'t have formal Reg E/Z disclosures', score: 100, risk: 'high' },
+    ]
+  },
+  {
+    id: 7,
+    category: 'Data Privacy / GLBA',
+    categoryColor: '#4fc3f7',
+    text: 'How does your company handle the Gramm-Leach-Bliley Act (GLBA) privacy notice requirements?',
+    cite: 'GLBA § 6801-6809 / FTC Safeguards Rule (revised 2024)',
+    answers: [
+      { label: 'Annual privacy notices sent, written GLBA information security program maintained', score: 5, risk: 'low' },
+      { label: 'We send privacy notices but our security program isn\'t formally documented', score: 40, risk: 'med' },
+      { label: 'Privacy notices exist but aren\'t sent annually or are outdated', score: 65, risk: 'high' },
+      { label: 'We\'re not sure if GLBA applies to us; no formal notices', score: 90, risk: 'high' },
+    ]
+  },
+  {
+    id: 8,
+    category: 'AI / Algorithmic Decisions',
+    categoryColor: '#a78bfa',
+    text: 'Does your platform use AI, ML, or automated algorithms to make or influence credit, pricing, or eligibility decisions?',
+    cite: 'ECOA / FCRA § 1681m / CFPB AI Guidance 2025',
+    answers: [
+      { label: 'No — all decisions are human-reviewed', score: 0, risk: 'low' },
+      { label: 'Yes, with adverse action notices, model audits, and fair lending analysis', score: 10, risk: 'low' },
+      { label: 'Yes, automated decisions but adverse action notices aren\'t always triggered', score: 65, risk: 'high' },
+      { label: 'Yes, fully automated with no adverse action notice process', score: 90, risk: 'high' },
+      { label: 'Yes, using third-party AI and we haven\'t reviewed their compliance', score: 80, risk: 'high' },
+    ]
+  },
+  {
+    id: 9,
+    category: 'State Licensing',
+    categoryColor: '#fd9644',
+    text: 'Are you operating across multiple states? What\'s your money transmitter / lending license status?',
+    cite: 'State Money Transmitter Acts / NMLS',
+    answers: [
+      { label: 'Fully licensed in all states we operate; NMLS current', score: 5, risk: 'low' },
+      { label: 'Licensed in most states; a few states under review', score: 25, risk: 'med' },
+      { label: 'Operating in states where we may not have proper licensing', score: 80, risk: 'high' },
+      { label: 'We don\'t know our licensing status across all states', score: 90, risk: 'high' },
+      { label: 'We believe state licensing doesn\'t apply to our model (but haven\'t verified)', score: 70, risk: 'high' },
+    ]
+  },
+  {
+    id: 10,
+    category: 'Incident Response',
+    categoryColor: '#26de81',
+    text: 'What\'s your data breach / consumer harm incident response capability?',
+    cite: 'FTC Safeguards Rule / CFPB Supervisory Guidance / Reg S-P (SEC)',
+    answers: [
+      { label: 'Written incident response plan, tabletop exercises, mandatory notification protocols', score: 5, risk: 'low' },
+      { label: 'We have a general plan but it\'s not been tested or updated recently', score: 35, risk: 'med' },
+      { label: 'We\'d handle a breach ad hoc — no formal plan', score: 75, risk: 'high' },
+      { label: 'No incident response plan exists', score: 95, risk: 'high' },
+    ]
+  }
+];
+
+// ────────────────────────────────────────────────
+// STATE
+// ────────────────────────────────────────────────
+let answers = {}; // { questionId: { score, label, risk } }
+let currentReport = null;
+
+// ────────────────────────────────────────────────
+// INIT
+// ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  renderQuestions();
+  loadFromSession();
+  console.log('%c⚖️ B2B Risk Report Generator — SUE DAT AZZ | James Consumer Law Group | March 6, 2026', 'color:#F5C842;font-weight:bold;');
+});
+
+function renderQuestions() {
+  const container = document.getElementById('questions-container');
+  container.innerHTML = QUESTIONS.map(function(q) {
+    return '<div class="question-item" id="qi-'+q.id+'">' +
+      '<div class="qi-num">Question '+q.id+' of 10</div>' +
+      '<div class="qi-category" style="background:'+q.categoryColor+'18;color:'+q.categoryColor+'">'+q.category+'</div>' +
+      '<div class="qi-text">'+q.text+'</div>' +
+      '<div class="qi-answers">' +
+        q.answers.map(function(a, idx) {
+          return '<div class="qi-answer" id="qa-'+q.id+'-'+idx+'" onclick="selectAnswer('+q.id+','+idx+','+a.score+',\''+a.risk+'\',\''+encodeURIComponent(a.label)+'\')">' +
+            '<div class="qa-radio"></div>' +
+            '<div class="qa-label">'+a.label+
+              '<div style="font-size:.68rem;color:var(--tm);margin-top:2px">'+q.cite+'</div>' +
+            '</div>' +
+          '</div>';
+        }).join('') +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+// ────────────────────────────────────────────────
+// SELECT ANSWER
+// ────────────────────────────────────────────────
+function selectAnswer(qId, answerIdx, score, risk, labelEncoded) {
+  const label = decodeURIComponent(labelEncoded);
+  answers[qId] = { score, risk, label };
+
+  // Clear all options for this question
+  QUESTIONS.find(function(q){ return q.id===qId; }).answers.forEach(function(_, i) {
+    const el = document.getElementById('qa-'+qId+'-'+i);
+    if (el) {
+      el.classList.remove('selected','risk-high','risk-med','risk-low');
+    }
+  });
+
+  // Mark selected
+  const selected = document.getElementById('qa-'+qId+'-'+answerIdx);
+  if (selected) {
+    selected.classList.add('selected');
+    if (risk === 'high') selected.classList.add('risk-high');
+    else if (risk === 'med') selected.classList.add('risk-med');
+    else selected.classList.add('risk-low');
+  }
+
+  // Mark question answered
+  const qi = document.getElementById('qi-'+qId);
+  if (qi) qi.classList.add('answered');
+
+  updateProgress();
+  updateLiveScore();
+}
+
+// ────────────────────────────────────────────────
+// PROGRESS
+// ────────────────────────────────────────────────
+function updateProgress() {
+  const count = Object.keys(answers).length;
+  document.getElementById('progress-text').textContent = count + ' / 10 answered';
+  document.getElementById('progress-fill').style.width = (count * 10) + '%';
+}
+
+// ────────────────────────────────────────────────
+// LIVE SCORE (updates as user answers)
+// ────────────────────────────────────────────────
+function updateLiveScore() {
+  const count = Object.keys(answers).length;
+  if (count < 3) return; // Wait for at least 3 answers
+
+  const { normalizedScore, level, color } = computeRiskScore();
+  const circle = document.getElementById('score-circle');
+  circle.style.borderColor = color;
+  circle.style.color = color;
+  document.getElementById('score-num').textContent = normalizedScore;
+  document.getElementById('score-level').textContent = level;
+  document.getElementById('score-level').style.color = color;
+
+  const descs = {
+    CRITICAL: 'Severe regulatory exposure. Multiple CFPB/FTC enforcement triggers identified.',
+    HIGH: 'Significant compliance gaps. Immediate remediation recommended.',
+    MEDIUM: 'Moderate risk. Key areas need attention before scaling.',
+    LOW: 'Good compliance posture. Minor gaps to address.'
+  };
+  document.getElementById('score-desc').textContent = descs[level] || '';
+}
+
+function computeRiskScore() {
+  const answered = Object.values(answers);
+  if (answered.length === 0) return { normalizedScore: 0, level: 'LOW', color: '#26de81' };
+
+  // Weighted average of answered questions
+  const totalScore = answered.reduce(function(a, b){ return a + b.score; }, 0);
+  const normalizedScore = Math.round(totalScore / answered.length);
+
+  let level, color;
+  if (normalizedScore >= 70)      { level = 'CRITICAL'; color = '#fc5c65'; }
+  else if (normalizedScore >= 45) { level = 'HIGH';     color = '#fd9644'; }
+  else if (normalizedScore >= 25) { level = 'MEDIUM';   color = '#fed330'; }
+  else                            { level = 'LOW';      color = '#26de81'; }
+
+  return { normalizedScore, level, color };
+}
+
+// ────────────────────────────────────────────────
+// RUN ANALYSIS
+// ────────────────────────────────────────────────
+function runAnalysis() {
+  const count = Object.keys(answers).length;
+  if (count < 10) {
+    showToast('⚠️ Please answer all 10 questions first. (' + (10-count) + ' remaining)');
+    // Scroll to first unanswered
+    for (let i = 1; i <= 10; i++) {
+      if (!answers[i]) {
+        document.getElementById('qi-'+i).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('qi-'+i).style.borderColor = 'rgba(252,92,101,.5)';
+        setTimeout(function(){ document.getElementById('qi-'+i) && (document.getElementById('qi-'+i).style.borderColor = ''); }, 2000);
+        break;
+      }
+    }
+    return;
+  }
+
+  const coName = document.getElementById('co-name').value.trim() || 'Client Company';
+  const coContact = document.getElementById('co-contact').value.trim() || 'Client Contact';
+  const coEmail = document.getElementById('co-email').value.trim() || '';
+  const coType = document.getElementById('co-type').value;
+  const coRevenue = document.getElementById('co-revenue').value;
+  const coDesc = document.getElementById('co-desc').value.trim();
+
+  const { normalizedScore, level, color } = computeRiskScore();
+
+  // Generate top findings
+  const highRisk = QUESTIONS.filter(function(q){ return answers[q.id] && answers[q.id].risk === 'high'; });
+  const medRisk = QUESTIONS.filter(function(q){ return answers[q.id] && answers[q.id].risk === 'med'; });
+
+  // Remediation map
+  const REMEDIATION = {
+    'TCPA': 'Implement separate written consent per communication channel. Post 5th Circuit Feb. 2026, consent architecture must be channel-specific. Estimated fix: 4–6 weeks.',
+    'FCRA': 'Establish formal 30-day ACDV dispute investigation process. Train furnisher team on § 1681i requirements. Estimated fix: 6–8 weeks.',
+    'FDCPA': 'Implement Reg F (12 C.F.R. § 1006) compliant communication program. Third-party collector oversight policy required. Estimated fix: 4–6 weeks.',
+    'CFPB / UDAAP': 'Establish UDAAP compliance management system. Ongoing marketing review protocol. CFPB exam preparation. Estimated fix: 8–12 weeks.',
+    'Open Banking / 1033': 'Transition from screen scraping to tokenized API access. Review § 1033 ANPR obligations. Estimated fix: 3–6 months.',
+    'Reg E / Reg Z': 'Audit all disclosures against 2025–2026 regulatory updates. Reg Z total cost of credit recalculation. Estimated fix: 4–8 weeks.',
+    'Data Privacy / GLBA': 'Implement FTC Safeguards Rule (revised 2024) written information security program. Annual privacy notice protocol. Estimated fix: 6–10 weeks.',
+    'AI / Algorithmic Decisions': 'Implement adverse action notice process for all automated decisions. Fair lending/ECOA disparate impact analysis. AI model audit. Estimated fix: 8–16 weeks.',
+    'State Licensing': 'Conduct 50-state licensing gap analysis via NMLS. Obtain missing licenses before operating in unlicensed states. Estimated fix: 3–12 months.',
+    'Incident Response': 'Draft written incident response plan per FTC Safeguards Rule. Conduct tabletop exercise. Implement mandatory breach notification timeline. Estimated fix: 4–6 weeks.'
+  };
+
+  // Build findings
+  const findings = highRisk.concat(medRisk).map(function(q) {
+    return {
+      category: q.category,
+      severity: answers[q.id].risk === 'high' ? 'HIGH' : 'MEDIUM',
+      answer: answers[q.id].label,
+      remediation: REMEDIATION[q.category] || 'Review applicable regulations with legal counsel.',
+      cite: q.cite,
+      color: answers[q.id].risk === 'high' ? '#fc5c65' : '#fed330'
+    };
+  });
+
+  const coTypeLabelMap = {
+    fintech_startup:'FinTech Startup', neobank:'Neobank / Digital Bank',
+    debt_collector:'Debt Collector / ARM', credit_bureau:'Credit Bureau / CRA',
+    payment_processor:'Payment Processor', lender:'Lender / BNPL',
+    insurance_tech:'InsurTech', other:'Other FinTech'
+  };
+
+  currentReport = {
+    coName, coContact, coEmail, coType: coTypeLabelMap[coType] || coType,
+    coRevenue, coDesc, normalizedScore, level, color,
+    highRisk: highRisk.length, medRisk: medRisk.length,
+    lowRisk: QUESTIONS.length - highRisk.length - medRisk.length,
+    findings, answers,
+    date: 'March 6, 2026',
+    caseRef: 'JCLG-B2B-' + Date.now().toString().slice(-6)
+  };
+
+  // Update score display
+  const circle = document.getElementById('score-circle');
+  circle.style.borderColor = color;
+  circle.style.color = color;
+  document.getElementById('score-num').textContent = normalizedScore;
+  document.getElementById('score-level').textContent = level + ' RISK';
+  document.getElementById('score-level').style.color = color;
+
+  const descs = {
+    CRITICAL: 'CRITICAL: Severe regulatory exposure across multiple frameworks. Immediate legal intervention required. CFPB/FTC enforcement risk is real.',
+    HIGH: 'HIGH: Significant compliance gaps identified. Multiple statutory violations probable. Remediation plan needed before next scale event.',
+    MEDIUM: 'MEDIUM: Notable gaps in key compliance areas. Address before regulatory exam or funding round.',
+    LOW: 'LOW: Good compliance posture. Minor improvements recommended to maintain status.'
+  };
+  document.getElementById('score-desc').textContent = descs[level];
+
+  // Findings in preview
+  const findingsHtml = findings.slice(0, 5).map(function(f) {
+    return '<div class="sp-finding">' +
+      '<i class="fas fa-exclamation-triangle" style="color:'+f.color+'"></i>' +
+      '<div><strong style="color:'+f.color+'">'+f.severity+' — '+f.category+':</strong> ' + f.answer + '</div>' +
+    '</div>';
+  }).join('');
+  document.getElementById('score-findings').innerHTML = findingsHtml;
+
+  // Report preview
+  renderReportPreview(currentReport);
+
+  // Show action box
+  document.getElementById('action-box').style.display = 'block';
+  document.getElementById('report-preview').style.display = 'block';
+
+  const actionDesc = {
+    CRITICAL: '🔴 CRITICAL findings require immediate consultation. Download and review with client ASAP.',
+    HIGH: '🟠 HIGH risk findings identified. Schedule compliance consultation to discuss remediation roadmap.',
+    MEDIUM: '🟡 MEDIUM risk. Use report to position compliance retainer.',
+    LOW: '🟢 LOW risk posture. Use report to confirm good standing and propose monitoring subscription.'
+  };
+  document.getElementById('action-desc').textContent = actionDesc[level];
+
+  // Pre-fill send modal
+  document.getElementById('sl-company').value = coName;
+  document.getElementById('sl-name').value = coContact;
+  document.getElementById('sl-email').value = coEmail;
+  document.getElementById('sl-risk').value = level;
+
+  showToast('✅ Risk analysis complete — ' + level + ' (' + normalizedScore + '/100)');
+  document.getElementById('results-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ────────────────────────────────────────────────
+// REPORT PREVIEW HTML
+// ────────────────────────────────────────────────
+function renderReportPreview(r) {
+  const previewHtml =
+    '<div class="rp-section">' +
+      '<div class="rp-section-title">Client</div>' +
+      '<div style="font-size:.9rem;font-weight:700">'+r.coName+'</div>' +
+      '<div style="font-size:.78rem;color:var(--ts)">'+r.coContact+' · '+r.coType+'</div>' +
+    '</div>' +
+    '<div class="rp-section">' +
+      '<div class="rp-section-title">Risk Score</div>' +
+      '<div style="font-family:var(--fh);font-size:1.8rem;font-weight:800;color:'+r.color+'">'+r.normalizedScore+'/100 — '+r.level+'</div>' +
+    '</div>' +
+    '<div class="rp-section">' +
+      '<div class="rp-section-title">Summary</div>' +
+      '<div class="rp-item"><div class="rp-dot" style="background:var(--red)"></div><div style="color:var(--ts)">'+r.highRisk+' HIGH risk areas identified</div></div>' +
+      '<div class="rp-item"><div class="rp-dot" style="background:var(--yellow)"></div><div style="color:var(--ts)">'+r.medRisk+' MEDIUM risk areas identified</div></div>' +
+      '<div class="rp-item"><div class="rp-dot" style="background:var(--green)"></div><div style="color:var(--ts)">'+r.lowRisk+' LOW risk areas</div></div>' +
+    '</div>' +
+    '<div class="rp-section">' +
+      '<div class="rp-section-title">Top Findings ('+r.findings.length+')</div>' +
+      r.findings.slice(0,4).map(function(f){
+        return '<div class="rp-item"><div class="rp-dot" style="background:'+f.color+'"></div><div style="color:var(--ts)"><strong style="color:'+f.color+'">'+f.severity+'</strong> — '+f.category+'</div></div>';
+      }).join('') +
+      (r.findings.length > 4 ? '<div style="font-size:.72rem;color:var(--tm);margin-top:4px">+ '+(r.findings.length-4)+' more in full PDF report</div>' : '') +
+    '</div>';
+
+  document.getElementById('report-preview-body').innerHTML = previewHtml;
+}
+
+// ────────────────────────────────────────────────
+// PDF GENERATION — jsPDF
+// ────────────────────────────────────────────────
+async function generatePDF() {
+  if (!currentReport) { showToast('⚠️ Run the analysis first.'); return; }
+
+  const btn = document.getElementById('pdf-btn');
+  btn.classList.add('generating');
+  btn.innerHTML = '<i class="fas fa-circle-notch"></i> Generating PDF…';
+  showToast('⏳ Building your branded PDF report…');
+
+  try {
+    await new Promise(function(res){ setTimeout(res, 300); }); // Allow UI to update
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'letter' });
+    const r = currentReport;
+
+    const W = 215.9; // Letter width mm
+    const MARGIN = 18;
+    const CONTENT_W = W - MARGIN * 2;
+    let y = 0;
+
+    // ── HELPERS ──
+    function hex2rgb(hex) {
+      const n = parseInt(hex.replace('#',''), 16);
+      return [n>>16, (n>>8)&0xff, n&0xff];
+    }
+    function setColor(hex) { const c = hex2rgb(hex); doc.setTextColor(c[0],c[1],c[2]); }
+    function setFill(hex)  { const c = hex2rgb(hex); doc.setFillColor(c[0],c[1],c[2]); }
+    function setDraw(hex)  { const c = hex2rgb(hex); doc.setDrawColor(c[0],c[1],c[2]); }
+
+    function addPage() {
+      doc.addPage();
+      y = MARGIN;
+      addHeaderStrip();
+    }
+
+    function checkY(needed) {
+      if (y + needed > 260) { addPage(); }
+    }
+
+    function addHeaderStrip() {
+      setFill('#0a0c10');
+      doc.rect(0, 0, W, 12, 'F');
+      setColor('#F5C842');
+      doc.setFontSize(7);
+      doc.setFont('helvetica','bold');
+      doc.text('⚖ JAMES CONSUMER LAW GROUP — CONFIDENTIAL', MARGIN, 7.5);
+      doc.setFont('helvetica','normal');
+      setColor('#5a6275');
+      doc.text('FinTech Regulatory Risk Assessment · March 6, 2026 · Ref: '+r.caseRef, W-MARGIN, 7.5, { align:'right' });
+    }
+
+    // ══ PAGE 1: COVER ══
+    // Dark background
+    setFill('#0a0c10');
+    doc.rect(0, 0, W, 279.4, 'F');
+
+    // Gold accent bar
+    setFill('#F5C842');
+    doc.rect(0, 0, 6, 279.4, 'F');
+
+    // Firm header
+    setColor('#F5C842');
+    doc.setFontSize(9);
+    doc.setFont('helvetica','bold');
+    doc.text('⚖ JAMES CONSUMER LAW GROUP', MARGIN, 28);
+
+    setColor('#5a6275');
+    doc.setFontSize(7);
+    doc.setFont('helvetica','normal');
+    doc.text('jamaree.rjames@gmail.com  |  Consumer Law + FinTech  |  March 6, 2026', MARGIN, 34);
+
+    // Divider line
+    setDraw('#252c3a');
+    doc.setLineWidth(0.3);
+    doc.line(MARGIN, 38, W-MARGIN, 38);
+
+    // Report type badge
+    setFill('#1a2235');
+    doc.roundedRect(MARGIN, 44, 110, 9, 2, 2, 'F');
+    setColor('#4fc3f7');
+    doc.setFontSize(7);
+    doc.setFont('helvetica','bold');
+    doc.text('FINTECH REGULATORY RISK ASSESSMENT — CONFIDENTIAL REPORT', MARGIN+4, 49.5);
+
+    // Main title
+    setColor('#edf0f7');
+    doc.setFontSize(22);
+    doc.setFont('helvetica','bold');
+    doc.text('Compliance Risk', MARGIN, 66);
+    setColor('#F5C842');
+    doc.text('Assessment Report', MARGIN, 76);
+
+    // Company name
+    setColor('#edf0f7');
+    doc.setFontSize(14);
+    doc.setFont('helvetica','bold');
+    doc.text(r.coName, MARGIN, 92);
+    setColor('#8892a4');
+    doc.setFontSize(9);
+    doc.setFont('helvetica','normal');
+    doc.text(r.coContact + '  ·  ' + r.coType, MARGIN, 99);
+
+    // Big score circle (visual)
+    const scoreColors = { CRITICAL:'#fc5c65', HIGH:'#fd9644', MEDIUM:'#fed330', LOW:'#26de81' };
+    const sColor = scoreColors[r.level] || '#F5C842';
+    const sRgb = hex2rgb(sColor);
+
+    // Outer circle
+    doc.setDrawColor(sRgb[0], sRgb[1], sRgb[2]);
+    doc.setFillColor(sRgb[0]*0.1+10, sRgb[1]*0.1+10, sRgb[2]*0.1+10);
+    doc.setLineWidth(2.5);
+    doc.circle(165, 90, 26, 'FD');
+
+    // Score number
+    doc.setTextColor(sRgb[0], sRgb[1], sRgb[2]);
+    doc.setFontSize(26);
+    doc.setFont('helvetica','bold');
+    doc.text(String(r.normalizedScore), 165, 94, { align:'center' });
+    doc.setFontSize(7);
+    doc.setFont('helvetica','normal');
+    doc.text('/100', 165, 100, { align:'center' });
+    doc.setFontSize(8);
+    doc.setFont('helvetica','bold');
+    doc.text(r.level, 165, 108, { align:'center' });
+
+    // Divider
+    setDraw('#252c3a');
+    doc.setLineWidth(0.2);
+    doc.line(MARGIN, 115, W-MARGIN, 115);
+
+    // Risk summary boxes
+    const boxes = [
+      { label:'HIGH Risk Areas', val:String(r.highRisk), color:'#fc5c65' },
+      { label:'MEDIUM Risk', val:String(r.medRisk), color:'#fed330' },
+      { label:'LOW Risk', val:String(r.lowRisk), color:'#26de81' },
+      { label:'Questions Assessed', val:'10', color:'#4fc3f7' },
+    ];
+    const boxW = (CONTENT_W - 12) / 4;
+    boxes.forEach(function(box, i) {
+      const bx = MARGIN + i*(boxW+4);
+      const bRgb = hex2rgb(box.color);
+      doc.setFillColor(Math.round(bRgb[0]*0.12)+8, Math.round(bRgb[1]*0.12)+8, Math.round(bRgb[2]*0.12)+8);
+      doc.setDrawColor(bRgb[0], bRgb[1], bRgb[2]);
+      doc.setLineWidth(0.5);
+      doc.roundedRect(bx, 119, boxW, 20, 2, 2, 'FD');
+      doc.setTextColor(bRgb[0], bRgb[1], bRgb[2]);
+      doc.setFontSize(16);
+      doc.setFont('helvetica','bold');
+      doc.text(box.val, bx+boxW/2, 131, { align:'center' });
+      doc.setFontSize(6.5);
+      doc.setFont('helvetica','normal');
+      doc.text(box.label, bx+boxW/2, 136, { align:'center' });
+    });
+
+    // Executive summary
+    setFill('#0f1117');
+    doc.roundedRect(MARGIN, 145, CONTENT_W, 40, 3, 3, 'F');
+
+    setColor('#F5C842');
+    doc.setFontSize(8);
+    doc.setFont('helvetica','bold');
+    doc.text('EXECUTIVE SUMMARY', MARGIN+6, 153);
+
+    const execSummary = {
+      CRITICAL: 'This assessment identifies CRITICAL regulatory exposure across multiple frameworks. Continued operation without immediate remediation creates substantial CFPB examination risk, state regulatory action, and private right of action exposure. We strongly recommend a comprehensive compliance program overhaul prior to any funding round, partnership, or scale event.',
+      HIGH: 'This assessment identifies HIGH regulatory risk across key compliance areas. Multiple statutory violations are probable under current practices. A structured remediation roadmap is required. Proactive remediation is significantly less costly than regulatory enforcement or private litigation.',
+      MEDIUM: 'This assessment identifies MEDIUM regulatory risk. Key compliance gaps exist that should be addressed systematically. While the risk of immediate enforcement action is lower, gaps in TCPA consent architecture, data furnishing practices, and state licensing could compound over time.',
+      LOW: 'This assessment indicates a LOW regulatory risk posture. The company demonstrates reasonable compliance infrastructure. Minor improvements in documentation and monitoring are recommended to maintain this status and prepare for regulatory examination readiness.'
+    };
+
+    setColor('#8892a4');
+    doc.setFontSize(7.5);
+    doc.setFont('helvetica','normal');
+    const summaryLines = doc.splitTextToSize(execSummary[r.level] || '', CONTENT_W-12);
+    doc.text(summaryLines, MARGIN+6, 160);
+
+    // Prepared by
+    setColor('#5a6275');
+    doc.setFontSize(7);
+    doc.setFont('helvetica','normal');
+    doc.text('Prepared by: Jamaree R. James, Esq. · James Consumer Law Group · March 6, 2026', MARGIN, 197);
+    doc.text('This report is privileged and confidential. For internal and attorney review only.', MARGIN, 202);
+    doc.text('Cite: 15 U.S.C. §§ 1681, 1692 · 47 U.S.C. § 227 · 12 C.F.R. §§ 1005, 1006, 1022, 1026, 1033', MARGIN, 207);
+
+    // Footer
+    setFill('#0f1117');
+    doc.rect(0, 265, W, 14.4, 'F');
+    setColor('#5a6275');
+    doc.setFontSize(6.5);
+    doc.text('James Consumer Law Group  |  jamaree.rjames@gmail.com  |  Consumer Protection + FinTech Compliance  |  March 6, 2026', W/2, 270, { align:'center' });
+    doc.text('This report does not constitute legal advice. An attorney-client relationship requires a formal engagement agreement.', W/2, 275, { align:'center' });
+
+    // ══ PAGE 2: DETAILED FINDINGS ══
+    doc.addPage();
+    y = MARGIN;
+    addHeaderStrip();
+    y = 20;
+
+    // Page title
+    setColor('#edf0f7');
+    doc.setFontSize(14);
+    doc.setFont('helvetica','bold');
+    doc.text('Detailed Findings & Remediation Roadmap', MARGIN, y);
+    y += 6;
+    setColor('#5a6275');
+    doc.setFontSize(8);
+    doc.setFont('helvetica','normal');
+    doc.text(r.coName + ' · ' + r.level + ' Risk (' + r.normalizedScore + '/100) · March 6, 2026', MARGIN, y);
+    y += 8;
+
+    // Divider
+    setDraw('#252c3a');
+    doc.setLineWidth(0.3);
+    doc.line(MARGIN, y, W-MARGIN, y);
+    y += 8;
+
+    if (r.findings.length === 0) {
+      setColor('#26de81');
+      doc.setFontSize(10);
+      doc.setFont('helvetica','bold');
+      doc.text('✓ No high or medium risk findings identified. Excellent compliance posture.', MARGIN, y);
+      y += 10;
+    }
+
+    r.findings.forEach(function(f, idx) {
+      checkY(52);
+
+      const fRgb = hex2rgb(f.color);
+
+      // Finding header bar
+      doc.setFillColor(Math.round(fRgb[0]*0.15)+8, Math.round(fRgb[1]*0.15)+8, Math.round(fRgb[2]*0.15)+8);
+      doc.setDrawColor(fRgb[0], fRgb[1], fRgb[2]);
+      doc.setLineWidth(0.5);
+      doc.roundedRect(MARGIN, y, CONTENT_W, 10, 2, 2, 'FD');
+
+      doc.setTextColor(fRgb[0], fRgb[1], fRgb[2]);
+      doc.setFontSize(7.5);
+      doc.setFont('helvetica','bold');
+      doc.text('FINDING ' + (idx+1) + ' — ' + f.severity + ' RISK: ' + f.category.toUpperCase(), MARGIN+4, y+6.5);
+
+      setColor('#5a6275');
+      doc.setFontSize(6.5);
+      doc.setFont('helvetica','normal');
+      doc.text('Cite: ' + f.cite, W-MARGIN-2, y+6.5, { align:'right' });
+
+      y += 12;
+
+      // Current practice
+      setFill('#0f1117');
+      doc.roundedRect(MARGIN, y, CONTENT_W, 11, 2, 2, 'F');
+      setColor('#8892a4');
+      doc.setFontSize(6.5);
+      doc.setFont('helvetica','bold');
+      doc.text('CURRENT PRACTICE:', MARGIN+4, y+4.5);
+      doc.setFont('helvetica','normal');
+      const answerLines = doc.splitTextToSize(f.answer, CONTENT_W-40);
+      doc.text(answerLines[0] || '', MARGIN+42, y+4.5);
+      if (answerLines[1]) {
+        y += 4;
+        doc.text(answerLines[1], MARGIN+4, y+4.5);
+      }
+      y += 13;
+
+      // Remediation
+      setFill('#0d1520');
+      doc.roundedRect(MARGIN, y, CONTENT_W, 22, 2, 2, 'F');
+      setColor('#F5C842');
+      doc.setFontSize(6.5);
+      doc.setFont('helvetica','bold');
+      doc.text('REMEDIATION:', MARGIN+4, y+5.5);
+      setColor('#8892a4');
+      doc.setFont('helvetica','normal');
+      const remLines = doc.splitTextToSize(f.remediation, CONTENT_W-10);
+      doc.text(remLines.slice(0,3), MARGIN+4, y+10.5);
+      y += 26;
+    });
+
+    // Low risk confirmations
+    const lowRiskQs = QUESTIONS.filter(function(q){ return answers[q.id] && answers[q.id].risk === 'low'; });
+    if (lowRiskQs.length > 0) {
+      checkY(20);
+      y += 4;
+      setColor('#26de81');
+      doc.setFontSize(8);
+      doc.setFont('helvetica','bold');
+      doc.text('✓ CONFIRMED COMPLIANT AREAS', MARGIN, y);
+      y += 7;
+
+      lowRiskQs.forEach(function(q) {
+        checkY(12);
+        setFill('#071510');
+        doc.setDrawColor(38, 222, 129);
+        doc.setLineWidth(0.3);
+        doc.roundedRect(MARGIN, y, CONTENT_W, 8, 2, 2, 'FD');
+        setColor('#26de81');
+        doc.setFontSize(7);
+        doc.setFont('helvetica','bold');
+        doc.text('✓ ' + q.category + ':', MARGIN+3, y+5.3);
+        setColor('#8892a4');
+        doc.setFont('helvetica','normal');
+        const shortLabel = answers[q.id].label.substring(0, 85) + (answers[q.id].label.length > 85 ? '…' : '');
+        doc.text(shortLabel, MARGIN+30, y+5.3);
+        y += 10;
+      });
+    }
+
+    // ══ PAGE 3: REGULATORY AUTHORITY + NEXT STEPS ══
+    doc.addPage();
+    y = MARGIN;
+    addHeaderStrip();
+    y = 20;
+
+    setColor('#edf0f7');
+    doc.setFontSize(14);
+    doc.setFont('helvetica','bold');
+    doc.text('Regulatory Authority & Next Steps', MARGIN, y);
+    y += 6;
+    setColor('#5a6275');
+    doc.setFontSize(8);
+    doc.setFont('helvetica','normal');
+    doc.text('All citations current as of March 6, 2026', MARGIN, y);
+    y += 10;
+    setDraw('#252c3a');
+    doc.line(MARGIN, y, W-MARGIN, y);
+    y += 8;
+
+    // Regulatory landscape
+    const REGS = [
+      { title:'TCPA — 2026 Critical Update', color:'#fc5c65', body:'5th Circuit ruled Feb. 25, 2026 that the FCC\'s prior express written consent rule exceeded statutory authority. New consent standards now apply. FCC Global Revocation Rule delayed to Jan. 31, 2027 (DA 26-12). TCPA exposure: $500–$1,500 per call. \nCite: 47 U.S.C. § 227 | Holland & Knight (Mar. 2026)' },
+      { title:'FCRA & Medical Debt (Trump CFPB Update)', color:'#4fc3f7', body:'CFPB issued FCRA preemption guidance Oct. 28, 2025 (89 Fed. Reg. 85,xxxx), limiting state medical debt laws. Biden-era medical debt ban overturned Aug. 2025. Zombie debt re-aging and failed dispute investigation remain primary litigation drivers. \nCite: 15 U.S.C. § 1681 | 12 C.F.R. § 1022' },
+      { title:'FDCPA / Reg F — Active Litigation Wave', color:'#fed330', body:'Consumer litigation filings hit all-time highs in 2025 (WebRecon Dec. 2025). FDCPA filings up YoY. Reg F (12 C.F.R. § 1006) validation notice requirements under § 1006.34 remain top enforcement trigger. Statutory damages $1,000 + attorney fees. \nCite: 15 U.S.C. § 1692k | Reg F § 1006.34' },
+      { title:'Open Banking — § 1033 ANPR (Aug. 2025)', color:'#26de81', body:'Trump CFPB declared Oct. 2025 that § 1033 original rule exceeds authority. ANPR initiated Aug. 2025 for new rulemaking. Screen scraping remains legally precarious. Tokenized API access (Plaid, Finicity) strongly recommended. \nCite: 12 C.F.R. § 1033 | CFPB ANPR Aug. 2025' },
+      { title:'CFPB Enforcement Capacity Reduced', color:'#a78bfa', body:'Senate report (Feb. 2026) found Trump CFPB rollback cost Americans $19B in one year. State AGs now filling enforcement gap — NY FAIR Act (2026), CO HB 25-1090, CA AB 316 (AI liability). Reduced federal enforcement ≠ reduced litigation risk. \nCite: Banking.Senate.gov (Feb. 2026) | NCLC 2026 Analysis' },
+    ];
+
+    REGS.forEach(function(reg) {
+      checkY(36);
+      const rRgb = hex2rgb(reg.color);
+      doc.setFillColor(Math.round(rRgb[0]*0.1)+6, Math.round(rRgb[1]*0.1)+6, Math.round(rRgb[2]*0.1)+6);
+      doc.setDrawColor(rRgb[0], rRgb[1], rRgb[2]);
+      doc.setLineWidth(0.4);
+      doc.roundedRect(MARGIN, y, CONTENT_W, 32, 2, 2, 'FD');
+      doc.setTextColor(rRgb[0], rRgb[1], rRgb[2]);
+      doc.setFontSize(7.5);
+      doc.setFont('helvetica','bold');
+      doc.text(reg.title, MARGIN+4, y+6);
+      setColor('#8892a4');
+      doc.setFontSize(7);
+      doc.setFont('helvetica','normal');
+      const bodyLines = doc.splitTextToSize(reg.body, CONTENT_W-8);
+      doc.text(bodyLines.slice(0,4), MARGIN+4, y+12);
+      y += 35;
+    });
+
+    // Next Steps
+    checkY(60);
+    y += 5;
+    setColor('#F5C842');
+    doc.setFontSize(10);
+    doc.setFont('helvetica','bold');
+    doc.text('Recommended Next Steps for ' + r.coName, MARGIN, y);
+    y += 8;
+
+    const nextSteps = {
+      CRITICAL: [
+        { step:'1', action:'Immediate 90-minute consultation with James Consumer Law Group', timeline:'Within 48 hours', fee:'Complimentary' },
+        { step:'2', action:'Emergency compliance program gap analysis across all high-risk areas', timeline:'Week 1-2', fee:'Included in retainer' },
+        { step:'3', action:'Cease highest-risk practices (identified above) while remediation plan developed', timeline:'Immediately', fee:'Internal action' },
+        { step:'4', action:'Engage ongoing monthly compliance retainer ($2,500–$5,000/mo)', timeline:'Week 2', fee:'$2,500–$5,000/mo' },
+        { step:'5', action:'Full compliance program buildout across all 10 assessment areas', timeline:'Month 1-3', fee:'$5,000–$25,000 one-time' },
+      ],
+      HIGH: [
+        { step:'1', action:'Schedule 60-minute compliance consultation', timeline:'Within 1 week', fee:'Complimentary' },
+        { step:'2', action:'Prioritized remediation of highest-risk items (TCPA, FCRA, FDCPA)', timeline:'Month 1', fee:'$5,000–$15,000' },
+        { step:'3', action:'Written compliance policies and procedures for each high-risk area', timeline:'Month 1-2', fee:'Included in retainer' },
+        { step:'4', action:'Staff training on FDCPA/TCPA requirements', timeline:'Month 2', fee:'$1,500–$3,000' },
+        { step:'5', action:'Monthly compliance monitoring retainer', timeline:'Ongoing', fee:'$2,500/mo' },
+      ],
+      MEDIUM: [
+        { step:'1', action:'Compliance review call to discuss findings and priorities', timeline:'Within 2 weeks', fee:'Complimentary' },
+        { step:'2', action:'Documentation audit for regulatory-exposure areas', timeline:'Month 1', fee:'$3,000–$8,000' },
+        { step:'3', action:'Update disclosures and privacy notices to 2026 standards', timeline:'Month 1-2', fee:'$1,500–$3,000' },
+        { step:'4', action:'Quarterly compliance check-in program', timeline:'Ongoing', fee:'$1,500/quarter' },
+      ],
+      LOW: [
+        { step:'1', action:'Annual compliance certification review', timeline:'Year 1', fee:'$1,500–$2,500' },
+        { step:'2', action:'Regulatory change monitoring service (CFPB/FTC/FCC alerts)', timeline:'Ongoing', fee:'$500/mo' },
+        { step:'3', action:'Pre-funding compliance certification letter', timeline:'On demand', fee:'$2,500' },
+      ]
+    };
+
+    const steps = nextSteps[r.level] || nextSteps.MEDIUM;
+    steps.forEach(function(s) {
+      checkY(14);
+      setFill('#0f1117');
+      doc.setDrawColor(80,90,110);
+      doc.setLineWidth(0.2);
+      doc.roundedRect(MARGIN, y, CONTENT_W, 10, 2, 2, 'FD');
+
+      setColor('#F5C842');
+      doc.setFontSize(7);
+      doc.setFont('helvetica','bold');
+      doc.text('Step '+s.step, MARGIN+3, y+6.5);
+
+      setColor('#edf0f7');
+      doc.setFont('helvetica','bold');
+      doc.text(s.action, MARGIN+14, y+6.5);
+
+      setColor('#8892a4');
+      doc.setFont('helvetica','normal');
+      doc.setFontSize(6.5);
+      doc.text(s.timeline + '  ·  ' + s.fee, W-MARGIN-2, y+6.5, { align:'right' });
+      y += 12;
+    });
+
+    // Footer contact
+    checkY(30);
+    y += 8;
+    setFill('#0f1117');
+    doc.roundedRect(MARGIN, y, CONTENT_W, 26, 3, 3, 'F');
+    setColor('#F5C842');
+    doc.setFontSize(8);
+    doc.setFont('helvetica','bold');
+    doc.text('⚖ James Consumer Law Group', MARGIN+6, y+7);
+    setColor('#8892a4');
+    doc.setFontSize(7);
+    doc.setFont('helvetica','normal');
+    doc.text('Jamaree R. James, Esq. — Consumer Law + FinTech Compliance', MARGIN+6, y+13);
+    doc.text('jamaree.rjames@gmail.com  |  Consumer Protection · FCRA · FDCPA · TCPA · FinTech Regulatory', MARGIN+6, y+19);
+
+    // Disclaimer
+    setColor('#5a6275');
+    doc.setFontSize(6);
+    doc.text('DISCLAIMER: This report is for informational purposes only and does not constitute legal advice. Attorney-client relationship requires a formal engagement agreement.', MARGIN, y+28);
+
+    // ── SAVE ──
+    const fileName = 'JCLG-Compliance-Risk-' + r.coName.replace(/[^a-zA-Z0-9]/g, '-').substring(0,30) + '-' + new Date().toISOString().split('T')[0] + '.pdf';
+    doc.save(fileName);
+
+    showToast('✅ PDF downloaded: ' + fileName);
+  } catch(err) {
+    console.error('[PDF Gen Error]', err);
+    showToast('⚠️ PDF error: ' + err.message);
+  }
+
+  btn.classList.remove('generating');
+  btn.innerHTML = '<i class="fas fa-file-pdf"></i> Download PDF Report';
+}
+
+// ────────────────────────────────────────────────
+// LEAD CAPTURE & SAVE
+// ────────────────────────────────────────────────
+function openSendModal() {
+  document.getElementById('send-modal').classList.add('open');
+}
+function closeSendModal() {
+  document.getElementById('send-modal').classList.remove('open');
+}
+
+async function saveLead() {
+  const name = document.getElementById('sl-name').value.trim();
+  const email = document.getElementById('sl-email').value.trim();
+  if (!name || !email) { showToast('⚠️ Name and email required'); return; }
+
+  const parts = name.split(' ');
+  const riskLevel = document.getElementById('sl-risk').value;
+  const score = currentReport ? currentReport.normalizedScore : 0;
+
+  const leadData = {
+    first_name: parts[0],
+    last_name: parts.slice(1).join(' '),
+    full_name: name,
+    email: email,
+    phone: document.getElementById('sl-phone').value.trim(),
+    company: document.getElementById('sl-company').value.trim(),
+    path: 'b2b',
+    source: 'b2b-report-generator',
+    status: 'new',
+    situation: 'B2B Compliance Scorecard — Risk Level: '+riskLevel+' ('+score+'/100). '+
+               (currentReport ? currentReport.findings.slice(0,3).map(function(f){ return f.category+' ('+f.severity+')'; }).join(', ') : ''),
+    submitted_at: new Date().toISOString(),
+  };
+
+  try {
+    await fetch('tables/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(leadData),
+    });
+    showToast('✅ Lead saved — ' + name + ' (' + riskLevel + ' risk)');
+  } catch(e) {
+    showToast('ℹ️ Lead saved locally');
+  }
+
+  closeSendModal();
+  if (currentReport) generatePDF();
+}
+
+// ────────────────────────────────────────────────
+// LOAD FROM SESSION (Stage 1 B2B Scorecard Data)
+// ────────────────────────────────────────────────
+function loadFromSession() {
+  try {
+    const saved = sessionStorage.getItem('b2b_scorecard');
+    if (!saved) return;
+    const data = JSON.parse(saved);
+
+    if (data.company) document.getElementById('co-name').value = data.company;
+    if (data.email) document.getElementById('co-email').value = data.email;
+    if (data.name) document.getElementById('co-contact').value = data.name;
+
+    // If answers were passed from Stage 1
+    if (data.answers && Array.isArray(data.answers)) {
+      data.answers.forEach(function(a, idx) {
+        if (idx < QUESTIONS.length && a !== undefined && a !== null) {
+          // Find closest matching answer
+          const q = QUESTIONS[idx];
+          const answerIdx = Math.min(a, q.answers.length-1);
+          const ans = q.answers[answerIdx];
+          selectAnswer(q.id, answerIdx, ans.score, ans.risk, encodeURIComponent(ans.label));
+        }
+      });
+    }
+
+    if (data.score) {
+      showToast('✅ Stage 1 scorecard data loaded — ' + (data.company || 'your company'));
+    }
+  } catch(e) {
+    // No session data — that's fine
+  }
+}
+
+// ────────────────────────────────────────────────
+// HELPERS
+// ────────────────────────────────────────────────
+function scrollToForm() {
+  document.getElementById('form-anchor').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function fmtPhone(input) {
+  let v = input.value.replace(/\D/g,'').substring(0,10);
+  if(v.length>=7) v='('+v.substring(0,3)+') '+v.substring(3,6)+'-'+v.substring(6);
+  else if(v.length>=4) v='('+v.substring(0,3)+') '+v.substring(3);
+  else if(v.length>0) v='('+v;
+  input.value=v;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 4500);
+}
+
+document.addEventListener('click', function(e){
+  if(e.target===document.getElementById('send-modal')) closeSendModal();
+});
+</script>
+</body>
+</html>
