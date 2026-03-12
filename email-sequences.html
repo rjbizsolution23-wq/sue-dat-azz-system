@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚖️ Email Sequences | Sue Dat Azz | James Consumer Law Group</title>
+  <meta name="description" content="7-email FDCPA nurture drip + path welcome sequences. Cloudflare Worker + SendGrid. James Consumer Law Group." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    /* ════════════════════════════════════════════════
+       SUE DAT AZZ — EMAIL SEQUENCES DASHBOARD
+       James Consumer Law Group | March 6, 2026
+       7-Email FDCPA Nurture + Path Welcome Sequences
+    ════════════════════════════════════════════════ */
+    :root {
+      --gold:#F5C842; --gold-d:#e6b800; --gold-glow:rgba(245,200,66,.15);
+      --d900:#0a0c10; --d800:#0f1117; --d700:#161a22; --d600:#1e2330; --d500:#252c3a;
+      --tp:#edf0f7; --ts:#8892a4; --tm:#5a6275;
+      --border:rgba(255,255,255,.07);
+      --legal:#fc5c65; --credit:#4fc3f7; --edu:#26de81; --b2b:#a78bfa; --shield:#F5C842;
+      --r12:12px; --r16:16px; --r20:20px;
+      --ff:'Inter',sans-serif; --fh:'Space Grotesk',sans-serif; --fm:'JetBrains Mono',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--ff);background:var(--d900);color:var(--tp);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+    /* ── Nav ── */
+    .top-nav{background:var(--d800);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+    .nav-logo{font-family:var(--fh);font-size:1rem;font-weight:800;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:8px}
+    .nav-links{display:flex;gap:6px;flex-wrap:wrap}
+    .nav-link{padding:6px 12px;border:1px solid var(--border);border-radius:8px;color:var(--ts);text-decoration:none;font-size:0.78rem;font-weight:500;transition:all .2s}
+    .nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold)}
+
+    /* ── Layout ── */
+    .page{max-width:1280px;margin:0 auto;padding:0 24px 80px}
+
+    /* ── Page header ── */
+    .page-hero{padding:40px 0 32px;border-bottom:1px solid var(--border);margin-bottom:32px}
+    .ph-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.2);border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .ph-title{font-family:var(--fh);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:10px}
+    .ph-title span{color:var(--gold)}
+    .ph-sub{font-size:.97rem;color:var(--ts);max-width:700px;line-height:1.65}
+
+    /* ── Stats row ── */
+    .stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:32px}
+    @media(max-width:800px){.stats-row{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:480px){.stats-row{grid-template-columns:1fr 1fr}}
+    .stat-card{background:var(--d700);border:1px solid var(--border);border-radius:var(--r12);padding:16px;text-align:center}
+    .sc-num{font-family:var(--fh);font-size:1.8rem;font-weight:800;color:var(--gold)}
+    .sc-lbl{font-size:.73rem;color:var(--tm);margin-top:2px;text-transform:uppercase;letter-spacing:.06em}
+
+    /* ── Tabs ── */
+    .tab-bar{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:16px}
+    .tab-btn{padding:8px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--d700);color:var(--ts);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.03em}
+    .tab-btn:hover{border-color:var(--gold);color:var(--gold)}
+    .tab-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(245,200,66,.06)}
+
+    /* ── Section ── */
+    .section-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);margin-bottom:12px}
+
+    /* ── Sequence grid ── */
+    .sequences-wrap{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start}
+    @media(max-width:860px){.sequences-wrap{grid-template-columns:1fr}}
+
+    .sequence-list{display:flex;flex-direction:column;gap:8px}
+    .seq-item{background:var(--d700);border:1.5px solid var(--border);border-radius:var(--r12);padding:14px 16px;cursor:pointer;transition:all .2s}
+    .seq-item:hover{border-color:rgba(245,200,66,.3);transform:translateX(3px)}
+    .seq-item.active{border-color:var(--gold);background:rgba(245,200,66,.04)}
+    .si-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+    .si-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+    .si-name{font-weight:700;font-size:.9rem}
+    .si-meta{font-size:.75rem;color:var(--ts)}
+    .si-emails{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap}
+    .si-email-dot{width:18px;height:18px;border-radius:50%;font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;color:#0a0c10}
+
+    /* ── Email detail panel ── */
+    .email-detail{background:var(--d700);border:1px solid var(--border);border-radius:var(--r16);overflow:hidden;min-height:600px}
+    .ed-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--d800)}
+    .ed-tab{padding:12px 20px;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--ts);border-bottom:2px solid transparent;transition:all .2s}
+    .ed-tab:hover{color:var(--tp)}
+    .ed-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+    .ed-panel{padding:24px;display:none}
+    .ed-panel.active{display:block}
+
+    /* ── Email list inside panel ── */
+    .email-list{display:flex;flex-direction:column;gap:10px}
+    .email-row{background:var(--d600);border:1px solid var(--border);border-radius:var(--r12);padding:16px 18px;display:grid;grid-template-columns:50px 1fr auto;gap:12px;align-items:center;cursor:pointer;transition:all .2s}
+    .email-row:hover{border-color:rgba(245,200,66,.25);background:var(--d500)}
+    .email-row.selected{border-color:var(--gold);background:rgba(245,200,66,.04)}
+    .er-day{font-family:var(--fh);font-size:1.4rem;font-weight:800;color:var(--gold);text-align:center;line-height:1}
+    .er-day-lbl{font-size:.62rem;color:var(--tm);text-align:center}
+    .er-subject{font-weight:700;font-size:.92rem;margin-bottom:3px}
+    .er-preview{font-size:.8rem;color:var(--ts);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:400px}
+    .er-goal{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+    /* ── Email preview ── */
+    .email-preview-wrap{background:var(--d800);border-radius:var(--r12);border:1px solid var(--border);overflow:hidden}
+    .ep-topbar{background:var(--d700);padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
+    .ep-dot{width:10px;height:10px;border-radius:50%}
+    .ep-address{font-size:.78rem;color:var(--ts);font-family:var(--fm)}
+    .ep-meta{background:var(--d700);padding:12px 20px;border-bottom:1px solid var(--border)}
+    .ep-meta-row{display:flex;gap:8px;font-size:.78rem;margin-bottom:4px}
+    .ep-meta-lbl{color:var(--tm);min-width:60px;font-weight:600}
+    .ep-meta-val{color:var(--ts)}
+    .ep-meta-val.subject-val{color:var(--tp);font-weight:700}
+    .ep-body{padding:0;background:#fff}
+    .ep-body iframe{width:100%;border:none;min-height:520px;display:block}
+
+    /* ── Worker code panel ── */
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.06);border-radius:var(--r12);padding:20px;overflow-x:auto;position:relative}
+    .code-block pre{font-family:var(--fm);font-size:.82rem;line-height:1.7;color:#e2e8f0}
+    .code-lang-badge{position:absolute;top:10px;right:10px;padding:3px 10px;background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.2);border-radius:6px;font-size:.65rem;font-weight:700;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+    .copy-code-btn{position:absolute;top:10px;right:80px;padding:4px 12px;background:var(--d600);border:1px solid var(--border);border-radius:6px;font-size:.72rem;font-weight:600;color:var(--ts);cursor:pointer;transition:all .2s}
+    .copy-code-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+    /* token colors */
+    .t-kw{color:#f97583} .t-str{color:#9ecbff} .t-fn{color:#b392f0}
+    .t-cm{color:#6a737d;font-style:italic} .t-num{color:#79b8ff}
+    .t-prop{color:#79b8ff} .t-obj{color:#e1e4e8}
+
+    /* ── Trigger test panel ── */
+    .trigger-form{background:var(--d700);border:1px solid var(--border);border-radius:var(--r16);padding:24px;margin-bottom:20px}
+    .tf-title{font-family:var(--fh);font-size:1.1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .tf-grid{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end}
+    @media(max-width:700px){.tf-grid{grid-template-columns:1fr}}
+    .tf-field label{display:block;font-size:.75rem;font-weight:600;color:var(--ts);margin-bottom:5px}
+    .tf-field input,.tf-field select{width:100%;padding:10px 14px;background:var(--d600);border:1.5px solid var(--border);border-radius:8px;color:var(--tp);font-size:.88rem;font-family:var(--ff);transition:border-color .2s}
+    .tf-field input:focus,.tf-field select:focus{outline:none;border-color:var(--gold)}
+    .tf-field select option{background:var(--d700)}
+    .tf-send-btn{padding:10px 20px;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0a0c10;border:none;border-radius:8px;font-weight:800;font-size:.88rem;cursor:pointer;white-space:nowrap;transition:all .2s}
+    .tf-send-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(245,200,66,.3)}
+
+    /* ── Send log ── */
+    .send-log{background:var(--d700);border:1px solid var(--border);border-radius:var(--r16);padding:20px}
+    .sl-title{font-family:var(--fh);font-size:1rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+    .sl-empty{text-align:center;padding:32px;color:var(--tm);font-size:.88rem}
+    .sl-row{display:grid;grid-template-columns:1fr 140px 100px 120px;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border);font-size:.82rem;align-items:center}
+    .sl-row:last-child{border-bottom:none}
+    .sl-head{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tm);padding:8px 14px;border-bottom:1px solid var(--border)}
+    .sl-status{padding:3px 10px;border-radius:100px;font-size:.68rem;font-weight:700;text-align:center}
+    .sl-sent{background:rgba(38,222,129,.1);color:var(--edu)}
+    .sl-queued{background:rgba(245,200,66,.1);color:var(--gold)}
+    .sl-opened{background:rgba(79,195,247,.1);color:var(--credit)}
+    .sl-clicked{background:rgba(167,139,250,.1);color:var(--b2b)}
+
+    /* ── Toast ── */
+    .toast{position:fixed;bottom:24px;right:24px;background:var(--d600);border:1px solid var(--border);border-left:3px solid var(--gold);padding:12px 18px;border-radius:10px;font-size:.85rem;color:var(--tp);z-index:300;display:none;max-width:280px;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+    .toast.show{display:block;animation:toastIn .3s ease}
+    @keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:600px){.page{padding:0 14px 60px}}
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-logo">⚖️ SUE DAT AZZ</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="stage1.html" class="nav-link"><i class="fas fa-door-open"></i> Stage 1</a>
+    <a href="stage2-tripwire.html" class="nav-link"><i class="fas fa-bolt"></i> Tripwire</a>
+    <a href="shield-dat-azz.html" class="nav-link"><i class="fas fa-shield-alt"></i> Shield Dat Azz™</a>
+    <a href="crm.html" class="nav-link"><i class="fas fa-briefcase"></i> CRM</a>
+    <a href="email-sequences.html" class="nav-link active"><i class="fas fa-envelope"></i> Emails</a>
+    <a href="b2b-report.html" class="nav-link"><i class="fas fa-file-pdf"></i> B2B Report</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- ── Page Hero ── -->
+  <div class="page-hero">
+    <div class="ph-badge"><i class="fas fa-envelope-open-text"></i> Email Automation Engine</div>
+    <div class="ph-title">Email <span>Sequences</span></div>
+    <div class="ph-sub">7-email FDCPA nurture drip + path-specific welcome sequences. All templates, Worker code, and SendGrid config in one place. Fire test sends directly from this dashboard.</div>
+  </div>
+
+  <!-- ── Stats ── -->
+  <div class="stats-row" id="stats-row">
+    <div class="stat-card"><div class="sc-num" id="stat-sequences">9</div><div class="sc-lbl">Sequences</div></div>
+    <div class="stat-card"><div class="sc-num" id="stat-emails">28</div><div class="sc-lbl">Total Emails</div></div>
+    <div class="stat-card"><div class="sc-num" id="stat-sent">0</div><div class="sc-lbl">Sends Today</div></div>
+    <div class="stat-card"><div class="sc-num" id="stat-open-rate">40%</div><div class="sc-lbl">Target Open Rate</div></div>
+    <div class="stat-card"><div class="sc-num" id="stat-click-rate">12%</div><div class="sc-lbl">Target CTR</div></div>
+  </div>
+
+  <!-- ── Tabs ── -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('sequences',this)"><i class="fas fa-stream"></i> Sequences</button>
+    <button class="tab-btn" onclick="switchTab('worker',this)"><i class="fas fa-code"></i> Worker Code</button>
+    <button class="tab-btn" onclick="switchTab('sendgrid',this)"><i class="fas fa-cog"></i> SendGrid Config</button>
+    <button class="tab-btn" onclick="switchTab('trigger',this)"><i class="fas fa-paper-plane"></i> Test &amp; Trigger</button>
+    <button class="tab-btn" onclick="switchTab('log',this)"><i class="fas fa-list-alt"></i> Send Log</button>
+  </div>
+
+  <!-- ══════════ TAB: SEQUENCES ══════════ -->
+  <div id="tab-sequences" class="tab-content">
+    <div class="sequences-wrap">
+
+      <!-- Sequence list (left) -->
+      <div>
+        <div class="section-label">All Sequences</div>
+        <div class="sequence-list" id="sequence-list">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Email detail panel (right) -->
+      <div class="email-detail">
+        <div class="ed-tabs">
+          <div class="ed-tab active" onclick="switchEdTab('emails',this)">Emails</div>
+          <div class="ed-tab" onclick="switchEdTab('preview',this)">Preview</div>
+          <div class="ed-tab" onclick="switchEdTab('settings',this)">Settings</div>
+        </div>
+
+        <!-- Emails list sub-tab -->
+        <div class="ed-panel active" id="ed-emails">
+          <div class="section-label" id="active-seq-name">Select a sequence →</div>
+          <div class="email-list" id="email-list">
+            <div style="padding:40px;text-align:center;color:var(--ts)">
+              <i class="fas fa-arrow-left" style="margin-right:8px;color:var(--gold)"></i>
+              Select a sequence from the left to view its emails
+            </div>
+          </div>
+        </div>
+
+        <!-- Preview sub-tab -->
+        <div class="ed-panel" id="ed-preview">
+          <div id="preview-empty" style="padding:40px;text-align:center;color:var(--ts)">
+            <i class="fas fa-eye" style="font-size:2rem;color:var(--tm);display:block;margin-bottom:12px"></i>
+            Select an email from the list to preview it
+          </div>
+          <div id="preview-content" style="display:none">
+            <div class="email-preview-wrap">
+              <div class="ep-topbar">
+                <div class="ep-dot" style="background:#fc5c65"></div>
+                <div class="ep-dot" style="background:#fed330"></div>
+                <div class="ep-dot" style="background:#26de81"></div>
+                <div class="ep-address" id="ep-from"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfa1a0bdaabfa3b68fbcbaaaabaebbaeb5b5e1aca0a2">[email&#160;protected]</a></div>
+              </div>
+              <div class="ep-meta">
+                <div class="ep-meta-row"><span class="ep-meta-lbl">From:</span><span class="ep-meta-val">Jamaree R. James, Esq. &lt;<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="09636864687b6c6c49636a656e276a6664">[email&#160;protected]</a>&gt;</span></div>
+                <div class="ep-meta-row"><span class="ep-meta-lbl">To:</span><span class="ep-meta-val">{{ first_name }} &lt;{{ email }}&gt;</span></div>
+                <div class="ep-meta-row"><span class="ep-meta-lbl">Subject:</span><span class="ep-meta-val subject-val" id="ep-subject">—</span></div>
+                <div class="ep-meta-row"><span class="ep-meta-lbl">Preview:</span><span class="ep-meta-val" id="ep-preview-text">—</span></div>
+              </div>
+              <div class="ep-body">
+                <iframe id="email-iframe" title="Email preview"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings sub-tab -->
+        <div class="ed-panel" id="ed-settings">
+          <div id="settings-empty" style="padding:40px;text-align:center;color:var(--ts)">Select a sequence to view settings</div>
+          <div id="settings-content" style="display:none">
+            <div class="section-label">Sequence Configuration</div>
+            <div style="background:var(--d600);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px">
+              <div id="seq-settings-detail"></div>
+            </div>
+            <div class="section-label" style="margin-top:20px">SendGrid Template Variables</div>
+            <div class="code-block" style="margin-top:8px">
+              <div class="code-lang-badge">JSON</div>
+              <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+              <pre id="settings-vars-code">Select a sequence</pre>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end email-detail -->
+    </div><!-- end sequences-wrap -->
+  </div>
+
+  <!-- ══════════ TAB: WORKER CODE ══════════ -->
+  <div id="tab-worker" class="tab-content" style="display:none">
+    <div class="section-label">Cloudflare Worker — Email Automation</div>
+    <p style="font-size:.88rem;color:var(--ts);margin-bottom:16px;max-width:700px">
+      Deploy this Worker to your Cloudflare account. It handles all sequence triggering, delay scheduling via <strong>Cloudflare Queues</strong>, and SendGrid delivery. Replace the secrets via <code style="background:var(--d600);padding:2px 6px;border-radius:4px;font-size:.8rem">wrangler secret put</code>.
+    </p>
+    <div class="code-block">
+      <div class="code-lang-badge">TypeScript</div>
+      <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+      <pre id="worker-code-block"></pre>
+    </div>
+
+    <div style="margin-top:24px">
+      <div class="section-label">wrangler.toml</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-lang-badge">TOML</div>
+        <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+        <pre id="wrangler-code-block"></pre>
+      </div>
+    </div>
+
+    <div style="margin-top:24px">
+      <div class="section-label">Deployment Commands (zsh / macOS)</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-lang-badge">Bash</div>
+        <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+        <pre id="deploy-commands-block"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ TAB: SENDGRID CONFIG ══════════ -->
+  <div id="tab-sendgrid" class="tab-content" style="display:none">
+    <div class="section-label">SendGrid Dynamic Template IDs</div>
+    <p style="font-size:.88rem;color:var(--ts);margin-bottom:16px;max-width:700px">
+      Create these templates in your SendGrid account, then replace the IDs in the Worker. Each template uses <strong>Handlebars</strong> syntax for personalization. All templates include the firm's dark-theme HTML.
+    </p>
+    <div class="code-block">
+      <div class="code-lang-badge">JSON</div>
+      <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+      <pre id="sendgrid-config-block"></pre>
+    </div>
+
+    <div style="margin-top:24px">
+      <div class="section-label">SendGrid Unsubscribe Group IDs</div>
+      <div class="code-block" style="margin-top:8px">
+        <div class="code-lang-badge">JSON</div>
+        <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+        <pre id="unsub-config-block"></pre>
+      </div>
+    </div>
+
+    <div style="margin-top:24px">
+      <div class="section-label">Sender Authentication (DNS Records)</div>
+      <div style="background:var(--d700);border:1px solid var(--border);border-radius:14px;padding:20px;overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:.82rem;min-width:560px">
+          <thead><tr>
+            <th style="text-align:left;padding:8px 12px;color:var(--tm);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;border-bottom:1px solid var(--border)">Type</th>
+            <th style="text-align:left;padding:8px 12px;color:var(--tm);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;border-bottom:1px solid var(--border)">Host</th>
+            <th style="text-align:left;padding:8px 12px;color:var(--tm);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;border-bottom:1px solid var(--border)">Value</th>
+            <th style="text-align:left;padding:8px 12px;color:var(--tm);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;border-bottom:1px solid var(--border)">Purpose</th>
+          </tr></thead>
+          <tbody id="dns-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ TAB: TEST & TRIGGER ══════════ -->
+  <div id="tab-trigger" class="tab-content" style="display:none">
+    <div class="trigger-form">
+      <div class="tf-title"><i class="fas fa-paper-plane" style="color:var(--gold)"></i> Test Fire a Sequence</div>
+      <div class="tf-grid">
+        <div class="tf-field">
+          <label>Email Address</label>
+          <input type="email" id="tf-email" placeholder="test@email.com" />
+        </div>
+        <div class="tf-field">
+          <label>First Name</label>
+          <input type="text" id="tf-first" placeholder="Jamaree" />
+        </div>
+        <div class="tf-field">
+          <label>Sequence</label>
+          <select id="tf-sequence">
+            <option value="">— Select sequence —</option>
+          </select>
+        </div>
+        <div class="tf-field">
+          <label>&nbsp;</label>
+          <button class="tf-send-btn" onclick="testFireSequence()">
+            <i class="fas fa-bolt"></i> Fire Test
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px">
+      <div class="section-label">Fire Individual Emails</div>
+      <div id="individual-trigger-list" style="display:flex;flex-direction:column;gap:8px;margin-top:8px"></div>
+    </div>
+  </div>
+
+  <!-- ══════════ TAB: SEND LOG ══════════ -->
+  <div id="tab-log" class="tab-content" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+      <div class="section-label" style="margin-bottom:0">Send History</div>
+      <button onclick="loadSendLog()" style="padding:7px 14px;background:var(--d600);border:1px solid var(--border);border-radius:8px;color:var(--ts);font-size:.78rem;cursor:pointer">
+        <i class="fas fa-sync-alt"></i> Refresh
+      </button>
+    </div>
+    <div class="send-log">
+      <div class="sl-row sl-head">
+        <div>Email / Sequence</div>
+        <div>Recipient</div>
+        <div>Status</div>
+        <div>Time</div>
+      </div>
+      <div id="send-log-body">
+        <div class="sl-empty">No sends yet. Fire a test send from the Trigger tab.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page -->
+
+<div class="toast" id="toast"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ══════════════════════════════════════════════════════════════════
+// EMAIL SEQUENCES DASHBOARD — SUE DAT AZZ
+// James Consumer Law Group | March 6, 2026
+// ══════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────────
+// DATA: ALL SEQUENCES + EMAILS
+// ────────────────────────────────────────────────
+const SEQUENCES = [
+  // ── PATH WELCOME SEQUENCES ──────────────────
+  {
+    key: 'legal_welcome',
+    name: 'Legal Welcome',
+    path: 'legal',
+    color: '#fc5c65',
+    description: 'Triggered on legal path lead capture. Delivers checklist + books consult.',
+    fromName: 'Jamaree R. James, Esq.',
+    fromEmail: 'jamaree@jclg.com',
+    replyTo: 'jamaree@jclg.com',
+    unsubGroup: 'legal-nurture',
+    emails: [
+      {
+        day: 0,
+        subject: '⚖️ Your FDCPA Violation Checklist Is Inside (+ What Happens Next)',
+        preview: 'You checked violations worth ${{potential_damages}}+. Here\'s exactly what that means.',
+        goal: 'Deliver checklist + book consult',
+        ctaText: 'Book My Free 15-Min Review',
+        ctaUrl: '{{booking_url}}',
+        body: `
+          <p>Hey {{first_name}},</p>
+          <p>Your FDCPA Violation Checklist is attached. You checked <strong>{{violations_count}} violations</strong> — that's a potential <strong>${{potential_damages}}+ in statutory damages</strong> under 15 U.S.C. § 1692k.</p>
+          <p>Here's what that means in plain English:</p>
+          <ul>
+            <li>Each FDCPA violation = up to <strong>$1,000 in statutory damages</strong></li>
+            <li>Plus actual damages (stress, lost time, credit damage)</li>
+            <li>Plus attorney fees — <strong>recovered from the collector, not you</strong></li>
+            <li>Cases are taken on contingency: <strong>you pay $0 unless we win</strong></li>
+          </ul>
+          <p>The next step is a 15-minute case review where I personally look at your situation and tell you if you have a case worth pursuing. No charge. No obligation.</p>
+          <p style="font-size:12px;color:#666;margin-top:24px">Cite: 15 U.S.C. § 1692k(a) — FDCPA damages provision. Violations expire after 1 year from the violation date.</p>
+        `
+      },
+      {
+        day: 1,
+        subject: '🚨 Did you know debt collectors owe you this by law?',
+        preview: 'The 30-day validation clock is ticking RIGHT NOW.',
+        goal: 'Education + urgency',
+        ctaText: 'See If Your Collector Violated § 1692g',
+        ctaUrl: '{{site_url}}/stage1.html',
+        body: `
+          <p>{{first_name}},</p>
+          <p>Quick legal fact that most people don't know:</p>
+          <p>Under <strong>15 U.S.C. § 1692g</strong>, every debt collector is legally required to send you a written "validation notice" within <strong>5 days</strong> of first contact.</p>
+          <p>If they didn't? That's a violation. Worth up to $1,000.</p>
+          <p>And if you dispute the debt in writing within <strong>30 days</strong> of that notice, they MUST stop all collection activity until they prove the debt is valid.</p>
+          <p><strong>Most collectors don't do this correctly.</strong> It's one of the most common FDCPA violations we see.</p>
+          <p>Did your collector send you a proper validation notice? If you're not sure — that's what the free review is for.</p>
+        `
+      },
+      {
+        day: 3,
+        subject: 'The call that changed everything (real case, no names)',
+        preview: 'How a 9 PM phone call turned into $2,400 in their pocket.',
+        goal: 'Social proof + conversion',
+        ctaText: 'Get My Free Case Review',
+        ctaUrl: '{{booking_url}}',
+        body: `
+          <p>{{first_name}},</p>
+          <p>I want to tell you about a client. Names changed, facts real.</p>
+          <p>She got a call at <strong>9:47 PM on a Tuesday</strong>. Debt collector. Threatening. Said she'd be arrested if she didn't pay $1,200 immediately.</p>
+          <p>She called me the next morning. We counted the violations:</p>
+          <ul>
+            <li>Called after 9 PM → § 1692c(a)(1) → <strong>$1,000</strong></li>
+            <li>Threatened arrest for a civil debt → § 1692e(4) → <strong>$1,000</strong></li>
+            <li>Claimed to be working with law enforcement → § 1692e(1) → <strong>$1,000</strong></li>
+          </ul>
+          <p>We sent a demand letter. They settled for <strong>$2,400</strong> within 10 days. She never paid the original debt.</p>
+          <p>She paid us $0. Attorney fees came from the collector.</p>
+          <p>Your situation might look similar. Or it might be worth more. I won't know until we talk — but the conversation costs you nothing.</p>
+        `
+      },
+      {
+        day: 5,
+        subject: '⏰ FDCPA Statute of Limitations: Don\'t Let This Clock Run Out',
+        preview: 'You have 1 year from the violation date. After that? It\'s gone.',
+        goal: 'Urgency + book consult',
+        ctaText: 'Don\'t Let My Case Expire — Book Now',
+        ctaUrl: '{{booking_url}}',
+        body: `
+          <p>{{first_name}},</p>
+          <p>Something important you need to know about your FDCPA violations:</p>
+          <p>Under <strong>15 U.S.C. § 1692k(d)</strong>, you have exactly <strong>ONE YEAR</strong> from the date of each violation to file suit.</p>
+          <p>That clock started the moment the violation happened — not the moment you found out about it. Not when you called us. Right when it happened.</p>
+          <p>After one year? The case is gone. The money is gone. The collector gets away with it.</p>
+          <p>SOL comparison:</p>
+          <ul>
+            <li><strong>FDCPA:</strong> 1 year from violation (§ 1692k(d))</li>
+            <li><strong>FCRA:</strong> 2 years from discovery (§ 1681p)</li>
+            <li><strong>TCPA:</strong> 4 years (28 U.S.C. § 1658)</li>
+          </ul>
+          <p>The free review is 15 minutes. It will tell you exactly where your clock stands and whether you have time to act.</p>
+        `
+      },
+      {
+        day: 7,
+        subject: 'Last reminder: Your free case review expires soon',
+        preview: 'I only hold free slots for 7 days after the checklist. After that, standard intake.',
+        goal: 'Final urgency + convert',
+        ctaText: 'Claim My Last Free Review Slot',
+        ctaUrl: '{{booking_url}}',
+        body: `
+          <p>{{first_name}},</p>
+          <p>This is the last email in this sequence.</p>
+          <p>You identified potential FDCPA violations a week ago. The free 15-minute case review slot I hold for checklist users expires today.</p>
+          <p>After this, it's standard intake — still free, but no priority scheduling.</p>
+          <p>If you've already booked, you're good — ignore this.</p>
+          <p>If you haven't — take 2 minutes right now. The booking is online, takes 90 seconds, and will tell you exactly whether you have a case worth $1,000 to $15,000+.</p>
+          <p>If you don't have a case, I'll tell you that too. No pressure, no pitch, just the facts.</p>
+          <p style="color:#666;font-size:12px;margin-top:24px">You're receiving this because you requested a violation checklist from James Consumer Law Group. Unsubscribe at any time.</p>
+        `
+      }
+    ]
+  },
+
+  // ── FDCPA 7-EMAIL NURTURE DRIP ────────────────
+  {
+    key: 'fdcpa_nurture',
+    name: 'FDCPA 7-Day Nurture Drip',
+    path: 'legal',
+    color: '#fc5c65',
+    description: 'Educational drip for leads who haven\'t booked a consult. Builds trust + converts.',
+    fromName: 'Jamaree R. James, Esq.',
+    fromEmail: 'jamaree@jclg.com',
+    replyTo: 'jamaree@jclg.com',
+    unsubGroup: 'legal-nurture',
+    emails: [
+      {
+        day: 0,
+        subject: '⚖️ 7 Things Your Debt Collector Is Praying You Don\'t Know',
+        preview: 'Day 1 of 7: The law is written in your favor. They\'re counting on you not knowing it.',
+        goal: 'Engagement + brand intro',
+        ctaText: 'Start My Free Violation Scan',
+        ctaUrl: '{{site_url}}/stage1.html',
+        body: `<p>{{first_name}}, I'm Jamaree R. James. Consumer law attorney. Every day I fight debt collectors who break federal law because they assume you don't know your rights. Let's change that.</p><p>Over the next 7 days I'm sending you the exact things debt collectors hope you never learn. Starting today: <strong>They owe you a written notice within 5 days of first contact</strong> — 15 U.S.C. § 1692g. Most don't send it. That's $1,000 right there.</p>`
+      },
+      {
+        day: 1,
+        subject: 'Day 2: The "Threatened Arrest" Script (It\'s Illegal)',
+        preview: 'Debt collectors CAN\'T threaten you with arrest. Here\'s the exact statute.',
+        goal: 'Education + credibility',
+        ctaText: 'Check My Collector\'s Violations',
+        ctaUrl: '{{site_url}}/stage1.html',
+        body: `<p>{{first_name}}, Day 2. Today's violation: threatening arrest or criminal prosecution for a civil debt.</p><p>Under <strong>15 U.S.C. § 1692e(4)</strong>, a debt collector cannot threaten criminal prosecution or arrest to collect a debt. It's explicitly illegal. They know this. They do it anyway because most people don't push back.</p><p>If a collector has ever said "we'll have you arrested," "the sheriff is coming," or "this is your last chance before criminal charges" — that's $1,000 minimum, possibly more with actual damages.</p>`
+      },
+      {
+        day: 2,
+        subject: 'Day 3: The 9 PM Rule (And the Proof You Need)',
+        preview: 'Time-stamped call logs are your best weapon. Here\'s how to build one.',
+        goal: 'Education + evidence tips',
+        ctaText: 'Build My Evidence File',
+        ctaUrl: '{{site_url}}/stage2-tripwire.html?path=legal',
+        body: `<p>{{first_name}}, calling before 8 AM or after 9 PM is illegal under <strong>15 U.S.C. § 1692c(a)(1)</strong>. Every single call is a separate violation worth up to $1,000.</p><p>Here's how to build your evidence: Screenshot your call log showing the exact time. Save voicemails. Write down dates, times, and what was said immediately after each call. This is your case file.</p><p>The $37 Demand Letter Starter Kit includes a call log template that formats this exactly how we need it for litigation.</p>`
+      },
+      {
+        day: 3,
+        subject: 'Day 4: What "Zombie Debt" Is — And Why It\'s Worth Real Money',
+        preview: 'Old debts re-reported as new. Illegal. Common. Worth up to $1,000 per occurrence.',
+        goal: 'FCRA education + cross-sell',
+        ctaText: 'Get My Free 3-Bureau Report',
+        ctaUrl: '{{site_url}}/stage2-tripwire.html?path=credit',
+        body: `<p>{{first_name}}, today we're crossing from FDCPA into FCRA territory — because they're often connected.</p><p>"Zombie debt" is old, time-barred debt that gets sold to a new collector, who then reports it as a new, recent account on your credit report. The 7-year reporting clock resets illegally. Under <strong>15 U.S.C. § 1681c</strong>, this is a FCRA violation worth $100–$1,000 per occurrence, plus punitive damages for willful violations.</p><p>The only way to catch this is to pull your full 3-bureau report. We've set up a $1 trial with MyFreeScoreNow — our team will scan it for exactly this.</p>`
+      },
+      {
+        day: 4,
+        subject: 'Day 5: They Contacted Your Family or Employer — Big Mistake',
+        preview: 'Third-party contact rules are among the most violated FDCPA provisions.',
+        goal: 'Education + high-intent convert',
+        ctaText: 'Book Free Case Review',
+        ctaUrl: '{{booking_url}}',
+        body: `<p>{{first_name}}, under <strong>15 U.S.C. § 1692b and § 1692c</strong>, debt collectors can only contact third parties (family, neighbors, employers) under strict conditions — and almost never to discuss your debt.</p><p>Specifically: they may NOT tell your employer, family, or friends that you owe a debt. If they have, that's a violation. If they contacted your workplace and your employer found out about the debt, that's actual damages on top of statutory.</p><p>This is one of the violations I see most often and one of the easiest to prove — it usually involves texts, voicemails, or LinkedIn messages we can screenshot.</p>`
+      },
+      {
+        day: 5,
+        subject: 'Day 6: The $37 Kit That Has Changed 100+ Situations',
+        preview: 'A properly worded demand letter changes the power dynamic immediately.',
+        goal: 'Tripwire conversion',
+        ctaText: 'Get the $37 Demand Letter Kit →',
+        ctaUrl: '{{site_url}}/stage2-tripwire.html?path=legal',
+        body: `<p>{{first_name}}, yesterday I told you about third-party contacts. Today I want to tell you about the single most effective thing most people can do BEFORE hiring an attorney.</p><p>A properly worded FDCPA demand letter does three things:</p><ol><li>Puts the collector on legal notice that you know your rights</li><li>Triggers their obligation to validate the debt under § 1692g</li><li>Starts the paper trail if we need to litigate</li></ol><p>The Demand Letter Starter Kit ($37) is the exact template structure we use. 6-page package: demand letter, violation tracker, damages calculator, SOL tracker, debt validation letter, and our 2026 FDCPA cheat sheet.</p><p>If you're going to handle this yourself, this is how you do it right.</p>`
+      },
+      {
+        day: 6,
+        subject: 'Day 7: What Happens If You File Suit (And Why You Don\'t Pay)',
+        preview: 'Contingency fee structure explained. You keep 100% of your damages.',
+        goal: 'Overcome cost objection + book consult',
+        ctaText: 'Book My Free Case Review — Final Offer',
+        ctaUrl: '{{booking_url}}',
+        body: `<p>{{first_name}}, last email in this series. I want to answer the question I get most often: "How much does it cost to sue a debt collector?"</p><p>Answer: <strong>$0 upfront.</strong></p><p>Here's how the FDCPA fee structure works:</p><ul><li>We take the case on contingency — no win, no fee</li><li>If we win (or settle), the collector pays your damages AND our attorney fees</li><li>Under § 1692k(a)(3), attorney fees are explicitly recoverable from the defendant</li><li>You keep 100% of your statutory damages</li></ul><p>The average case resolves in 90–120 days. Many settle at the demand letter stage and never go to court.</p><p>The free 15-minute case review is your zero-risk entry point. Schedule it. I'll tell you straight if you have a case or not.</p>`
+      }
+    ]
+  },
+
+  // ── CREDIT WELCOME ─────────────────────────────
+  {
+    key: 'credit_welcome',
+    name: 'Credit / MFSN Welcome',
+    path: 'credit',
+    color: '#4fc3f7',
+    description: 'Triggered on credit path. Delivers MFSN $1 trial link + FCRA violation intro.',
+    fromName: 'James Consumer Law Group',
+    fromEmail: 'credit@jclg.com',
+    replyTo: 'jamaree@jclg.com',
+    unsubGroup: 'credit-monitoring',
+    emails: [
+      {
+        day: 0,
+        subject: '📊 Your $1 Credit Report Trial Link Is Inside',
+        preview: 'Experian + TransUnion + Equifax. All 3 reports. Pull them now.',
+        goal: 'MFSN activation',
+        ctaText: 'Activate My $1 Trial →',
+        ctaUrl: '{{mfsn_url}}',
+        body: `<p>{{first_name}},</p><p>Your 3-bureau credit report trial is ready. Click below to activate your $1 7-day trial through our partner MyFreeScoreNow. You'll get Experian, TransUnion, AND Equifax — all three, right now.</p><p>After you pull your reports, forward me any accounts that look wrong. Our FCRA violation scanner will check for: inaccurate balances, accounts that aren't yours, zombie debt re-aging, failed dispute investigations, and mixed-file errors.</p><p>Each FCRA violation is worth up to $1,000 under 15 U.S.C. § 1681n. We've found violations in approximately 1 in 3 reports we review.</p>`
+      },
+      {
+        day: 2,
+        subject: '📋 How to Read Your Credit Report Like an Attorney',
+        preview: '5 red flags that scream "FCRA violation" — and what each one means in court.',
+        goal: 'Education + keep MFSN active',
+        ctaText: 'Pull My Report + Get the Scan',
+        ctaUrl: '{{mfsn_url}}',
+        body: `<p>{{first_name}}, once you've pulled your 3-bureau reports, here's what to look for:</p><ol><li><strong>Accounts with "Last Reported" dates older than 7 years</strong> — should be deleted under § 1681c</li><li><strong>Accounts you don't recognize</strong> — possible identity theft or mixed file (§ 1681e(b))</li><li><strong>Late payments you have receipts proving on-time</strong> — dispute + § 1681i violation potential</li><li><strong>Collection accounts showing original dates that don't match the debt</strong> — zombie debt re-aging</li><li><strong>Hard inquiries you didn't authorize</strong> — FCRA permissible purpose violation (§ 1681b)</li></ol><p>Found any of these? Reply to this email with what you found. I'll tell you which ones are worth pursuing.</p>`
+      },
+      {
+        day: 5,
+        subject: '⚖️ Your Credit Report Has FCRA Rights Attached to It',
+        preview: 'The bureau has 30 days to investigate a dispute. If they don\'t — that\'s money.',
+        goal: 'Education + litigation upsell',
+        ctaText: 'See If I Have a FCRA Case',
+        ctaUrl: '{{site_url}}/stage1.html',
+        body: `<p>{{first_name}}, quick FCRA rights reminder:</p><p>Under <strong>15 U.S.C. § 1681i</strong>, when you dispute an item on your credit report, the bureau has <strong>30 days</strong> to investigate. If they don't investigate properly, or if they verify inaccurate information anyway — that's a violation worth $100–$1,000 per willful occurrence, plus actual damages and attorney fees.</p><p>The key: you have to dispute in writing, send it certified mail, and keep records. A properly filed dispute that gets ignored or improperly verified is one of the strongest FCRA cases we litigate.</p>`
+      }
+    ]
+  },
+
+  // ── B2B WELCOME ────────────────────────────────
+  {
+    key: 'b2b_welcome',
+    name: 'B2B Compliance Welcome',
+    path: 'b2b',
+    color: '#a78bfa',
+    description: 'Triggered for B2B scorecard leads. Delivers risk report + consultation invite.',
+    fromName: 'Jamaree R. James, Esq.',
+    fromEmail: 'jamaree@jclg.com',
+    replyTo: 'jamaree@jclg.com',
+    unsubGroup: 'b2b-compliance',
+    emails: [
+      {
+        day: 0,
+        subject: '🏢 Your FinTech Compliance Risk Report (Score: {{b2b_risk_score}}/100)',
+        preview: 'Your regulatory exposure analysis is attached. High scorers: read this first.',
+        goal: 'Deliver report + book consult',
+        ctaText: 'Book Free Compliance Consultation',
+        ctaUrl: '{{booking_url}}',
+        body: `<p>{{first_name}},</p><p>Your FinTech Compliance Risk Scorecard results are attached. You scored <strong>{{b2b_risk_score}}/100</strong> — placing you in the <strong>{{risk_level}}</strong> risk category.</p><p>Your top 3 risk findings:</p><ol>{{top_findings}}</ol><p>What this means for your company: {{risk_summary}}</p><p>I offer free 30-minute consultations for founders scoring 25+ on the scorecard. This covers your top risk areas and gives you a concrete remediation roadmap — not vague warnings.</p><p>Slots are limited. Book directly using the link below.</p>`
+      },
+      {
+        day: 2,
+        subject: 'The $19 Billion Question: What Happens When the CFPB Comes for You?',
+        preview: 'Senate report: CFPB rollback cost consumers $19B. The enforcement pendulum swings both ways.',
+        goal: 'Education + urgency',
+        ctaText: 'Get My Compliance Audit',
+        ctaUrl: '{{site_url}}/stage2-tripwire.html?path=b2b',
+        body: `<p>{{first_name}},</p><p>A Senate Banking Committee report released this year found that the Trump-era CFPB rollback cost consumers $19 billion in one year alone. The political winds in consumer protection enforcement shift fast — and companies that weren't compliant when the pendulum swings back get caught hardest.</p><p>The CFPB has examination authority over any company processing more than 5 million consumer transactions per year. If you're approaching that threshold, proactive compliance is far cheaper than reactive enforcement defense.</p><p>Average CFPB enforcement action: $4.2M in civil money penalties + remediation costs. Average compliance audit: $5,000–$25,000. The math is not subtle.</p>`
+      },
+      {
+        day: 4,
+        subject: '5th Circuit Just Changed TCPA. Does Your Product Need New Consent Architecture?',
+        preview: 'Feb 25, 2026 ruling. Prior express written consent rule overturned. FinTech marketing teams: read this.',
+        goal: 'Timely legal intelligence + consult',
+        ctaText: 'Analyze My TCPA Exposure',
+        ctaUrl: '{{booking_url}}',
+        body: `<p>{{first_name}},</p><p>Breaking regulatory update relevant to your score: On <strong>February 25, 2026</strong>, the 5th Circuit Court of Appeals overturned the FCC's "prior express written consent" rule for TCPA telemarketing calls. This changes the consent framework for any FinTech company using automated calls or texts for marketing.</p><p>If your product relies on PEWC as the legal basis for marketing communications — your consent architecture may need an immediate review. Companies in the 5th Circuit (TX, LA, MS) are most directly affected, but national products need analysis.</p><p>Your B2B scorecard flagged TCPA exposure. We need to discuss this before your next campaign goes out.</p><p>Source: Holland & Knight analysis, March 2026 | hklaw.com/en/insights/publications/2026/03/tcpa-reset-fifth-circuit-rejects-prior-express-written-consent-rule</p>`
+      }
+    ]
+  },
+
+  // ── EDUCATION / COURSE WELCOME ─────────────────
+  {
+    key: 'course_welcome',
+    name: 'Credit Warfare Welcome',
+    path: 'education',
+    color: '#26de81',
+    description: 'Triggered after $97 course purchase. Delivers access link + onboarding.',
+    fromName: 'Jamaree R. James, Esq.',
+    fromEmail: 'learn@jclg.com',
+    replyTo: 'jamaree@jclg.com',
+    unsubGroup: 'course-students',
+    emails: [
+      {
+        day: 0,
+        subject: '🎓 Welcome to Credit Warfare — Your Access Is Inside',
+        preview: 'Start with Module 1 tonight. It\'s 22 minutes and changes how you see debt forever.',
+        goal: 'Course activation + first login',
+        ctaText: 'Access My Course →',
+        ctaUrl: '{{course_url}}',
+        body: `<p>{{first_name}}, welcome to Credit Warfare.</p><p>Your course access is active. Start with Module 1 — "Know Your Rights: The Three Laws That Protect You." It's 22 minutes and will completely reframe how you see every debt collection situation going forward.</p><p>What you'll have after 90 days: the ability to read any credit report like an attorney, identify violations worth real money, write dispute letters that actually work, and know exactly when to escalate to litigation.</p><p>Most students find their first actionable violation in Module 4 or 5. Some find it sooner. Either way — reply to this email and tell me what you find. If it's worth litigating, I'll take it on contingency.</p>`
+      },
+      {
+        day: 3,
+        subject: 'Module Check-In: Have You Found Anything Yet?',
+        preview: 'If you\'ve done Modules 1-3, you now know what to look for. Time to look.',
+        goal: 'Engagement + pull MFSN report',
+        ctaText: 'Pull My 3-Bureau Report ($1 Trial)',
+        ctaUrl: '{{site_url}}/stage2-tripwire.html?path=credit',
+        body: `<p>{{first_name}}, hope you've knocked out the first few modules. By now you understand the three laws — FCRA, FDCPA, TCPA — and what violations look like.</p><p>The next step is pulling your actual credit reports so you have real data to work with in Modules 4-6. The $1 trial with MyFreeScoreNow gets you all three bureaus instantly. No hard pull on your credit. Takes 5 minutes.</p><p>Once you have your reports, Module 5 walks you through the exact scanning process step by step.</p>`
+      },
+      {
+        day: 7,
+        subject: '🎯 Week 1 Done. Here\'s What Students Find In Week 2.',
+        preview: '73% of students who complete week 1 identify at least one disputable item in week 2.',
+        goal: 'Retention + community invite',
+        ctaText: 'Join the Private Community',
+        ctaUrl: '{{community_url}}',
+        body: `<p>{{first_name}}, one week in. Here's what the data shows:</p><p>73% of students who complete Modules 1-4 identify at least one disputable credit report item by the end of week 2. Of those, roughly 30% have a violation worth pursuing legally.</p><p>The community is active and helpful. Post your questions, share what you're finding, and connect with other students navigating similar situations. Weekly Q&A calls with me are Thursdays at 7 PM EST.</p><p>And remember: if you find a legitimate FCRA or FDCPA violation, I'll personally review it at no charge. Course graduates get priority case intake.</p>`
+      }
+    ]
+  },
+
+  // ── LEGAL SHIELD WELCOME ──────────────────────
+  {
+    key: 'shield_welcome',
+    name: 'Legal Shield Welcome',
+    path: 'shield',
+    color: '#F5C842',
+    description: 'Triggered after Legal Shield membership purchase. Activates all member benefits.',
+    fromName: 'Jamaree R. James, Esq.',
+    fromEmail: 'jamaree@jclg.com',
+    replyTo: 'jamaree@jclg.com',
+    unsubGroup: 'shield-members',
+    emails: [
+      {
+        day: 0,
+        subject: '🛡️ You\'re In. Legal Shield Membership Activated.',
+        preview: 'Your attorney hotline, member portal access, and first scan setup are inside.',
+        goal: 'Onboarding + hotline activation',
+        ctaText: 'Access My Member Portal',
+        ctaUrl: '{{member_portal_url}}',
+        body: `<p>{{first_name}}, welcome to Legal Shield.</p><p>Here's everything that's now active for you:</p><ul><li><strong>Attorney Hotline:</strong> {{hotline_number}} — direct line, same-day response M-F 9-6 EST</li><li><strong>Member Portal:</strong> {{member_portal_url}} — violation log, document upload, scan history</li><li><strong>Monthly Scan:</strong> Your first scan runs on {{first_scan_date}}. Results in your inbox within 48 hours.</li><li><strong>C&D Benefit:</strong> Request your first cease & desist through the portal anytime.</li></ul><p>Your founding rate of ${{member_rate}}/month is locked in for life. Standard rate is $49/mo — you locked this in at the right time.</p>`
+      },
+      {
+        day: 7,
+        subject: 'Your First Monthly Scan Is Running',
+        preview: 'We\'re scanning your FCRA + FDCPA + TCPA exposure now. Results in 48 hours.',
+        goal: 'Engagement + scan results delivery',
+        ctaText: 'View My Scan Setup',
+        ctaUrl: '{{member_portal_url}}',
+        body: `<p>{{first_name}}, your first Legal Shield monthly violation scan is running right now.</p><p>We're checking: credit report accuracy (all 3 bureaus), any debt collection contacts you've logged, and any marketing communications for TCPA compliance.</p><p>Results arrive in 48 hours. If we find anything actionable, I'll flag it personally — not just send a template report.</p><p>To make your scan more effective, log any debt collector contacts from the past year in your member portal. Even if you think nothing was wrong — log it. We've found violations in situations people thought were clean.</p>`
+      }
+    ]
+  },
+
+  // ── DEMAND KIT DELIVERY ───────────────────────
+  {
+    key: 'demand_kit_delivery',
+    name: 'Demand Letter Kit Delivery',
+    path: 'legal',
+    color: '#fc5c65',
+    description: 'Triggered after $37 kit purchase. Delivers download link + legal shield upsell.',
+    fromName: 'Jamaree R. James, Esq.',
+    fromEmail: 'jamaree@jclg.com',
+    replyTo: 'jamaree@jclg.com',
+    unsubGroup: 'product-customers',
+    emails: [
+      {
+        day: 0,
+        subject: '📁 Your Demand Letter Starter Kit Download Is Ready',
+        preview: 'All 6 documents inside. Read the cover instructions first — it matters.',
+        goal: 'Kit delivery + usage instruction',
+        ctaText: 'Download My Kit →',
+        ctaUrl: '{{kit_download_url}}',
+        body: `<p>{{first_name}}, your Demand Letter Starter Kit is ready.</p><p>What's inside:</p><ol><li>FDCPA Demand Letter Template (Word + PDF)</li><li>23-Point Violation Checklist</li><li>Statutory Damages Calculator</li><li>Statute of Limitations Tracker</li><li>Debt Validation Letter Template</li><li>2026 FDCPA Cheat Sheet</li></ol><p><strong>Before you send the demand letter:</strong> Read the instruction sheet first. Specifically: send via USPS Certified Mail with Return Receipt. Keep the green card. This creates the legal record that they received notice.</p><p>Kit buyers get 30% off a full legal consultation if you need escalation after sending the letter.</p>`
+      },
+      {
+        day: 3,
+        subject: 'Did You Send the Letter? Here\'s What Happens Next.',
+        preview: 'They have 30 days to respond. Here\'s every scenario and what to do.',
+        goal: 'Next-step guidance + consultation upsell',
+        ctaText: 'Talk to Jamaree About What Happened',
+        ctaUrl: '{{booking_url}}',
+        body: `<p>{{first_name}}, hoping you've sent your demand letter by now. Here's the playbook for what comes next:</p><p><strong>Scenario 1: They stop contact immediately.</strong> Good. Document it. Keep the letter and USPS receipts forever.</p><p><strong>Scenario 2: They respond offering to settle.</strong> Don't accept anything without running it by me first. Kit buyers get a free 15-min settlement review.</p><p><strong>Scenario 3: They dispute the violations.</strong> This is when we file. Send me a copy of their response and I'll evaluate for litigation.</p><p><strong>Scenario 4: They ignore it and keep collecting.</strong> This is actually the best case for litigation — continued contact after a C&D request = additional violations, each worth $1,000.</p>`
+      }
+    ]
+  },
+
+  // ── REFERRAL INVITE ───────────────────────────
+  {
+    key: 'referral_invite',
+    name: 'Referral Program Invite',
+    path: 'all',
+    color: '#F5C842',
+    description: 'Sent to clients/members after their case closes or membership is 30 days active.',
+    fromName: 'Jamaree R. James, Esq.',
+    fromEmail: 'jamaree@jclg.com',
+    replyTo: 'jamaree@jclg.com',
+    unsubGroup: 'referral-program',
+    emails: [
+      {
+        day: 0,
+        subject: '🎁 $250 Amazon Gift Card — Refer Someone Who Needs This',
+        preview: 'You know someone dealing with a debt collector. Send them this. You get $250 when they sign.',
+        goal: 'Referral activation',
+        ctaText: 'Get My Referral Link',
+        ctaUrl: '{{referral_link}}',
+        body: `<p>{{first_name}},</p><p>You know someone who needs what we do. I'm 100% certain of it.</p><p>Someone getting harassed by a debt collector. Someone with errors on their credit report killing their score. Someone running a FinTech startup with no compliance counsel.</p><p>Here's the deal: refer them to James Consumer Law Group. When they become a paying client or member, you get a <strong>$250 Amazon gift card</strong> within 30 days. No limits on referrals. Refer 4 people a year and your Legal Shield membership is free.</p><p>Course graduates earn <strong>20% commission</strong> on referred legal fee income — no cap.</p><p>Your personal referral link:</p><p style="font-family:monospace;background:#1e2330;padding:10px;border-radius:6px;font-size:13px">{{referral_link}}</p>`
+      }
+    ]
+  },
+];
+
+// ────────────────────────────────────────────────
+// STATE
+// ────────────────────────────────────────────────
+let activeSeqKey = null;
+let activeEmailIdx = null;
+let sendLogData = [];
+
+// ────────────────────────────────────────────────
+// TAB SWITCHING
+// ────────────────────────────────────────────────
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-content').forEach(function(el){ el.style.display='none'; });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('tab-'+tab).style.display = 'block';
+  btn.classList.add('active');
+  if (tab === 'log') loadSendLog();
+}
+function switchEdTab(tab, el) {
+  document.querySelectorAll('.ed-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.ed-panel').forEach(function(p){ p.classList.remove('active'); });
+  el.classList.add('active');
+  document.getElementById('ed-'+tab).classList.add('active');
+}
+
+// ────────────────────────────────────────────────
+// SEQUENCE LIST RENDER
+// ────────────────────────────────────────────────
+function renderSequenceList() {
+  const list = document.getElementById('sequence-list');
+  list.innerHTML = SEQUENCES.map(function(seq) {
+    const dotsHtml = seq.emails.map(function(e, i) {
+      return '<div class="si-email-dot" style="background:'+seq.color+'" title="Day '+e.day+': '+e.subject+'">'+(i+1)+'</div>';
+    }).join('');
+    return '<div class="seq-item" data-key="'+seq.key+'" onclick="selectSequence(\''+seq.key+'\')">'+
+      '<div class="si-top">'+
+        '<div class="si-dot" style="background:'+seq.color+'"></div>'+
+        '<div class="si-name">'+seq.name+'</div>'+
+      '</div>'+
+      '<div class="si-meta">'+seq.emails.length+' emails · Path: '+seq.path+'</div>'+
+      '<div class="si-emails">'+dotsHtml+'</div>'+
+    '</div>';
+  }).join('');
+}
+
+// ────────────────────────────────────────────────
+// SELECT SEQUENCE → RENDER EMAILS
+// ────────────────────────────────────────────────
+function selectSequence(key) {
+  activeSeqKey = key;
+  activeEmailIdx = null;
+
+  document.querySelectorAll('.seq-item').forEach(function(el){
+    el.classList.toggle('active', el.dataset.key === key);
+  });
+
+  const seq = SEQUENCES.find(function(s){ return s.key===key; });
+  if (!seq) return;
+
+  document.getElementById('active-seq-name').textContent = seq.name + ' — ' + seq.emails.length + ' emails';
+
+  const goalColors = {
+    'Deliver checklist + book consult':'#fc5c65',
+    'Education + urgency':'#fed330',
+    'Social proof + conversion':'#26de81',
+    'Engagement + brand intro':'#4fc3f7',
+    'Tripwire conversion':'#a78bfa',
+    'Final urgency + convert':'#fc5c65',
+    'MFSN activation':'#4fc3f7',
+    'Course activation + first login':'#26de81',
+    'Onboarding + hotline activation':'#F5C842',
+    'Kit delivery + usage instruction':'#fc5c65',
+    'Referral activation':'#F5C842',
+  };
+
+  const emailListHtml = seq.emails.map(function(e, i) {
+    const gc = goalColors[e.goal] || '#8892a4';
+    return '<div class="email-row" data-idx="'+i+'" onclick="selectEmail(\''+key+'\','+i+')">'+
+      '<div><div class="er-day">'+e.day+'</div><div class="er-day-lbl">DAY</div></div>'+
+      '<div>'+
+        '<div class="er-subject">'+e.subject+'</div>'+
+        '<div class="er-preview">'+e.preview+'</div>'+
+      '</div>'+
+      '<div><span class="er-goal" style="background:'+gc+'18;color:'+gc+'">'+e.goal+'</span></div>'+
+    '</div>';
+  }).join('');
+
+  document.getElementById('email-list').innerHTML = emailListHtml;
+
+  // Settings tab
+  renderSequenceSettings(seq);
+
+  // Switch to emails sub-tab
+  switchEdTab('emails', document.querySelector('.ed-tab.active') || document.querySelector('.ed-tab'));
+}
+
+// ────────────────────────────────────────────────
+// SELECT EMAIL → PREVIEW
+// ────────────────────────────────────────────────
+function selectEmail(seqKey, idx) {
+  activeEmailIdx = idx;
+  document.querySelectorAll('.email-row').forEach(function(r){
+    r.classList.toggle('selected', parseInt(r.dataset.idx)===idx);
+  });
+
+  const seq = SEQUENCES.find(function(s){ return s.key===seqKey; });
+  if (!seq) return;
+  const email = seq.emails[idx];
+  if (!email) return;
+
+  document.getElementById('ep-subject').textContent = email.subject;
+  document.getElementById('ep-preview-text').textContent = email.preview;
+  document.getElementById('preview-empty').style.display = 'none';
+  document.getElementById('preview-content').style.display = 'block';
+
+  // Build full HTML email for iframe
+  const fullHtml = buildEmailHTML(seq, email);
+  const iframe = document.getElementById('email-iframe');
+  iframe.srcdoc = fullHtml;
+
+  // Switch to preview tab
+  const previewTab = document.querySelector('.ed-tab:nth-child(2)');
+  switchEdTab('preview', previewTab);
+}
+
+// ────────────────────────────────────────────────
+// BUILD EMAIL HTML (dark-theme branded)
+// ────────────────────────────────────────────────
+function buildEmailHTML(seq, email) {
+  const pathColors = { legal:'#fc5c65', credit:'#4fc3f7', education:'#26de81', b2b:'#a78bfa', shield:'#F5C842', all:'#F5C842' };
+  const accentColor = pathColors[seq.path] || seq.color || '#F5C842';
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<style>
+  body{margin:0;padding:0;background:#f4f4f7;font-family:'Helvetica Neue',Arial,sans-serif}
+  .wrap{max-width:600px;margin:0 auto;background:#fff}
+  .top-bar{background:#0a0c10;padding:10px 24px;text-align:center}
+  .top-bar-text{color:${accentColor};font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .header{background:#0f1117;padding:28px 32px;text-align:center;border-bottom:3px solid ${accentColor}}
+  .header-logo{color:${accentColor};font-size:24px;font-weight:900;letter-spacing:.02em;font-family:'Helvetica Neue',Arial,sans-serif}
+  .header-sub{color:#5a6275;font-size:11px;margin-top:4px}
+  .body{padding:32px;color:#1a1a2e;background:#ffffff}
+  .body p{margin:0 0 16px;font-size:15px;line-height:1.65;color:#2d3748}
+  .body ul,.body ol{margin:0 0 16px;padding-left:20px}
+  .body li{margin-bottom:8px;font-size:14px;line-height:1.6;color:#4a5568}
+  .body strong{color:#1a1a2e}
+  .cta-wrap{text-align:center;margin:28px 0}
+  .cta-btn{display:inline-block;padding:16px 32px;background:${accentColor};color:${accentColor==='#F5C842'?'#0a0c10':'#ffffff'};font-size:15px;font-weight:800;text-decoration:none;border-radius:10px;letter-spacing:.02em}
+  .divider{height:1px;background:#e2e8f0;margin:24px 0}
+  .cite-box{background:#f8fafc;border-left:3px solid ${accentColor};padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0}
+  .cite-box p{font-size:12px;color:#718096;margin:0;font-style:italic}
+  .sig{margin-top:24px;padding-top:16px;border-top:1px solid #e2e8f0}
+  .sig-name{font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
+  .sig-title{font-size:12px;color:#718096}
+  .footer{background:#0a0c10;padding:20px 32px;text-align:center}
+  .footer p{color:#5a6275;font-size:11px;margin:4px 0;line-height:1.6}
+  .footer a{color:${accentColor};text-decoration:none}
+  .law-bar{background:#161a22;padding:8px 24px;text-align:center}
+  .law-bar span{color:#3d4558;font-size:10px;letter-spacing:.06em}
+</style></head><body>
+<div class="wrap">
+  <div class="top-bar"><div class="top-bar-text">⚖️ James Consumer Law Group · Attorney-Client Confidential</div></div>
+  <div class="header">
+    <div class="header-logo">⚖️ SUE DAT AZZ</div>
+    <div class="header-sub">Jamaree R. James, Esq. · James Consumer Law Group</div>
+  </div>
+  <div class="body">
+    ${email.body}
+    <div class="cta-wrap">
+      <a href="${email.ctaUrl}" class="cta-btn">${email.ctaText}</a>
+    </div>
+    <div class="cite-box"><p>All statutory damage amounts reference current federal law as of March 6, 2026. This email does not constitute legal advice and does not create an attorney-client relationship.</p></div>
+    <div class="sig">
+      <div class="sig-name">${seq.fromName}</div>
+      <div class="sig-title">James Consumer Law Group · Consumer Law + FinTech · jamaree.rjames@gmail.com</div>
+    </div>
+  </div>
+  <div class="law-bar"><span>15 U.S.C. § 1681 (FCRA) · 15 U.S.C. § 1692 (FDCPA) · 47 U.S.C. § 227 (TCPA)</span></div>
+  <div class="footer">
+    <p>James Consumer Law Group · Jamaree R. James, Esq.</p>
+    <p>You're receiving this because you requested resources from <a href="{{site_url}}">suedatazz.com</a></p>
+    <p><a href="{{unsubscribe_url}}">Unsubscribe</a> · <a href="{{preferences_url}}">Email Preferences</a> · <a href="{{privacy_url}}">Privacy Policy</a></p>
+    <p style="color:#2d3748;margin-top:8px;font-size:10px">© 2026 James Consumer Law Group. Nothing in this email constitutes legal advice.</p>
+  </div>
+</div>
+</body></html>`;
+}
+
+// ────────────────────────────────────────────────
+// SEQUENCE SETTINGS PANEL
+// ────────────────────────────────────────────────
+function renderSequenceSettings(seq) {
+  document.getElementById('settings-empty').style.display = 'none';
+  document.getElementById('settings-content').style.display = 'block';
+
+  document.getElementById('seq-settings-detail').innerHTML =
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:.85rem">' +
+      '<div><span style="color:var(--tm);display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">Key</span><code style="color:var(--gold)">'+seq.key+'</code></div>'+
+      '<div><span style="color:var(--tm);display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">Path</span><span>'+seq.path+'</span></div>'+
+      '<div><span style="color:var(--tm);display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">From</span><span>'+seq.fromName+' &lt;'+seq.fromEmail+'&gt;</span></div>'+
+      '<div><span style="color:var(--tm);display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">Reply-To</span><span>'+seq.replyTo+'</span></div>'+
+      '<div><span style="color:var(--tm);display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">Unsub Group</span><code style="color:var(--credit)">'+seq.unsubGroup+'</code></div>'+
+      '<div><span style="color:var(--tm);display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">Email Count</span><span>'+seq.emails.length+'</span></div>'+
+    '</div>'+
+    '<p style="font-size:.82rem;color:var(--ts);margin-top:12px">'+seq.description+'</p>';
+
+  const vars = {
+    first_name: 'Lead first name',
+    email: 'Lead email address',
+    potential_damages: 'Calculated FDCPA potential damages ($)',
+    violations_count: 'Number of FDCPA violations checked',
+    b2b_risk_score: 'B2B scorecard score (0-100)',
+    risk_level: 'LOW | MEDIUM | HIGH | CRITICAL',
+    risk_summary: 'Generated risk description',
+    top_findings: 'Top 3 risk findings from scorecard',
+    booking_url: 'Calendly or booking link URL',
+    mfsn_url: 'MFSN enrollment URL with AID+PID',
+    site_url: 'https://suedatazz.com (or Pages URL)',
+    course_url: 'Course platform access link',
+    community_url: 'Private community (Discord/Circle) link',
+    member_portal_url: 'Legal Shield member portal URL',
+    hotline_number: 'Attorney hotline phone number',
+    first_scan_date: 'Calculated 30 days from signup',
+    member_rate: '29 (founding) or 49 (standard)',
+    kit_download_url: 'One-time download link for $37 kit',
+    referral_link: 'Personalized referral tracking URL',
+    unsubscribe_url: 'SendGrid unsubscribe link (auto-populated)',
+    preferences_url: 'Email preference center URL',
+    privacy_url: 'Privacy policy URL',
+  };
+  document.getElementById('settings-vars-code').textContent = JSON.stringify(vars, null, 2);
+}
+
+// ────────────────────────────────────────────────
+// WORKER CODE CONTENT
+// ────────────────────────────────────────────────
+function renderWorkerCode() {
+  document.getElementById('worker-code-block').innerHTML = escHtml(
+`// ══════════════════════════════════════════════════════════════════════════
+// SUE DAT AZZ — Email Automation Worker
+// James Consumer Law Group | March 6, 2026
+// Deploy: wrangler deploy
+// Secrets: SENDGRID_API_KEY, QUEUE_BINDING
+// ══════════════════════════════════════════════════════════════════════════
+
+interface Env {
+  SENDGRID_API_KEY: string;
+  EMAIL_QUEUE: Queue;       // Cloudflare Queue binding
+  KV_NAMESPACE: KVNamespace; // For dedup + tracking
+}
+
+interface EmailJob {
+  lead_id: string;
+  email: string;
+  first_name: string;
+  sequence_key: string;
+  day_number: number;
+  metadata: Record<string, unknown>;
+  trigger_at: number; // Unix ms
+}
+
+// ── Sequence delay map (days → ms) ─────────────────────────────────────
+const DELAYS: Record<string, number[]> = {
+  legal_welcome:        [0, 1, 3, 5, 7].map(d => d * 86400000),
+  fdcpa_nurture:        [0, 1, 2, 3, 4, 5, 6].map(d => d * 86400000),
+  credit_welcome:       [0, 2, 5].map(d => d * 86400000),
+  b2b_welcome:          [0, 2, 4].map(d => d * 86400000),
+  course_welcome:       [0, 3, 7].map(d => d * 86400000),
+  shield_welcome:       [0, 7].map(d => d * 86400000),
+  demand_kit_delivery:  [0, 3].map(d => d * 86400000),
+  referral_invite:      [0].map(d => d * 86400000),
+};
+
+// ── SendGrid Dynamic Template IDs ──────────────────────────────────────
+// Replace with your actual template IDs from SendGrid dashboard
+const TEMPLATE_IDS: Record<string, Record<number, string>> = {
+  legal_welcome:        { 0: 'd-LEGAL_W_D0', 1: 'd-LEGAL_W_D1', 3: 'd-LEGAL_W_D3', 5: 'd-LEGAL_W_D5', 7: 'd-LEGAL_W_D7' },
+  fdcpa_nurture:        { 0: 'd-FDCPA_D0', 1: 'd-FDCPA_D1', 2: 'd-FDCPA_D2', 3: 'd-FDCPA_D3', 4: 'd-FDCPA_D4', 5: 'd-FDCPA_D5', 6: 'd-FDCPA_D6' },
+  credit_welcome:       { 0: 'd-CREDIT_D0', 2: 'd-CREDIT_D2', 5: 'd-CREDIT_D5' },
+  b2b_welcome:          { 0: 'd-B2B_D0', 2: 'd-B2B_D2', 4: 'd-B2B_D4' },
+  course_welcome:       { 0: 'd-COURSE_D0', 3: 'd-COURSE_D3', 7: 'd-COURSE_D7' },
+  shield_welcome:       { 0: 'd-SHIELD_D0', 7: 'd-SHIELD_D7' },
+  demand_kit_delivery:  { 0: 'd-KIT_D0', 3: 'd-KIT_D3' },
+  referral_invite:      { 0: 'd-REFERRAL_D0' },
+};
+
+const UNSUB_GROUPS: Record<string, number> = {
+  'legal-nurture':      12345,   // ← replace with SendGrid group IDs
+  'credit-monitoring':  12346,
+  'b2b-compliance':     12347,
+  'course-students':    12348,
+  'shield-members':     12349,
+  'product-customers':  12350,
+  'referral-program':   12351,
+};
+
+export default {
+  // ── HTTP handler (trigger endpoint) ────────────────────────────────────
+  async fetch(request: Request, env: Env): Promise<Response> {
+    if (request.method !== 'POST') {
+      return new Response('Method Not Allowed', { status: 405 });
+    }
+
+    const url = new URL(request.url);
+
+    // POST /api/email/trigger
+    if (url.pathname === '/api/email/trigger') {
+      return handleTrigger(request, env);
+    }
+
+    // POST /api/email/unsubscribe
+    if (url.pathname === '/api/email/unsubscribe') {
+      return handleUnsubscribe(request, env);
+    }
+
+    return new Response('Not Found', { status: 404 });
+  },
+
+  // ── Queue consumer (process delayed sends) ─────────────────────────────
+  async queue(batch: MessageBatch<EmailJob>, env: Env): Promise<void> {
+    for (const msg of batch.messages) {
+      const job = msg.body;
+
+      // Dedup check: prevent double-sends
+      const dedupKey = \`sent:\${job.lead_id}:\${job.sequence_key}:\${job.day_number}\`;
+      const alreadySent = await env.KV_NAMESPACE.get(dedupKey);
+      if (alreadySent) {
+        console.log(JSON.stringify({ msg: 'Dedup skip', ...job }));
+        msg.ack();
+        continue;
+      }
+
+      // Check unsubscribe status
+      const unsubKey = \`unsub:\${job.email}\`;
+      const isUnsubscribed = await env.KV_NAMESPACE.get(unsubKey);
+      if (isUnsubscribed) {
+        console.log(JSON.stringify({ msg: 'Unsub skip', email: job.email }));
+        msg.ack();
+        continue;
+      }
+
+      // Send via SendGrid
+      try {
+        await sendEmail(job, env);
+        await env.KV_NAMESPACE.put(dedupKey, '1', { expirationTtl: 604800 }); // 7 days
+        msg.ack();
+      } catch (err) {
+        console.log(JSON.stringify({ msg: 'Send failed', error: String(err), ...job }));
+        msg.retry({ delaySeconds: 300 }); // retry after 5 min
+      }
+    }
+  },
+};
+
+// ── Trigger handler ─────────────────────────────────────────────────────
+async function handleTrigger(request: Request, env: Env): Promise<Response> {
+  type TriggerBody = {
+    email: string; first_name: string; sequence: string;
+    metadata?: Record<string, unknown>; lead_id?: string;
+  };
+  const body = await request.json() as TriggerBody;
+  const { email, first_name, sequence, metadata = {}, lead_id = crypto.randomUUID() } = body;
+
+  if (!email || !first_name || !sequence) {
+    return Response.json({ error: 'email, first_name, sequence required' }, { status: 400 });
+  }
+
+  const delays = DELAYS[sequence];
+  if (!delays) {
+    return Response.json({ error: \`Unknown sequence: \${sequence}\` }, { status: 400 });
+  }
+
+  const now = Date.now();
+  const queued: number[] = [];
+
+  for (const [idx, delayMs] of delays.entries()) {
+    const job: EmailJob = {
+      lead_id, email, first_name, sequence_key: sequence,
+      day_number: idx, metadata, trigger_at: now + delayMs,
+    };
+
+    await env.EMAIL_QUEUE.send(job, {
+      delaySeconds: Math.floor(delayMs / 1000),
+    });
+    queued.push(idx);
+  }
+
+  console.log(JSON.stringify({ msg: 'Sequence queued', sequence, email, emails_queued: queued.length }));
+  return Response.json({ success: true, sequence, emails_queued: queued.length, lead_id });
+}
+
+// ── SendGrid send ───────────────────────────────────────────────────────
+async function sendEmail(job: EmailJob, env: Env): Promise<void> {
+  const templateId = TEMPLATE_IDS[job.sequence_key]?.[job.day_number];
+  if (!templateId) throw new Error(\`No template for \${job.sequence_key} day \${job.day_number}\`);
+
+  const unsubGroupId = UNSUB_GROUPS[getUnsubGroup(job.sequence_key)];
+
+  const payload = {
+    personalizations: [{
+      to: [{ email: job.email, name: job.first_name }],
+      dynamic_template_data: {
+        first_name: job.first_name,
+        email: job.email,
+        site_url: 'https://suedatazz.com',
+        booking_url: 'https://calendly.com/jamaree-james',
+        ...job.metadata,
+      },
+    }],
+    from: { email: 'jamaree@jclg.com', name: 'Jamaree R. James, Esq.' },
+    template_id: templateId,
+    asm: { group_id: unsubGroupId, groups_to_display: [unsubGroupId] },
+    tracking_settings: {
+      click_tracking: { enable: true },
+      open_tracking: { enable: true },
+    },
+  };
+
+  const res = await fetch('https://api.sendgrid.com/v3/mail/send', {
+    method: 'POST',
+    headers: {
+      'Authorization': \`Bearer \${env.SENDGRID_API_KEY}\`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const errBody = await res.text();
+    throw new Error(\`SendGrid error \${res.status}: \${errBody}\`);
+  }
+
+  console.log(JSON.stringify({ msg: 'Email sent', to: job.email, seq: job.sequence_key, day: job.day_number }));
+}
+
+function getUnsubGroup(seq: string): string {
+  const map: Record<string, string> = {
+    legal_welcome: 'legal-nurture', fdcpa_nurture: 'legal-nurture',
+    credit_welcome: 'credit-monitoring', b2b_welcome: 'b2b-compliance',
+    course_welcome: 'course-students', shield_welcome: 'shield-members',
+    demand_kit_delivery: 'product-customers', referral_invite: 'referral-program',
+  };
+  return map[seq] || 'legal-nurture';
+}
+
+async function handleUnsubscribe(request: Request, env: Env): Promise<Response> {
+  type UnsubBody = { email: string };
+  const { email } = await request.json() as UnsubBody;
+  if (!email) return Response.json({ error: 'email required' }, { status: 400 });
+  await env.KV_NAMESPACE.put(\`unsub:\${email}\`, '1', { expirationTtl: 31536000 });
+  return Response.json({ success: true });
+}`
+  );
+
+  document.getElementById('wrangler-code-block').innerHTML = escHtml(
+`# wrangler.toml — Email Worker
+# James Consumer Law Group | March 6, 2026
+# ⚠️  compatibility_date = TODAY — always update for new projects
+
+name = "sda-email-worker"
+main = "src/email-worker.ts"
+compatibility_date = "2026-03-06"
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
+
+[[queues.producers]]
+queue = "email-queue"
+binding = "EMAIL_QUEUE"
+
+[[queues.consumers]]
+queue = "email-queue"
+max_batch_size = 10
+max_batch_timeout = 30
+max_retries = 3
+dead_letter_queue = "email-queue-dlq"
+
+[[kv_namespaces]]
+binding = "KV_NAMESPACE"
+id = "YOUR_KV_NAMESPACE_ID"  # wrangler kv namespace create "sda-email-kv"
+
+# ── Routes ──────────────────────────────────────
+[[routes]]
+pattern = "api.suedatazz.com/api/email/*"
+zone_name = "suedatazz.com"
+
+# ── Secrets (set via wrangler secret put, NEVER in this file) ──────────
+# wrangler secret put SENDGRID_API_KEY`
+  );
+
+  document.getElementById('deploy-commands-block').innerHTML = escHtml(
+`# 1. Install Wrangler (if not already)
+pnpm add -g wrangler
+
+# 2. Login to Cloudflare
+wrangler login
+
+# 3. Create KV namespace
+wrangler kv namespace create "sda-email-kv"
+# Copy the ID and paste into wrangler.toml above
+
+# 4. Create Queues
+wrangler queues create email-queue
+wrangler queues create email-queue-dlq
+
+# 5. Set secrets (interactive — never hardcode)
+wrangler secret put SENDGRID_API_KEY
+
+# 6. Deploy
+wrangler deploy
+
+# 7. Tail logs (live)
+wrangler tail sda-email-worker`
+  );
+}
+
+// ────────────────────────────────────────────────
+// SENDGRID CONFIG TAB
+// ────────────────────────────────────────────────
+function renderSendGridConfig() {
+  const templateIds = {};
+  SEQUENCES.forEach(function(seq){
+    templateIds[seq.key] = {};
+    seq.emails.forEach(function(e){
+      templateIds[seq.key]['day_'+e.day] = 'd-REPLACE_WITH_ACTUAL_TEMPLATE_ID';
+    });
+  });
+  document.getElementById('sendgrid-config-block').textContent = JSON.stringify({
+    comment: 'Create these templates in SendGrid → Email API → Dynamic Templates. Each key maps to sequence_key → day_N → template_id.',
+    templates: templateIds,
+    sender_identity: {
+      from_name: 'Jamaree R. James, Esq.',
+      from_email: 'jamaree@jclg.com',
+      reply_to: 'jamaree@jclg.com',
+      physical_address: '[FIRM_ADDRESS] — required by CAN-SPAM',
+    },
+    ip_warmup: {
+      note: 'New SendGrid accounts must warm up IP. Start with 200/day, double every 2-3 days.',
+      week_1_max: 200,
+      week_2_max: 1000,
+      week_3_max: 5000,
+      full_volume_week: 4,
+    },
+  }, null, 2);
+
+  document.getElementById('unsub-config-block').textContent = JSON.stringify({
+    groups: [
+      { name: 'legal-nurture', description: 'Legal violation checklist & case nurture emails', id: 'REPLACE_12345' },
+      { name: 'credit-monitoring', description: 'FCRA & credit monitoring emails', id: 'REPLACE_12346' },
+      { name: 'b2b-compliance', description: 'FinTech compliance regulatory updates', id: 'REPLACE_12347' },
+      { name: 'course-students', description: 'Credit Warfare course updates & tips', id: 'REPLACE_12348' },
+      { name: 'shield-members', description: 'Legal Shield member communications', id: 'REPLACE_12349' },
+      { name: 'product-customers', description: 'Product purchase delivery & follow-up', id: 'REPLACE_12350' },
+      { name: 'referral-program', description: 'Referral program invitations & updates', id: 'REPLACE_12351' },
+    ],
+    setup_steps: [
+      '1. Go to SendGrid → Suppressions → Unsubscribe Groups',
+      '2. Create each group above. Copy the numeric ID.',
+      '3. Replace REPLACE_XXXXX above with actual IDs.',
+      '4. Update UNSUB_GROUPS object in email-worker.ts',
+      '5. Each email\'s ASM block will auto-link to correct group.',
+    ],
+  }, null, 2);
+
+  const dnsRows = [
+    ['CNAME','em1234.suedatazz.com','u1234.wl.sendgrid.net','Sender authentication (DKIM)'],
+    ['CNAME','s1._domainkey.suedatazz.com','s1.domainkey.u1234.wl.sendgrid.net','DKIM signing key 1'],
+    ['CNAME','s2._domainkey.suedatazz.com','s2.domainkey.u1234.wl.sendgrid.net','DKIM signing key 2'],
+    ['TXT','suedatazz.com','v=spf1 include:sendgrid.net ~all','SPF record'],
+    ['TXT','_dmarc.suedatazz.com','v=DMARC1; p=quarantine; rua=mailto:dmarc@suedatazz.com','DMARC policy'],
+  ];
+  document.getElementById('dns-table-body').innerHTML = dnsRows.map(function(row){
+    return '<tr>'+row.map(function(cell,i){
+      return '<td style="padding:10px 12px;border-bottom:1px solid var(--border);color:'+(i===0?'var(--gold)':'var(--ts)')+'">'+cell+'</td>';
+    }).join('')+'</tr>';
+  }).join('');
+}
+
+// ────────────────────────────────────────────────
+// TRIGGER TAB
+// ────────────────────────────────────────────────
+function renderTriggerTab() {
+  const sel = document.getElementById('tf-sequence');
+  SEQUENCES.forEach(function(seq){
+    const opt = document.createElement('option');
+    opt.value = seq.key;
+    opt.textContent = seq.name + ' (' + seq.emails.length + ' emails)';
+    sel.appendChild(opt);
+  });
+
+  const list = document.getElementById('individual-trigger-list');
+  let html = '';
+  SEQUENCES.forEach(function(seq){
+    seq.emails.forEach(function(email){
+      html += '<div style="background:var(--d700);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">' +
+        '<div>' +
+          '<div style="font-size:.8rem;font-weight:700;color:'+seq.color+'">'+seq.name+' · Day '+email.day+'</div>' +
+          '<div style="font-size:.85rem;color:var(--tp);font-weight:600;margin-top:2px">'+email.subject+'</div>' +
+        '</div>' +
+        '<button onclick="testFireEmail(\''+seq.key+'\','+email.day+')" style="padding:7px 14px;background:var(--d600);border:1px solid var(--border);border-radius:8px;color:var(--ts);font-size:.75rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s" onmouseover="this.style.borderColor=\'var(--gold)\';this.style.color=\'var(--gold)\'" onmouseout="this.style.borderColor=\'var(--border)\';this.style.color=\'var(--ts)\'">' +
+          '<i class="fas fa-paper-plane"></i> Fire Test' +
+        '</button>' +
+      '</div>';
+    });
+  });
+  list.innerHTML = html;
+}
+
+// ────────────────────────────────────────────────
+// TEST FIRE
+// ────────────────────────────────────────────────
+async function testFireSequence() {
+  const email = document.getElementById('tf-email').value.trim();
+  const firstName = document.getElementById('tf-first').value.trim();
+  const sequence = document.getElementById('tf-sequence').value;
+
+  if (!email || !firstName || !sequence) {
+    showToast('⚠️ Fill in email, first name, and select a sequence.');
+    return;
+  }
+
+  showToast('⏳ Queuing sequence: ' + sequence + ' → ' + email);
+
+  try {
+    const res = await fetch('/api/email/trigger', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email, first_name: firstName, sequence,
+        metadata: { site_url: window.location.origin, booking_url: '#', mfsn_url: '#' },
+      }),
+    });
+    const data = await res.json().catch(function(){ return {}; });
+    logSend(email, sequence + ' (all)', 'queued');
+    showToast('✅ Sequence "' + sequence + '" queued for ' + email + ' (' + (data.emails_queued || '?') + ' emails)');
+  } catch(err) {
+    // Worker not deployed yet — log locally for demo
+    logSend(email, sequence + ' (all)', 'queued');
+    showToast('📋 Logged (Worker not deployed yet). Deploy worker to actually send.');
+  }
+}
+
+async function testFireEmail(seqKey, dayNum) {
+  const email = document.getElementById('tf-email').value.trim() || 'test@example.com';
+  const firstName = document.getElementById('tf-first').value.trim() || 'Test';
+
+  const seq = SEQUENCES.find(function(s){ return s.key===seqKey; });
+  const em = seq && seq.emails.find(function(e){ return e.day===dayNum; });
+  const subject = em ? em.subject : seqKey + ' Day ' + dayNum;
+
+  logSend(email, subject, 'queued');
+  showToast('📧 Test send logged: ' + seqKey + ' Day ' + dayNum + ' → ' + email);
+}
+
+// ────────────────────────────────────────────────
+// SEND LOG
+// ────────────────────────────────────────────────
+function logSend(email, subject, status) {
+  sendLogData.unshift({ email, subject, status, time: new Date().toLocaleTimeString() });
+  if (sendLogData.length > 50) sendLogData.pop();
+}
+
+async function loadSendLog() {
+  let rows = '';
+
+  // Merge local test fires with API data
+  if (sendLogData.length > 0) {
+    rows = sendLogData.map(function(entry){
+      const statusClass = { sent:'sl-sent', queued:'sl-queued', opened:'sl-opened', clicked:'sl-clicked' }[entry.status] || 'sl-queued';
+      return '<div class="sl-row">' +
+        '<div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><strong>'+escHtml(entry.subject.substring(0,60))+'...</strong></div>' +
+        '<div style="color:var(--ts);font-size:.8rem">'+escHtml(entry.email)+'</div>' +
+        '<div><span class="sl-status '+statusClass+'">'+entry.status+'</span></div>' +
+        '<div style="color:var(--tm);font-size:.8rem">'+entry.time+'</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  // Try fetching from API
+  try {
+    const res = await fetch('tables/email_sends?limit=50&sort=created_at');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.data && data.data.length > 0) {
+        const apiRows = data.data.map(function(send){
+          const sc = { sent:'sl-sent', queued:'sl-queued', opened:'sl-opened', clicked:'sl-clicked' }[send.status] || 'sl-queued';
+          return '<div class="sl-row">' +
+            '<div><strong>'+(send.subject||send.sequence_key||'—').substring(0,60)+'</strong></div>' +
+            '<div style="color:var(--ts);font-size:.8rem">'+(send.email||'—')+'</div>' +
+            '<div><span class="sl-status '+sc+'">'+(send.status||'queued')+'</span></div>' +
+            '<div style="color:var(--tm);font-size:.8rem">'+(send.sent_at ? new Date(send.sent_at).toLocaleString() : '—')+'</div>' +
+          '</div>';
+        }).join('');
+        rows = apiRows + rows;
+      }
+    }
+  } catch(e) {}
+
+  document.getElementById('send-log-body').innerHTML = rows ||
+    '<div class="sl-empty">No sends yet. Fire a test send from the Trigger tab.</div>';
+
+  document.getElementById('stat-sent').textContent = sendLogData.length;
+}
+
+// ────────────────────────────────────────────────
+// UTILS
+// ────────────────────────────────────────────────
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function copyCode(btn) {
+  const pre = btn.closest('.code-block').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText).then(function(){
+    const orig = btn.textContent;
+    btn.textContent = '✅ Copied!';
+    setTimeout(function(){ btn.textContent = orig; }, 2000);
+  });
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 4000);
+}
+
+// ────────────────────────────────────────────────
+// INIT
+// ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  renderSequenceList();
+  renderWorkerCode();
+  renderSendGridConfig();
+  renderTriggerTab();
+
+  // Auto-select first sequence
+  setTimeout(function(){
+    if (SEQUENCES.length > 0) selectSequence(SEQUENCES[0].key);
+  }, 100);
+
+  console.log('%c⚖️ Email Sequences Dashboard — SUE DAT AZZ | March 6, 2026', 'color:#F5C842;font-weight:bold;');
+  console.log('%c9 sequences | 28 emails | FDCPA Nurture + Path Welcomes | Cloudflare Worker + SendGrid', 'color:#8892a4;font-size:11px;');
+});
+</script>
+</body>
+</html>
