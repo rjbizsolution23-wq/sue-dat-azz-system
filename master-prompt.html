@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧠 Master Niche Revenue Machine — Build Prompt | SUE DAT AZZ</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<style>
+  :root {
+    --gold: #f5c842;
+    --gold-light: #ffd966;
+    --gold-dim: rgba(245,200,66,0.15);
+    --dark: #0a0a0b;
+    --dark-2: #111113;
+    --dark-3: #1a1a1f;
+    --dark-4: #242429;
+    --dark-5: #2e2e35;
+    --border: rgba(255,255,255,0.08);
+    --text: #f0f0f0;
+    --muted: #888;
+    --green: #22c55e;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+    --red: #ef4444;
+    --orange: #f97316;
+    --teal: #14b8a6;
+    --font: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --display: 'Space Grotesk', sans-serif;
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: var(--font);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,11,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 60px;
+  }
+  .nav-brand { font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+  .nav-brand span { color: var(--gold); }
+  .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+  .nav-link {
+    font-size: 0.85rem; color: var(--muted); text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-link:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--gold); color: #000; font-weight: 700; font-size: 0.8rem;
+    padding: 0.45rem 1.1rem; border-radius: 8px; text-decoration: none;
+    transition: all .2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark-3) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(245,200,66,0.08) 0%, transparent 70%);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--gold-dim); border: 1px solid rgba(245,200,66,0.3);
+    color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: var(--display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+    line-height: 1.15; margin-bottom: 1rem; position: relative;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 1.1rem; color: var(--muted); max-width: 620px; margin: 0 auto 2rem;
+  }
+  .hero-stats {
+    display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+    position: relative;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat-num {
+    font-family: var(--display); font-size: 1.8rem; font-weight: 700; color: var(--gold);
+  }
+  .hero-stat-label {
+    font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ── HOW TO USE ── */
+  .how-to {
+    padding: 3rem 2rem;
+    background: var(--dark-2);
+    border-bottom: 1px solid var(--border);
+  }
+  .section-title {
+    font-family: var(--display); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;
+  }
+  .section-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;
+  }
+  .step-card {
+    background: var(--dark-3); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%; background: var(--gold-dim);
+    border: 1px solid rgba(245,200,66,0.3); color: var(--gold); font-weight: 700; font-size: 0.85rem;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem;
+  }
+  .step-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem; }
+  .step-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── PROMPT SECTIONS ── */
+  .prompt-wrapper { padding: 2rem 2rem 4rem; }
+
+  .prompt-section {
+    margin-bottom: 2rem;
+    background: var(--dark-3); border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .prompt-section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: var(--dark-4); border-bottom: 1px solid var(--border);
+    cursor: pointer; user-select: none;
+  }
+  .prompt-section-header:hover { background: var(--dark-5); }
+  .prompt-section-title {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-family: var(--display); font-weight: 600; font-size: 0.95rem;
+  }
+  .section-icon {
+    width: 28px; height: 28px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .section-toggle { color: var(--muted); font-size: 0.85rem; transition: transform .2s; }
+  .section-toggle.open { transform: rotate(180deg); }
+
+  .prompt-section-body { padding: 1.25rem; display: none; }
+  .prompt-section-body.open { display: block; }
+
+  /* ── COPY BLOCKS ── */
+  .copy-block {
+    position: relative; margin: 0.75rem 0;
+    background: var(--dark); border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden;
+  }
+  .copy-block-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.5rem 1rem; background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid var(--border);
+  }
+  .copy-label {
+    font-size: 0.75rem; color: var(--muted); font-family: var(--mono);
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .copy-btn {
+    background: var(--dark-5); border: 1px solid var(--border);
+    color: var(--text); font-size: 0.75rem; padding: 0.3rem 0.75rem;
+    border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 0.4rem;
+    transition: all .2s; font-family: var(--font);
+  }
+  .copy-btn:hover { background: var(--gold-dim); border-color: rgba(245,200,66,0.4); color: var(--gold); }
+  .copy-btn.copied { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.4); color: var(--green); }
+
+  .copy-content {
+    padding: 1.25rem; font-family: var(--mono); font-size: 0.8rem; line-height: 1.7;
+    color: #d4d4d4; white-space: pre-wrap; word-break: break-word; max-height: 500px;
+    overflow-y: auto;
+  }
+
+  /* ── FULL PROMPT AREA ── */
+  .full-prompt-wrapper {
+    background: var(--dark-2); border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden; margin-bottom: 2rem;
+  }
+  .full-prompt-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(90deg, var(--gold-dim), transparent);
+    border-bottom: 1px solid var(--border);
+  }
+  .full-prompt-title {
+    font-family: var(--display); font-size: 1.2rem; font-weight: 700;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .full-prompt-title i { color: var(--gold); }
+  .copy-all-btn {
+    background: var(--gold); color: #000; font-weight: 700; font-size: 0.85rem;
+    padding: 0.6rem 1.4rem; border: none; border-radius: 8px; cursor: pointer;
+    display: flex; align-items: center; gap: 0.5rem; transition: all .2s;
+  }
+  .copy-all-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .copy-all-btn.copied { background: var(--green); color: #fff; }
+
+  /* ── DOWNLOAD ZIP ── */
+  .download-bar {
+    background: linear-gradient(135deg, rgba(168,85,247,0.15) 0%, rgba(59,130,246,0.1) 100%);
+    border: 1px solid rgba(168,85,247,0.3);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    flex-wrap: wrap; margin-bottom: 2rem;
+  }
+  .download-bar-text h3 {
+    font-family: var(--display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.35rem;
+  }
+  .download-bar-text h3 span { color: var(--purple); }
+  .download-bar-text p { font-size: 0.82rem; color: var(--muted); }
+  .download-bar-files {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem;
+  }
+  .file-badge {
+    font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+    color: var(--muted); padding: 0.2rem 0.55rem; border-radius: 4px;
+  }
+  .file-badge.ready { border-color: rgba(34,197,94,0.3); color: var(--green); background: rgba(34,197,94,0.08); }
+  .download-zip-btn {
+    background: linear-gradient(135deg, #a855f7, #7c3aed);
+    color: #fff; font-weight: 700; font-size: 0.9rem;
+    padding: 0.8rem 2rem; border: none; border-radius: 10px;
+    cursor: pointer; display: flex; align-items: center; gap: 0.6rem;
+    transition: all .25s; white-space: nowrap; flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(168,85,247,0.35);
+  }
+  .download-zip-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(168,85,247,0.5); }
+  .download-zip-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .download-zip-btn.done { background: linear-gradient(135deg, var(--green), #16a34a); box-shadow: 0 4px 20px rgba(34,197,94,0.35); }
+  .zip-progress {
+    width: 100%; height: 3px; background: var(--dark-5);
+    border-radius: 2px; overflow: hidden; margin-top: 0.75rem; display: none;
+  }
+  .zip-progress-bar {
+    height: 100%; background: linear-gradient(90deg, #a855f7, #3b82f6);
+    border-radius: 2px; transition: width .3s ease; width: 0%;
+  }
+
+  .full-prompt-content {
+    padding: 1.5rem; font-family: var(--mono); font-size: 0.78rem; line-height: 1.75;
+    color: #c9d1d9; white-space: pre-wrap; word-break: break-word;
+    max-height: 700px; overflow-y: auto;
+  }
+  .full-prompt-content::-webkit-scrollbar { width: 6px; }
+  .full-prompt-content::-webkit-scrollbar-track { background: var(--dark-3); }
+  .full-prompt-content::-webkit-scrollbar-thumb { background: var(--dark-5); border-radius: 3px; }
+
+  /* ── SYNTAX COLORS ── */
+  .prompt-var { color: #79c0ff; }       /* placeholders */
+  .prompt-section-label { color: var(--gold); font-weight: 600; }
+  .prompt-comment { color: #6a737d; }   /* # comments */
+  .prompt-string { color: #a8daab; }    /* quoted values */
+  .prompt-keyword { color: #ff79c6; }   /* keywords */
+  .prompt-number { color: #f97316; }    /* numbers */
+
+  /* ── FILL-IN TABLE ── */
+  .fill-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .fill-table th {
+    text-align: left; padding: 0.6rem 1rem; background: var(--dark-4);
+    color: var(--muted); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.04em;
+    text-transform: uppercase; border-bottom: 1px solid var(--border);
+  }
+  .fill-table td {
+    padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+  }
+  .fill-table tr:last-child td { border-bottom: none; }
+  .fill-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .var-name {
+    font-family: var(--mono); color: #79c0ff; font-size: 0.78rem; font-weight: 500;
+  }
+  .var-desc { color: var(--text); }
+  .var-example { color: var(--muted); font-size: 0.78rem; }
+
+  /* ── OUTPUT BREAKDOWN ── */
+  .output-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
+    margin-top: 1rem;
+  }
+  .output-card {
+    background: var(--dark-4); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.1rem;
+  }
+  .output-card-title {
+    font-weight: 700; font-size: 0.85rem; margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .output-card ul {
+    list-style: none; display: flex; flex-direction: column; gap: 0.3rem;
+  }
+  .output-card ul li {
+    font-size: 0.78rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.5rem;
+  }
+  .output-card ul li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999;
+    background: var(--dark-4); border: 1px solid var(--green);
+    color: var(--text); padding: 0.75rem 1.25rem; border-radius: 8px;
+    font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    transform: translateY(100px); opacity: 0; transition: all .3s;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast i { color: var(--green); }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--dark-2); border-top: 1px solid var(--border);
+    text-align: center; padding: 2rem;
+    font-size: 0.8rem; color: var(--muted);
+  }
+  .footer strong { color: var(--gold); }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { padding: 3rem 1rem 2.5rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 1.25rem; }
+    .how-to, .prompt-wrapper { padding: 2rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">⚖️ <span>SUE DAT AZZ</span> | James Consumer Law Group</div>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Dashboard</a>
+    <a href="stage1.html" class="nav-link">Stage 1</a>
+    <a href="crm.html" class="nav-link">CRM</a>
+    <a href="b2b-report.html" class="nav-link">B2B Report</a>
+    <a href="shield-dat-azz.html" class="nav-cta">🛡️ Shield Dat Azz™</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge"><i class="fas fa-brain"></i> Master Build Prompt — v2.0 · March 2026</div>
+    <h1>The <span>Ultimate Niche</span><br>Revenue Machine Prompt</h1>
+    <p class="hero-sub">Fill in 14 variables. Paste into any AI. Get a complete, production-ready, multi-revenue-stream digital business system — for ANY niche.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">Pages Built</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">DB Tables</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">Revenue Streams</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">Funnel Stages</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">$1M+</div><div class="hero-stat-label">Annual Target</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO USE -->
+<div class="how-to">
+  <div class="container">
+    <div class="section-title">How to Use This</div>
+    <div class="section-sub">4 steps. Your system ships in one session.</div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">Fill the Variables</div>
+        <div class="step-desc">Replace every <code style="color:#79c0ff;font-size:0.78rem">[BRACKET]</code> with your niche-specific data from the Fill-In Sheet below.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">Copy the Full Prompt</div>
+        <div class="step-desc">Hit "Copy Full Prompt" and paste it into Claude, GPT-4o, or Gemini — any frontier model works.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">Confirm Market Research</div>
+        <div class="step-desc">The AI will output market data first. Review and confirm before the build starts. Don't skip this.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-title">Receive Full System</div>
+        <div class="step-desc">8 production HTML files, 4 DB schemas, JS logic, email sequences, CRM, and PDF generator. All complete.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN PROMPT CONTENT -->
+<div class="prompt-wrapper">
+  <div class="container">
+
+    <!-- DOWNLOAD ZIP BAR -->
+    <div class="download-bar" id="download-bar">
+      <div class="download-bar-text">
+        <h3>⬇️ Download the <span>Complete Project ZIP</span></h3>
+        <p>All 9 pages + CSS + JS bundled and ready to deploy. Unzip → publish → go live.</p>
+        <div class="download-bar-files">
+          <span class="file-badge ready">index.html</span>
+          <span class="file-badge ready">stage1.html</span>
+          <span class="file-badge ready">stage2-tripwire.html</span>
+          <span class="file-badge ready">shield-dat-azz.html</span>
+          <span class="file-badge ready">email-sequences.html</span>
+          <span class="file-badge ready">crm.html</span>
+          <span class="file-badge ready">b2b-report.html</span>
+          <span class="file-badge ready">master-prompt.html</span>
+          <span class="file-badge ready">README.md</span>
+          <span class="file-badge">css/style.css</span>
+          <span class="file-badge">css/intake.css</span>
+          <span class="file-badge">js/main.js</span>
+          <span class="file-badge">js/workers-api.js</span>
+        </div>
+        <div class="zip-progress" id="zip-progress"><div class="zip-progress-bar" id="zip-progress-bar"></div></div>
+      </div>
+      <button class="download-zip-btn" id="download-zip-btn" onclick="downloadProjectZip()">
+        <i class="fas fa-file-zipper"></i> Download ZIP
+      </button>
+    </div>
+
+    <!-- FILL IN SHEET -->
+    <div class="prompt-section" id="fill-section">
+      <div class="prompt-section-header" onclick="toggleSection('fill-section')">
+        <div class="prompt-section-title">
+          <div class="section-icon" style="background:rgba(59,130,246,0.2);color:#3b82f6;"><i class="fas fa-edit"></i></div>
+          📋 Step 1 — Fill-In Sheet (14 Variables)
+        </div>
+        <i class="fas fa-chevron-down section-toggle open" id="fill-section-toggle"></i>
+      </div>
+      <div class="prompt-section-body open" id="fill-section-body">
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.25rem;">Replace every variable below with your niche data BEFORE copying the prompt. More detail = better output.</p>
+        <table class="fill-table">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>What It Means</th>
+              <th>Example (Consumer Law)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="var-name">[OWNER_NAME]</div></td>
+              <td class="var-desc">Your full name + title</td>
+              <td class="var-example">Jamaree R. James, Esq.</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[BRAND_NAME]</div></td>
+              <td class="var-desc">Your business/brand name — memorable, bold</td>
+              <td class="var-example">SUE DAT AZZ | James Consumer Law Group</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[TAGLINE]</div></td>
+              <td class="var-desc">One-line brand promise, max 8 words</td>
+              <td class="var-example">We don't just fix problems. We SUE DAT AZZ.</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[NICHE]</div></td>
+              <td class="var-desc">Your specific market niche (be precise)</td>
+              <td class="var-example">Consumer protection law — FCRA, FDCPA, TCPA violations</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[PRIMARY_AUDIENCE]</div></td>
+              <td class="var-desc">Who you serve — demographics, problem, pain level 1-10</td>
+              <td class="var-example">People being harassed by debt collectors, credit report errors, robocall victims. Pain: 9/10. They're desperate, don't know their rights, often low-to-mid income.</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[SECONDARY_AUDIENCE]</div></td>
+              <td class="var-desc">B2B or secondary market you can serve</td>
+              <td class="var-example">FinTech startups, lending platforms, debt collectors who need compliance audits to avoid liability — pain: 7/10, budget: $5k-$25k/engagement</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[EXPERTISE]</div></td>
+              <td class="var-desc">Your unique credentials, experience, results</td>
+              <td class="var-example">Licensed consumer protection attorney, FinTech systems expert, intersection of law + tech + financial justice, FCRA/FDCPA/TCPA litigation specialist</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[STREAM_1]</div></td>
+              <td class="var-desc">High-ticket service (your main income driver)</td>
+              <td class="var-example">Legal cases — contingency FDCPA/FCRA/TCPA litigation, $2,500-$10,000 per case, no upfront cost to client, attorney fees recovered from defendant</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[STREAM_2]</div></td>
+              <td class="var-desc">Recurring/affiliate revenue stream</td>
+              <td class="var-example">MyFreeScoreNow affiliate — $7-$16/mo commission per enrolled member, 3-bureau credit monitoring, $1 trial funnel</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[STREAM_3]</div></td>
+              <td class="var-desc">Education/product/B2B revenue stream</td>
+              <td class="var-example">Education products ($37-$97), membership ($29-$49/mo Shield Dat Azz™), B2B compliance audits ($5k-$25k), monthly retainers ($2.5k/mo)</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[LEAD_MAGNET]</div></td>
+              <td class="var-desc">Your free value offer that captures leads — specific and high-value</td>
+              <td class="var-example">23-point FDCPA violation checklist (each checked violation = $1,000 potential damages), free 3-bureau credit scan via MFSN, B2B compliance risk scorecard</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[TRIPWIRE]</div></td>
+              <td class="var-desc">Your $7-$97 low-ticket first paid offer</td>
+              <td class="var-example">$37 Demand Letter Starter Kit (was $297), $1 MFSN 7-day trial, $97 Credit Warfare 90-Day Course</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[MEMBERSHIP]</div></td>
+              <td class="var-desc">Your recurring membership offer — name, price, benefits</td>
+              <td class="var-example">Shield Dat Azz™ — $29/mo founding, $49/mo standard. Monthly violation scans, attorney hotline, 1 C&D letter/mo, credit monitoring, priority intake</td>
+            </tr>
+            <tr>
+              <td><div class="var-name">[KEY_REGULATIONS]</div></td>
+              <td class="var-desc">The laws, regulations, or frameworks that govern your niche — these become your content authority + B2B audit leverage</td>
+              <td class="var-example">FCRA (15 U.S.C. §1681), FDCPA (15 U.S.C. §1692), TCPA (47 U.S.C. §227), Reg F (12 C.F.R. §1006), CFPB enforcement, 5th Circuit Feb 2026 TCPA ruling</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FULL PROMPT -->
+    <div class="full-prompt-wrapper">
+      <div class="full-prompt-header">
+        <div class="full-prompt-title"><i class="fas fa-bolt"></i> The Full Master Build Prompt</div>
+        <button class="copy-all-btn" onclick="copyFullPrompt()" id="copy-all-btn">
+          <i class="fas fa-copy"></i> Copy Full Prompt
+        </button>
+      </div>
+      <div class="full-prompt-content" id="full-prompt-text">═══════════════════════════════════════════════════════════════
+🧠  MASTER NICHE REVENUE MACHINE — FULL SYSTEM BUILD PROMPT
+    Version 2.0 · March 2026 | Built by SUE DAT AZZ
+    Template by Jamaree R. James, Esq. — James Consumer Law Group
+═══════════════════════════════════════════════════════════════
+
+YOU ARE BUILDING A COMPLETE, PRODUCTION-READY, MULTI-REVENUE-STREAM 
+DIGITAL BUSINESS SYSTEM. NO PLANS. NO OUTLINES. BUILD THE ACTUAL FILES.
+
+OWNER CONTEXT:
+- Owner: [OWNER_NAME]
+- Brand: [BRAND_NAME]
+- Tagline: [TAGLINE]
+- Niche: [NICHE]
+- Primary Audience: [PRIMARY_AUDIENCE]
+- Secondary Audience (B2B): [SECONDARY_AUDIENCE]
+- Expertise: [EXPERTISE]
+
+REVENUE ARCHITECTURE (3 Streams, All Running Simultaneously):
+- Stream 1 (High-Ticket): [STREAM_1]
+- Stream 2 (Recurring/Affiliate): [STREAM_2]
+- Stream 3 (Education/Product/B2B): [STREAM_3]
+
+COMPLIANCE & AUTHORITY FRAMEWORK:
+- Key Regulations/Laws: [KEY_REGULATIONS]
+- Use these as content authority, B2B audit checklist items, and urgency drivers
+
+═══════════════════════════════════════════════════════════════
+PHASE 0 — MARKET RESEARCH (OUTPUT FIRST, BUILD AFTER CONFIRMED)
+═══════════════════════════════════════════════════════════════
+
+Before writing a single line of code, output a structured Market 
+Intelligence Report covering:
+
+1. TOP 5 COMPETITORS
+   - Name, URL, pricing, what they do well, what they miss
+   - Which revenue stream is their primary? secondary?
+   - Traffic estimate + main acquisition channel
+   - Their weakest point (this is your wedge)
+
+2. AUDIENCE PAIN MAP
+   - Top 5 specific pain points of [PRIMARY_AUDIENCE]
+   - Pain intensity score (1-10) for each
+   - Exact language they use online (forums, Reddit, Facebook groups, reviews)
+   - What they've tried before and why it failed
+   - Their #1 emotional trigger + #1 logical trigger
+   - Who/what they blame for their problem
+
+3. MARKET SIZE & URGENCY
+   - Annual market size in dollars
+   - Growth rate (is this expanding or contracting?)
+   - Regulatory tailwinds or headwinds (cite actual laws/rules)
+   - Why NOW is the perfect time to enter this market
+   - What happens if they don't solve this problem (worst case)
+
+4. PRICING BENCHMARKS
+   - What competitors charge for low-ticket, mid-ticket, high-ticket
+   - What the market will bear at each level
+   - Recommended price points for [TRIPWIRE], [MEMBERSHIP], premium service
+
+5. TRAFFIC INTELLIGENCE
+   - Top organic keywords (with search volume if known)
+   - Top paid keywords (buyer intent terms)
+   - Best social platforms for this audience
+   - Partnership/referral opportunities (who already serves this audience?)
+   - Content formats that perform best in this niche
+
+OUTPUT FORMAT: Structured report with headers. Cite sources where possible.
+After outputting this report, STOP and ask: "Market research confirmed. 
+Shall I proceed with the build?" — Do NOT start building until confirmed.
+
+═══════════════════════════════════════════════════════════════
+PHASE 1 — REVENUE ARCHITECTURE DESIGN
+═══════════════════════════════════════════════════════════════
+
+Design the complete 3-stream revenue architecture. For EACH stream output:
+
+STREAM SPEC:
+- Stream Name + Type (legal / SaaS / affiliate / education / consulting)
+- Target customer profile (1 paragraph)
+- Pricing: entry, core, premium
+- Unit economics: CAC estimate, LTV estimate, payback period
+- Delivery mechanism (automated / manual / hybrid)
+- Close mechanism (how does a prospect become a paying customer?)
+- Retention hook (why do they stay / come back?)
+- Cross-sell path (which stream does this lead into?)
+- Monthly revenue at: 100 customers / 500 customers / 1,000 customers
+- Conservative monthly target / Aggressive monthly target
+
+Then output the INTERCONNECTION MAP showing how streams feed each other 
+and where revenue compounds (this is the $1M+ multiplier).
+
+═══════════════════════════════════════════════════════════════
+PHASE 2 — 7-STAGE FUNNEL ARCHITECTURE
+═══════════════════════════════════════════════════════════════
+
+Design the complete funnel. For EACH of the 7 stages:
+
+STAGE SPEC:
+- Stage name + purpose (1 sentence)
+- Traffic source (organic / paid / referral / SEO)
+- Core mechanism / tool (page, email, call, etc.)
+- Psychological trigger activated at this stage
+- CTA (1 primary, 1 secondary)
+- Conversion target %
+- What happens on success (next step)
+- What happens on failure/exit (retargeting, nurture sequence)
+- Pages required (filename, purpose)
+- Metrics to track
+
+THE 7 STAGES:
+1. TRAFFIC & AWARENESS — Top of funnel, discovery
+2. LEAD MAGNET — [LEAD_MAGNET] — hook, capture, qualify
+3. TRIPWIRE OFFER — [TRIPWIRE] — first transaction, trust transfer
+4. CORE OFFER ROUTING — Path decision: Stream 1 / Stream 2 / Stream 3
+5. UPSELL / CROSS-SELL STACK — Maximize LTV at point of sale
+6. RETENTION + RECURRING — [MEMBERSHIP] — monthly floor revenue
+7. REFERRAL ENGINE — $250 per referral, automated reward system
+
+═══════════════════════════════════════════════════════════════
+PHASE 3 — BUILD SPECIFICATIONS (8 PAGES + DB + API STUBS)
+═══════════════════════════════════════════════════════════════
+
+BUILD IN THIS EXACT ORDER. Complete each file before the next.
+After each file: run a console check and confirm 0 errors.
+
+─────────────────────────────────────────────
+FILE 1: index.html — MASTER DASHBOARD
+─────────────────────────────────────────────
+PURPOSE: Revenue command center + funnel overview
+MUST INCLUDE:
+- Brand header with [BRAND_NAME] + [TAGLINE]
+- Navigation bar linking all 7 pages
+- Live revenue calculator (inputs: # of Stream 1 / 2 / 3 units)
+- Chart.js doughnut chart: revenue breakdown by stream
+- KPI tracker: lead conversion %, email open %, close rate, MRR
+- Funnel flow diagram showing all 7 stages
+- 30-day launch checklist (checkbox items with progress)
+- Revenue projections table: conservative / aggressive monthly + annual
+- North-Star metrics with target vs actual
+- Quick-access buttons to all other pages
+TONE: Bold, data-driven, aspirational. Shows the whole empire at a glance.
+STYLE: Dark theme, gold accents, Space Grotesk headings, Inter body, Chart.js
+
+─────────────────────────────────────────────
+FILE 2: stage1.html — LEAD MAGNET PORTAL
+─────────────────────────────────────────────
+PURPOSE: Capture qualified leads at 3 audience paths
+QUERY PARAMS: ?path=primary | secondary | b2b | (blank = all 3)
+MUST INCLUDE:
+- Path routing: shows correct lead magnet based on ?path= param
+- PATH A (Primary): [LEAD_MAGNET] — interactive tool with live score/calculator
+  - Violation/problem counter with live damage/risk calculation
+  - "You may have a case/opportunity worth $X" hook
+  - Form: first_name, last_name, email, phone, situation description
+  - Saves to tables/leads via POST with source, path, utm params
+- PATH B (Affiliate/Secondary): [STREAM_2] offer
+  - Clear benefit statement + what they get
+  - Trust signals + what the data shows
+  - Affiliate redirect or enrollment flow
+- PATH C (B2B): Compliance/risk scorecard
+  - 10 questions scoring risk exposure in [KEY_REGULATIONS]
+  - Live risk score with color-coded levels (Critical/High/Medium/Low)
+  - Saves score to sessionStorage for b2b-report.html
+  - Form: name, company, email, phone
+- Default path: side-by-side picker for all 3 paths
+- Lead saved to tables/leads after every successful form submit
+- UTM parameter capture: ?utm_source, ?utm_medium, ?utm_campaign
+- Immediate next step: redirect to stage2-tripwire.html?path=[current_path]
+STYLE: Trust-first. Clean. Not salesy. Focus on VALUE delivered immediately.
+
+─────────────────────────────────────────────
+FILE 3: stage2-tripwire.html — OFFER ENGINE
+─────────────────────────────────────────────
+PURPOSE: Convert lead to first paying customer (trust transfer)
+QUERY PARAMS: ?path=primary | secondary | education | b2b
+MUST INCLUDE:
+- 15-minute countdown timer (urgency — resets on revisit but shows urgency)
+- 4 OFFER BLOCKS (show correct one based on ?path=):
+  A) PRIMARY path: [TRIPWIRE] — specific price, clear value stack, was/now pricing
+  B) SECONDARY path: affiliate $1 trial offer — benefit-focused, no risk positioning  
+  C) EDUCATION path: course or workshop offer ($47-$97 range)
+  D) B2B path: compliance audit deposit ($2,500-$5,000) OR strategy call booking
+- For each offer block:
+  - Bold price + crossed-out original price
+  - 5-bullet value stack (what exactly they get)
+  - Trust elements (guarantee, testimonial, credential)
+  - Primary CTA button (Stripe checkout or redirect)
+  - "What happens next" — sets expectation, reduces friction
+- Cross-sell banner: after primary offer, show teaser for [MEMBERSHIP]
+- Risk score banner (if sessionStorage has B2B score): "Your risk score: X — here's what that means"
+- Below-fold: "Not ready? Here's what happens if you wait..." urgency section
+- Successful purchase: update lead record in tables/leads (status → 'tripwire_purchased')
+- Next CTA: → [MEMBERSHIP] enrollment page
+
+─────────────────────────────────────────────
+FILE 4: [MEMBERSHIP_NAME].html — RECURRING REVENUE ENGINE
+─────────────────────────────────────────────
+PURPOSE: Monthly floor revenue — predictable, scalable
+MEMBERSHIP DETAILS: [MEMBERSHIP]
+MUST INCLUDE:
+- Hero: membership name, tagline, founding vs standard pricing
+- Urgency: live slot counter (founding slots remaining — stored in localStorage)
+- Benefits grid: exactly 9 benefits with icons, 2-line descriptions
+- Comparison table: Your membership vs. DIY vs. hiring full-time professional
+  (show cost, time, effectiveness, coverage — you win on all 4)
+- How it works: 3-step process (Sign Up → Get Access → Use It)
+- Social proof: 3 testimonials (specific, believable, outcome-focused)
+- FAQ: 8 questions covering: cancellation, what's included, who it's for, 
+  how fast you respond, vs. competitors, refund policy
+- Pricing section: Founding tier (lower price, locked forever) + Standard tier
+- Primary CTA: Stripe subscription checkout modal
+  - Collect: name, email, payment info
+  - Save to tables/leads after successful signup (source: membership-checkout)
+  - Show success screen with next steps
+- Final CTA: "Join Before Slots Fill Up" — urgency close
+STYLE: Premium membership feel. Dark + gold. Testimonials real and specific.
+
+─────────────────────────────────────────────
+FILE 5: email-sequences.html — AUTOMATION DASHBOARD
+─────────────────────────────────────────────
+PURPOSE: Manage + preview all automated email sequences
+MUST INCLUDE:
+- Navigation tabs: one tab per email sequence
+- SEQUENCE A — Primary Path Nurture (7 emails, Day 0/3/5/7/10/14/21):
+  - Day 0: Welcome + [LEAD_MAGNET] delivery + what to do first
+  - Day 3: Biggest problem in [NICHE] + how it affects them
+  - Day 5: Case study / success story (outcome: $X saved/recovered/won)
+  - Day 7: Educational — [KEY_REGULATIONS] plain English + what it means for them
+  - Day 10: Social proof + "Here's what clients say" + CTA → [TRIPWIRE]
+  - Day 14: Urgency — "Statute of limitations / deadline approaching" + case evaluation CTA
+  - Day 21: Final offer — [MEMBERSHIP] founding rate + hard close
+- SEQUENCE B — Secondary/Affiliate Welcome (5 emails, Day 0/2/4/7/14)
+- SEQUENCE C — B2B Welcome (5 emails, Day 0/2/5/10/21)
+- Each email: editable subject line, preview text, full body HTML, CTA button
+- Preview mode: shows rendered email in phone + desktop frame
+- Test send button (stub — shows "SendGrid integration required")
+- Sequence stats: sent / open rate / click rate / unsubscribe (reads from tables/email_sends)
+- Save sequence changes to tables/email_sequences via PATCH
+STYLE: Dashboard/admin feel. Clean table layout. Code editor aesthetic for email body.
+
+─────────────────────────────────────────────
+FILE 6: crm.html — CASE/CLIENT MANAGEMENT
+─────────────────────────────────────────────
+PURPOSE: Lead → Prospect → Client → Closed pipeline management
+PIPELINE STAGES (adapt to niche):
+  New Lead → Consultation Scheduled → Consultation Done → 
+  Retained/Signed → Active Engagement → Closing/Settlement → 
+  Closed Won / Closed Lost
+MUST INCLUDE:
+- LEFT SIDEBAR: Case list
+  - Search bar (searches name, company, case number)
+  - Filter tabs: All / Active / Urgent / Closed
+  - Each case card: name, status badge, priority indicator, case type, damage/value amount
+  - "New Case" + "Import Leads" + "Export CSV" buttons
+  - Pipeline stats summary (count by stage)
+- CENTER AREA: Case detail (opens on click)
+  - Case header: name, case #, assigned attorney, priority badge
+  - Pipeline progress bar (all stages, current highlighted)
+  - Info grid: status, type, defendant/party, priority, SOL/deadline, assigned
+  - Value breakdown: statutory damages / potential value / actual damages / settlement
+  - Violation/issue tags (auto-generated from case type)
+  - Timeline: all key dates and status changes with timestamps
+  - Notes section: add/save notes with timestamp
+  - Quick actions: Advance Stage, Edit Case, Update Status, Delete
+- RIGHT SIDEBAR: Stats + alerts
+  - Total cases, active cases, potential value, YTD closed value
+  - URGENT: deadlines within 30 days (SOL warnings)
+- MODALS: New/Edit Case, Status Update (with optional settlement/value capture)
+- Import from tables/leads: pull leads with violations_checked > 0 or high B2B score
+- CSV export: all case fields
+- Demo data: 6 seeded cases if API returns empty
+- Tables: reads/writes from tables/cases via REST API
+STYLE: Professional CRM. Dark sidebar, gold highlights, status color coding.
+
+─────────────────────────────────────────────
+FILE 7: b2b-report.html — LEAD GEN + PDF GENERATOR
+─────────────────────────────────────────────
+PURPOSE: B2B lead capture via compliance risk assessment + branded PDF
+MUST INCLUDE:
+- Load any B2B risk score from sessionStorage (pre-fill from stage1.html)
+- 10-question compliance risk assessment covering [KEY_REGULATIONS]
+  - Each question: yes/no/partial with risk weight
+  - Live risk score updates as questions answered
+  - Color-coded risk meter: Critical (70-100) / High (45-69) / Medium (25-44) / Low (0-24)
+- Lead capture modal (required to download report):
+  - Company name, contact name, email, phone, company size, primary concern
+  - Saves to tables/leads (source: b2b-report-generator)
+- PDF generation (jsPDF — CDN: https://cdn.jsdelivr.net/npm/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="513b2221353711637f647f60">[email&#160;protected]</a>/dist/jspdf.umd.min.js):
+  PAGE 1 — COVER: Risk score circle, company name, [BRAND_NAME] branding, 
+           executive summary (3 sentences), assessment date, confidentiality notice
+  PAGE 2 — DETAILED FINDINGS: For each HIGH/CRITICAL finding:
+           - Finding title + severity badge
+           - Current state (what they answered)
+           - Risk description (what this means / exposure)
+           - Remediation roadmap (3-5 specific action steps)
+           - Timeline recommendation (30/60/90 days)
+  PAGE 3 — REGULATORY AUTHORITY: Current citations from [KEY_REGULATIONS]
+           + 2026 updates relevant to their findings
+           + Prioritized next steps with estimated fee ranges
+           + CTA: Schedule compliance consultation — [BRAND_NAME]
+- Below PDF: 3-package offer (Basic Audit / Full Audit / Monthly Retainer)
+STYLE: Professional. Report/document aesthetic. Trust-building. Authoritative.
+
+─────────────────────────────────────────────
+FILE 8: master-prompt.html — META TOOL
+─────────────────────────────────────────────
+PURPOSE: The prompt template itself (this file) — so the owner can deploy
+         this same system for any other niche or client
+INCLUDE: Full variable fill-in sheet, the complete prompt, copy-to-clipboard
+         functionality, output breakdown, how-to steps
+
+═══════════════════════════════════════════════════════════════
+PHASE 4 — DATABASE SCHEMAS (4 TABLES)
+═══════════════════════════════════════════════════════════════
+
+CREATE THESE EXACT SCHEMAS via TableSchemaUpdate:
+
+TABLE: leads
+Fields: id (text), first_name (text), last_name (text), full_name (text),
+        email (text), phone (text), path (text), violations_checked (number),
+        potential_damages (number), situation (rich_text), company (text),
+        source (text), status (text), assigned_to (text), notes (text),
+        submitted_at (datetime), utm_source (text), utm_medium (text),
+        utm_campaign (text), b2b_risk_score (number)
+
+TABLE: cases
+Fields: id (text), lead_id (text), case_number (text), client_name (text),
+        client_email (text), client_phone (text), case_type (text),
+        status (text), violations (array), violations_count (number),
+        potential_damages (number), actual_damages (number),
+        settlement_amount (number), attorney_fees (number),
+        defendant (text), consult_date (datetime), retained_date (datetime),
+        demand_sent_date (datetime), filed_date (datetime),
+        closed_date (datetime), sol_deadline (datetime), notes (rich_text),
+        priority (text), assigned_to (text), referral_source (text),
+        utm_source (text), stage_history (rich_text)
+
+TABLE: email_sequences
+Fields: id (text), sequence_key (text), sequence_name (text), path (text),
+        day_number (number), subject (text), preview_text (text),
+        body_html (rich_text), body_plain (rich_text), cta_text (text),
+        cta_url (text), goal (text), active (bool)
+
+TABLE: email_sends
+Fields: id (text), lead_id (text), email (text), sequence_key (text),
+        day_number (number), subject (text), status (text),
+        sent_at (datetime), opened_at (datetime), clicked_at (datetime)
+
+SEED DATA: Add 6 demo records to 'cases' and 5 demo records to 'leads'
+with realistic data for [NICHE]. Use plausible names, numbers, and stages.
+
+═══════════════════════════════════════════════════════════════
+PHASE 5 — TECHNICAL SPECS
+═══════════════════════════════════════════════════════════════
+
+TECH STACK:
+- Pure HTML5 + CSS3 + Vanilla JS (no frameworks, no build step)
+- CDN Libraries ONLY:
+  - Chart.js: https://cdn.jsdelivr.net/npm/chart.js
+  - jsPDF: https://cdn.jsdelivr.net/npm/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="107a6360747650223e253e21">[email&#160;protected]</a>/dist/jspdf.umd.min.js
+  - FontAwesome 6.4.0: https://cdn.jsdelivr.net/npm/@fortawesome/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ed8b8283998c9a889e828088c08b9f8888addbc3d9c3dd">[email&#160;protected]</a>/css/all.min.css
+  - Google Fonts: Inter + Space Grotesk + JetBrains Mono
+- RESTful Table API (relative URLs): tables/{tablename}
+  - GET tables/{table}?page=1&limit=100&search=query
+  - POST tables/{table} — create
+  - PATCH tables/{table}/{id} — partial update
+  - DELETE tables/{table}/{id}
+- NO backend. NO Node.js. NO server-side code. Static HTML only.
+- Stripe: checkout modal with placeholder publishable key (owner fills in)
+- MFSN or relevant affiliate: redirect URL with AID/PID placeholder
+
+DESIGN SYSTEM (apply consistently across ALL 8 files):
+- Background: #0a0a0b (darkest), #111113, #1a1a1f, #242429
+- Accent: #f5c842 (gold), #ffd966 (gold-light)
+- Success: #22c55e | Warning: #f97316 | Danger: #ef4444 | Info: #3b82f6
+- Typography: Space Grotesk (headings, display) + Inter (body) + JetBrains Mono (code/data)
+- Radius: 12px cards, 8px buttons, 6px small elements
+- Shadows: 0 4px 24px rgba(0,0,0,0.4) for cards
+- Nav: 60px sticky, blur backdrop, 1px border-bottom
+- Mobile: fully responsive, hamburger menu on < 768px
+- Accessibility: ARIA labels, alt text, sufficient contrast, focus states
+
+PERFORMANCE:
+- All external fonts: preconnect + display=swap
+- All images: lazy loading (if any)
+- JS: at bottom of body or deferred
+- Console: 0 errors, 0 warnings on all pages
+
+EVERY FILE MUST:
+1. Include [BRAND_NAME] in the <title> tag
+2. Have meta description under 160 characters
+3. Link to all other pages via consistent navigation
+4. Have a footer with brand + legal disclaimer
+5. Log brand name + purpose to console on load
+6. Handle empty/loading states gracefully (no blank screens)
+7. Show toast notifications for all user actions
+8. Work offline for static content (CDN fallbacks handled gracefully)
+
+═══════════════════════════════════════════════════════════════
+PHASE 6 — REVENUE PROJECTIONS
+═══════════════════════════════════════════════════════════════
+
+Output a complete revenue model with:
+- Conservative monthly (Month 1-3 traction): revenue by stream
+- Moderate monthly (Month 4-6 growth): revenue by stream  
+- Aggressive monthly (Month 7-12 scaled): revenue by stream
+- Annual totals for conservative / moderate / aggressive
+- Break-even analysis: at what customer count does this become profitable?
+- Key assumptions stated clearly
+- North-Star KPIs with specific targets:
+  - Lead-magnet conversion rate (visitors → leads)
+  - Email open rate
+  - Tripwire conversion (leads → first purchase)
+  - Core offer close rate (leads → high-ticket client)
+  - Membership churn rate
+  - Referral rate
+
+═══════════════════════════════════════════════════════════════
+PHASE 7 — 30-DAY LAUNCH PLAN
+═══════════════════════════════════════════════════════════════
+
+Week-by-week action plan:
+
+WEEK 1 — FOUNDATION:
+- Launch stage1.html (lead magnet live)
+- Launch stage2-tripwire.html (first offer live)
+- Set up email sequences (first 2 emails)
+- CRM ready to import leads
+- Start organic content: 3 posts/day on [PRIMARY_AUDIENCE] platform
+
+WEEK 2 — ACTIVATION:
+- Full 7-email nurture sequence live
+- [MEMBERSHIP_NAME] page live with founding offer
+- B2B report generator live
+- Outreach to 5 referral partners
+- First paid traffic test ($10/day)
+
+WEEK 3 — SCALE:
+- Review CRM data: which leads have highest violation/risk score?
+- Personal outreach to top 10 leads
+- Content push: share case studies / wins
+- Scale paid traffic on winning ad set
+
+WEEK 4 — OPTIMIZE:
+- A/B test headlines on stage1.html
+- Review email open rates → optimize subject lines
+- Launch founding member close: "48 hours left at $[FOUNDING_PRICE]"
+- B2B outbound: send B2B report to 20 companies with personalization
+
+═══════════════════════════════════════════════════════════════
+PHASE 8 — DOCUMENTATION
+═══════════════════════════════════════════════════════════════
+
+Create README.md with:
+1. Project name, tagline, owner, built date
+2. Complete feature list (what's live vs. stubs)
+3. File map (all 8 files + css/ + js/ with purpose)
+4. Entry URIs + all ?path= query parameters documented
+5. Data models (all 4 tables with fields)
+6. External integrations (what needs API keys)
+7. Revenue model (conservative / aggressive)
+8. 30-day launch checklist
+9. North-Star KPIs with targets
+10. Legal disclaimer
+11. Next steps (prioritized)
+
+═══════════════════════════════════════════════════════════════
+OUTPUT ORDER (STRICT — DO NOT DEVIATE):
+═══════════════════════════════════════════════════════════════
+
+1. Market Research Report → STOP → Await confirmation
+2. Revenue Architecture + Funnel Design → STOP → Await confirmation
+3. TableSchemaUpdate (4 tables)
+4. index.html + console check
+5. stage1.html + console check
+6. stage2-tripwire.html + console check
+7. [MEMBERSHIP_NAME].html + console check
+8. email-sequences.html + console check
+9. crm.html + console check
+10. b2b-report.html + console check
+11. master-prompt.html + console check
+12. js/workers-api.js (API stubs: email, affiliate proxy, Stripe webhook handler)
+13. Seed demo data (tables/leads x5, tables/cases x6)
+14. README.md
+15. Final console check on ALL files
+16. Deployment checklist output
+
+AFTER EACH FILE: Run a browser console check. If any errors exist, 
+fix them before proceeding to the next file. Zero-error tolerance.
+
+═══════════════════════════════════════════════════════════════
+QUALITY GATES (ALL MUST PASS BEFORE DELIVERY):
+═══════════════════════════════════════════════════════════════
+
+✅ All 8 HTML files load with 0 console errors
+✅ All 4 tables created with correct schemas
+✅ All forms save to correct tables via REST API
+✅ Navigation links between all 8 pages are correct
+✅ Revenue calculator in index.html produces correct math
+✅ B2B PDF generator produces downloadable 3-page report
+✅ CRM imports from tables/leads and stages advance correctly
+✅ Email sequences preview mode renders correctly
+✅ Mobile responsive on all pages (test at 375px, 768px, 1200px)
+✅ README.md covers all 10 required sections
+✅ 0 hardcoded secrets, API keys, or credentials in any file
+✅ Legal disclaimer present in footer of all client-facing pages
+
+═══════════════════════════════════════════════════════════════
+TONE & COPY GUIDELINES:
+═══════════════════════════════════════════════════════════════
+
+- Voice: Authoritative, direct, no fluff — [OWNER_NAME] is an expert
+- Headlines: Outcome-first ("Stop Debt Collectors Cold" not "Learn About FDCPA")
+- CTAs: Action + outcome ("Get My Free Report" not "Submit")
+- Social proof: Specific and believable ("$4,200 settlement in 47 days" not "great results")
+- Urgency: Real mechanisms (slot counters, actual deadlines, SOL dates)
+- Trust: Credentials + results + guarantees front-loaded
+- Disclaimers: Real legal disclaimers where required (not boilerplate)
+
+NO: "Great question!", filler text, "TODO" comments, placeholder content
+YES: Production copy, real stat references, working calculations, real citations
+
+═══════════════════════════════════════════════════════════════
+BEGIN:
+State today's date. Confirm you understand all 14 variables.
+Then output the Market Research Report for [NICHE].
+═══════════════════════════════════════════════════════════════</div>
+    </div>
+
+    <!-- SECTION BREAKDOWN -->
+    <div class="prompt-section" id="breakdown-section">
+      <div class="prompt-section-header" onclick="toggleSection('breakdown-section')">
+        <div class="prompt-section-title">
+          <div class="section-icon" style="background:rgba(168,85,247,0.2);color:#a855f7;"><i class="fas fa-sitemap"></i></div>
+          📦 What This Prompt Builds (Complete Output)
+        </div>
+        <i class="fas fa-chevron-down section-toggle" id="breakdown-section-toggle"></i>
+      </div>
+      <div class="prompt-section-body" id="breakdown-section-body">
+        <div class="output-grid">
+          <div class="output-card">
+            <div class="output-card-title" style="color:#f5c842;"><i class="fas fa-globe"></i> 8 Production Pages</div>
+            <ul>
+              <li>index.html — Revenue dashboard + calculator</li>
+              <li>stage1.html — Lead magnet portal (3 paths)</li>
+              <li>stage2-tripwire.html — Offer routing engine</li>
+              <li>[membership].html — Recurring revenue page</li>
+              <li>email-sequences.html — Automation dashboard</li>
+              <li>crm.html — Client pipeline CRM</li>
+              <li>b2b-report.html — PDF generator + lead cap</li>
+              <li>master-prompt.html — This meta tool</li>
+            </ul>
+          </div>
+          <div class="output-card">
+            <div class="output-card-title" style="color:#3b82f6;"><i class="fas fa-database"></i> 4 Database Tables</div>
+            <ul>
+              <li>leads — All intake form submissions</li>
+              <li>cases — CRM pipeline records</li>
+              <li>email_sequences — All email content</li>
+              <li>email_sends — Delivery + engagement tracking</li>
+            </ul>
+          </div>
+          <div class="output-card">
+            <div class="output-card-title" style="color:#22c55e;"><i class="fas fa-envelope"></i> 17 Email Templates</div>
+            <ul>
+              <li>7-email primary nurture sequence</li>
+              <li>5-email secondary/affiliate welcome</li>
+              <li>5-email B2B welcome sequence</li>
+              <li>Full HTML + plain text + CTA per email</li>
+            </ul>
+          </div>
+          <div class="output-card">
+            <div class="output-card-title" style="color:#f97316;"><i class="fas fa-chart-line"></i> Revenue Model</div>
+            <ul>
+              <li>Conservative / moderate / aggressive projections</li>
+              <li>Break-even analysis</li>
+              <li>North-Star KPIs with targets</li>
+              <li>30-day launch plan (week by week)</li>
+            </ul>
+          </div>
+          <div class="output-card">
+            <div class="output-card-title" style="color:#14b8a6;"><i class="fas fa-file-pdf"></i> B2B PDF Generator</div>
+            <ul>
+              <li>10-question risk scorecard</li>
+              <li>Live color-coded risk meter</li>
+              <li>3-page branded jsPDF output</li>
+              <li>Cover + findings + regulatory citations</li>
+            </ul>
+          </div>
+          <div class="output-card">
+            <div class="output-card-title" style="color:#ef4444;"><i class="fas fa-shield-alt"></i> Compliance + Security</div>
+            <ul>
+              <li>Legal disclaimers in all footers</li>
+              <li>0 hardcoded API keys or secrets</li>
+              <li>Attorney-client privilege notices (legal niche)</li>
+              <li>ARIA labels, alt text, accessibility basics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NICHE EXAMPLES -->
+    <div class="prompt-section" id="examples-section">
+      <div class="prompt-section-header" onclick="toggleSection('examples-section')">
+        <div class="prompt-section-title">
+          <div class="section-icon" style="background:rgba(20,184,166,0.2);color:#14b8a6;"><i class="fas fa-lightbulb"></i></div>
+          💡 Niche Adaptation Examples
+        </div>
+        <i class="fas fa-chevron-down section-toggle" id="examples-section-toggle"></i>
+      </div>
+      <div class="prompt-section-body" id="examples-section-body">
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.25rem;">This same prompt and system architecture works for any expert-driven niche. Here's how the variables map:</p>
+        <div class="output-grid">
+          <div class="output-card">
+            <div class="output-card-title" style="color:#f5c842;">⚕️ Medical Billing Advocate</div>
+            <ul>
+              <li>NICHE: Hospital overbilling, insurance denials, EOB errors</li>
+              <li>STREAM_1: Medical bill audit ($500-$2k per case)</li>
+              <li>STREAM_2: Monthly bill monitoring membership ($29/mo)</li>
+              <li>STREAM_3: Hospital compliance B2B ($5k audits)</li>
+              <li>LEAD_MAGNET: "Medical Bill Overcharge Checklist" — 15 items, each = avg $400</li>
+              <li>KEY_REGS: HIPAA, No Surprises Act, CMS billing codes, state surprise billing laws</li>
+            </ul>
+          </div>
+          <div class="output-card">
+            <div class="output-card-title" style="color:#3b82f6;">🏠 Real Estate Agent (Buyer Advocate)</div>
+            <ul>
+              <li>NICHE: First-time homebuyers in competitive markets</li>
+              <li>STREAM_1: Buyer's agent commission (2.5-3% purchase price)</li>
+              <li>STREAM_2: Monthly market report + deal alert service ($49/mo)</li>
+              <li>STREAM_3: Homebuyer workshops ($97), investor B2B consulting</li>
+              <li>LEAD_MAGNET: "Hidden Cost Calculator" — true cost of buying vs. renting</li>
+              <li>KEY_REGS: NAR settlement 2024, RESPA, local disclosure requirements</li>
+            </ul>
+          </div>
+          <div class="output-card">
+            <div class="output-card-title" style="color:#22c55e;">💰 Tax Resolution Specialist</div>
+            <ul>
+              <li>NICHE: IRS back taxes, levies, liens, unfiled returns</li>
+              <li>STREAM_1: Offer in Compromise, installment agreements ($2k-$10k)</li>
+              <li>STREAM_2: Tax monitoring + alert service ($39/mo)</li>
+              <li>STREAM_3: Small biz compliance audits, bookkeeper B2B training</li>
+              <li>LEAD_MAGNET: "IRS Notice Decoder" — what your IRS letter actually means + urgency level</li>
+              <li>KEY_REGS: IRC §7122 (OIC), §6320 (lien hearings), TBOR, IRS Fresh Start program</li>
+            </ul>
+          </div>
+          <div class="output-card">
+            <div class="output-card-title" style="color:#f97316;">🚗 Lemon Law Attorney</div>
+            <ul>
+              <li>NICHE: Defective vehicles, warranty violations, dealer fraud</li>
+              <li>STREAM_1: Lemon law cases (contingency, $3k-$15k + attorney fees)</li>
+              <li>STREAM_2: Vehicle rights monitoring service ($19/mo)</li>
+              <li>STREAM_3: Dealer compliance audits, $37 "Know Your Rights" kit</li>
+              <li>LEAD_MAGNET: "Lemon Law Qualifier" — 12 questions, auto-generates qualification score</li>
+              <li>KEY_REGS: Magnuson-Moss Warranty Act, state lemon laws (all 50 differ), UCC §2-608</li>
+            </ul>
+          </div>
+          <div class="output-card">
+            <div class="output-card-title" style="color:#a855f7;">🔒 Privacy / Data Rights Attorney</div>
+            <ul>
+              <li>NICHE: Data breaches, CCPA/GDPR violations, identity theft</li>
+              <li>STREAM_1: Data breach class actions, privacy litigation ($5k-$50k)</li>
+              <li>STREAM_2: Personal data monitoring + removal service ($29/mo)</li>
+              <li>STREAM_3: Business privacy compliance audits ($3k-$15k)</li>
+              <li>LEAD_MAGNET: "Data Breach Risk Checker" — company lookup + exposure score</li>
+              <li>KEY_REGS: CCPA, CPRA, GDPR (if EU nexus), BIPA (Illinois), state data laws 2026</li>
+            </ul>
+          </div>
+          <div class="output-card">
+            <div class="output-card-title" style="color:#14b8a6;">📱 Social Media Agency (B2B)</div>
+            <ul>
+              <li>NICHE: Local service businesses (dentists, HVAC, restaurants) needing leads</li>
+              <li>STREAM_1: Monthly social media management ($1,500-$3,500/mo retainer)</li>
+              <li>STREAM_2: Ad management with performance commission (10% of ad spend)</li>
+              <li>STREAM_3: Social media course ($297), local biz bootcamp ($997)</li>
+              <li>LEAD_MAGNET: "Social Media Audit" — 20-point scorecard, instant PDF with score</li>
+              <li>KEY_REGS: FTC endorsement guidelines, Meta/Google ad policies, CAN-SPAM for email</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRO TIPS -->
+    <div class="prompt-section" id="tips-section">
+      <div class="prompt-section-header" onclick="toggleSection('tips-section')">
+        <div class="prompt-section-title">
+          <div class="section-icon" style="background:rgba(245,200,66,0.2);color:#f5c842;"><i class="fas fa-fire"></i></div>
+          🔥 Pro Tips to Get Maximum Output
+        </div>
+        <i class="fas fa-chevron-down section-toggle" id="tips-section-toggle"></i>
+      </div>
+      <div class="prompt-section-body" id="tips-section-body">
+        <div class="copy-block">
+          <div class="copy-block-header">
+            <div class="copy-label"><i class="fas fa-info-circle"></i> Pro Tips</div>
+          </div>
+          <div class="copy-content" style="font-family:var(--font);font-size:0.85rem;line-height:1.8;">
+<strong style="color:#f5c842;">1. USE CLAUDE (claude.ai) or GPT-4o FOR BEST RESULTS</strong>
+   Claude Sonnet 3.7 or GPT-4o handle the full output best.
+   Gemini 2.0 Flash works too but may need more prompting to stay on track.
+
+<strong style="color:#f5c842;">2. CONFIRM BETWEEN PHASES — DO NOT SKIP THIS</strong>
+   The prompt says STOP after market research and revenue architecture.
+   DO NOT let the AI skip this. The confirms ensure the direction is right
+   before 8 files get built. One wrong assumption costs you hours.
+
+<strong style="color:#f5c842;">3. THE MORE SPECIFIC YOUR VARIABLES, THE BETTER THE OUTPUT</strong>
+   Bad: [PRIMARY_AUDIENCE] = "people with debt problems"
+   Good: [PRIMARY_AUDIENCE] = "People receiving repeated calls from third-party
+   debt collectors, often for medical debt or credit card debt, unsure if it's
+   real or a scam, scared of wage garnishment, pain level 9/10, income $30k-$75k,
+   typically Google 'debt collector harassing me' or 'is this debt real'"
+
+<strong style="color:#f5c842;">4. IF THE AI LOSES CONTEXT MID-BUILD (common in long sessions)</strong>
+   Paste this at the top of the next message:
+   "Continue building the [BRAND_NAME] Niche Revenue Machine system.
+    We have completed: [list files done]. Next: [next file name].
+    Maintain the same design system and brand voice throughout."
+
+<strong style="color:#f5c842;">5. PASTE REAL COMPETITOR DATA IN THE VARIABLES</strong>
+   If you know who your top 3 competitors are, add them to [SECONDARY_AUDIENCE]:
+   "Competitors: CompetitorA.com ($297/mo, 10k clients), CompetitorB.com
+   ($97/mo flat, weak CRM), CompetitorC.com (no B2B offering at all)."
+   The AI will use this to sharpen your positioning automatically.
+
+<strong style="color:#f5c842;">6. FOR REGULATIONS — GIVE EXACT STATUTES</strong>
+   Bad: [KEY_REGULATIONS] = "financial laws"
+   Good: [KEY_REGULATIONS] = "FCRA 15 U.S.C. §1681, FDCPA 15 U.S.C. §1692,
+   TCPA 47 U.S.C. §227 (post-5th Circuit Feb 2026 ruling), Reg F 12 C.F.R. §1006,
+   CFPB enforcement actions 2025-2026, state UDAP statutes"
+
+<strong style="color:#f5c842;">7. AFTER EACH FILE — ALWAYS RUN THE CONSOLE CHECK</strong>
+   Ask: "Run a console check on [filename].html and confirm 0 errors."
+   Fix any errors before moving to the next file.
+   One broken import or typo propagates through the whole system.
+
+<strong style="color:#f5c842;">8. THE B2B REPORT IS YOUR BEST B2B LEAD GEN TOOL</strong>
+   The PDF generator with a compliance scorecard is GOLD for B2B.
+   Even in non-legal niches — a "Risk Scorecard + Custom PDF Report"
+   converts cold B2B prospects better than any other lead magnet.
+   The key: make the questions hit real pain points, not generic checkboxes.
+
+<strong style="color:#f5c842;">9. SEED DATA IS NOT OPTIONAL</strong>
+   Always have the AI seed 6 demo cases and 5 demo leads.
+   Empty CRMs and dashboards look broken. Seeded data lets you demo,
+   validate, and share the system immediately without real client data.
+
+<strong style="color:#f5c842;">10. ADD YOUR STRIPE KEY AFTER BUILD, NOT DURING</strong>
+    The prompt correctly leaves Stripe keys as placeholders.
+    Never paste real API keys into prompts. Add them directly to the file
+    AFTER the build, and rotate your test key before using real production key.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT THIS SYSTEM -->
+    <div class="prompt-section" id="about-section">
+      <div class="prompt-section-header" onclick="toggleSection('about-section')">
+        <div class="prompt-section-title">
+          <div class="section-icon" style="background:rgba(239,68,68,0.2);color:#ef4444;"><i class="fas fa-info"></i></div>
+          ⚖️ About This System — What We Built
+        </div>
+        <i class="fas fa-chevron-down section-toggle" id="about-section-toggle"></i>
+      </div>
+      <div class="prompt-section-body" id="about-section-body">
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.25rem;">This master prompt was reverse-engineered from the actual production system built for <strong style="color:var(--gold);">James Consumer Law Group</strong> — a consumer protection law + FinTech platform targeting $1M+ annual revenue.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:0.5rem;">
+          <div style="background:var(--dark-4);border:1px solid var(--border);border-radius:10px;padding:1.1rem;">
+            <div style="font-weight:700;font-size:0.85rem;color:var(--gold);margin-bottom:0.75rem;">⚖️ The Original System</div>
+            <div style="font-size:0.8rem;color:var(--muted);line-height:1.7;">
+              Built for Jamaree R. James, Esq. — Consumer law attorney specializing in FCRA, FDCPA, TCPA. 
+              Three revenue streams: legal cases (contingency), MFSN affiliate (credit monitoring), 
+              education + B2B (courses, audits, Shield Dat Azz™ membership). 8 production pages, 
+              4 DB tables, 17 email templates, PDF generator. Conservative target: $45k/mo. 
+              Aggressive target: $199k/mo.
+            </div>
+          </div>
+          <div style="background:var(--dark-4);border:1px solid var(--border);border-radius:10px;padding:1.1rem;">
+            <div style="font-weight:700;font-size:0.85rem;color:var(--gold);margin-bottom:0.75rem;">🧬 The Template</div>
+            <div style="font-size:0.8rem;color:var(--muted);line-height:1.7;">
+              This prompt extracts the ARCHITECTURE — the 7-stage funnel, 3-stream revenue model, 
+              8-page system, 4-table DB, 17-email sequence — and makes it niche-agnostic. 
+              Fill 14 variables → paste → receive a complete, production-ready system 
+              for YOUR specific market. Same quality. Any expert niche.
+            </div>
+          </div>
+          <div style="background:var(--dark-4);border:1px solid var(--border);border-radius:10px;padding:1.1rem;">
+            <div style="font-weight:700;font-size:0.85rem;color:var(--gold);margin-bottom:0.75rem;">📅 Currency</div>
+            <div style="font-size:0.8rem;color:var(--muted);line-height:1.7;">
+              Built and verified March 12, 2026. All regulatory citations current. 
+              All tech stack versions current. Designed for any AI agent build system 
+              with static HTML/CSS/JS output capability and a RESTful Table API. 
+              Update [KEY_REGULATIONS] as laws change — the rest of the architecture 
+              stays evergreen.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>SUE DAT AZZ™</strong> · James Consumer Law Group · Jamaree R. James, Esq.<br>
+  Master Prompt v2.0 · Built March 12, 2026<br><br>
+  <span style="font-size:0.75rem;">
+    This system is for licensed professionals. No attorney-client relationship is formed without a signed engagement agreement. 
+    All regulatory citations current as of March 2026. 15 U.S.C. §1681 (FCRA) · 15 U.S.C. §1692 (FDCPA) · 47 U.S.C. §227 (TCPA)
+  </span>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toast-msg">Copied!</span></div>
+
+<script>
+// ── SECTION TOGGLE ──
+function toggleSection(id) {
+  const body = document.getElementById(id + '-body');
+  const toggle = document.getElementById(id + '-toggle');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  toggle.classList.toggle('open', !isOpen);
+}
+
+// ── COPY FULL PROMPT ──
+function copyFullPrompt() {
+  const content = document.getElementById('full-prompt-text').innerText;
+  navigator.clipboard.writeText(content).then(() => {
+    const btn = document.getElementById('copy-all-btn');
+    btn.innerHTML = '<i class="fas fa-check"></i> Copied to Clipboard!';
+    btn.classList.add('copied');
+    showToast('Full prompt copied — paste into Claude, GPT-4o, or Gemini!');
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-copy"></i> Copy Full Prompt';
+      btn.classList.remove('copied');
+    }, 3000);
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = content;
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('Full prompt copied!');
+  });
+}
+
+// ── COPY BLOCK ──
+function copyBlock(btnEl, targetId) {
+  const content = document.getElementById(targetId).innerText;
+  navigator.clipboard.writeText(content).then(() => {
+    btnEl.innerHTML = '<i class="fas fa-check"></i> Copied!';
+    btnEl.classList.add('copied');
+    showToast('Copied!');
+    setTimeout(() => {
+      btnEl.innerHTML = '<i class="fas fa-copy"></i> Copy';
+      btnEl.classList.remove('copied');
+    }, 2500);
+  });
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3500);
+}
+
+// ── DOWNLOAD PROJECT ZIP ──
+async function downloadProjectZip() {
+  const btn = document.getElementById('download-zip-btn');
+  const progressWrap = document.getElementById('zip-progress');
+  const progressBar = document.getElementById('zip-progress-bar');
+
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Building ZIP...';
+  progressWrap.style.display = 'block';
+
+  const FILES = [
+    'index.html',
+    'stage1.html',
+    'stage2-tripwire.html',
+    'shield-dat-azz.html',
+    'email-sequences.html',
+    'crm.html',
+    'b2b-report.html',
+    'master-prompt.html',
+    'README.md',
+    'css/style.css',
+    'css/intake.css',
+    'js/main.js',
+    'js/workers-api.js'
+  ];
+
+  const zip = new JSZip();
+  const folder = zip.folder('sue-dat-azz-system');
+  const cssFolder = zip.folder('sue-dat-azz-system/css');
+  const jsFolder  = zip.folder('sue-dat-azz-system/js');
+
+  let loaded = 0;
+  const total = FILES.length;
+
+  const updateProgress = () => {
+    loaded++;
+    progressBar.style.width = Math.round((loaded / total) * 100) + '%';
+  };
+
+  const fetchFile = async (path) => {
+    try {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error('404');
+      const text = await res.text();
+      updateProgress();
+      return { path, text, ok: true };
+    } catch(e) {
+      updateProgress();
+      return { path, text: `/* File ${path} not found — add manually */`, ok: false };
+    }
+  };
+
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Fetching files...';
+  const results = await Promise.all(FILES.map(fetchFile));
+
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Bundling...';
+
+  results.forEach(({ path, text }) => {
+    if (path.startsWith('css/')) {
+      cssFolder.file(path.replace('css/', ''), text);
+    } else if (path.startsWith('js/')) {
+      jsFolder.file(path.replace('js/', ''), text);
+    } else {
+      folder.file(path, text);
+    }
+  });
+
+  // Add a quick-start README inside the zip
+  folder.file('QUICK-START.txt',
+`SUE DAT AZZ — JAMES CONSUMER LAW GROUP
+Niche Revenue Machine v2.0 | Built March 2026
+=============================================
+
+QUICK START:
+1. Unzip this folder
+2. Open index.html in your browser to preview
+3. Deploy the entire folder to any static host:
+   - Cloudflare Pages (RECOMMENDED): wrangler pages deploy .
+   - GitHub Pages: push to /docs branch
+   - Netlify: drag-and-drop the folder
+
+BEFORE GOING LIVE — fill in these placeholders in the files:
+- YOUR_STRIPE_PUBLISHABLE_KEY  → Stripe.js checkout
+- YOUR_MFSN_AID                → MyFreeScoreNow affiliate ID
+- YOUR_MFSN_DEFAULT_PID        → MFSN product ID
+- SENDGRID_API_KEY             → Email automation (Workers secret)
+
+FILE MAP:
+  index.html           → Master dashboard + revenue calculator
+  stage1.html          → Lead magnet portal (?path=legal|credit|b2b)
+  stage2-tripwire.html → Offer routing engine
+  shield-dat-azz.html  → Shield Dat Azz™ membership ($29-$49/mo)
+  email-sequences.html → Email automation dashboard
+  crm.html             → Case management CRM
+  b2b-report.html      → B2B compliance PDF generator
+  master-prompt.html   → Niche Revenue Machine build prompt
+  README.md            → Full documentation
+
+DATABASE TABLES (RESTful Table API — already configured):
+  leads, cases, email_sequences, email_sends
+
+REVENUE TARGETS:
+  Conservative: ~$45k/mo
+  Aggressive:   ~$199k/mo
+
+Built by James Consumer Law Group | Jamaree R. James, Esq.
+⚖️ We don't just fix problems. We SUE DAT AZZ.
+`);
+
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating ZIP...';
+
+  const blob = await zip.generateAsync({
+    type: 'blob',
+    compression: 'DEFLATE',
+    compressionOptions: { level: 6 }
+  }, (meta) => {
+    progressBar.style.width = Math.round(meta.percent) + '%';
+  });
+
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'sue-dat-azz-system-' + new Date().toISOString().slice(0,10) + '.zip';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  btn.disabled = false;
+  btn.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
+  btn.classList.add('done');
+  showToast('ZIP downloaded — ' + total + ' files bundled. Ready to deploy! 🚀');
+
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fas fa-file-zipper"></i> Download ZIP';
+    btn.classList.remove('done');
+    progressWrap.style.display = 'none';
+    progressBar.style.width = '0%';
+  }, 4000);
+}
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('%c🧠 MASTER NICHE REVENUE MACHINE PROMPT — SUE DAT AZZ | James Consumer Law Group | March 2026', 'color:#f5c842;font-weight:bold;font-size:14px;');
+  console.log('%c14 variables. Paste into AI. Receive complete production system.', 'color:#888;font-size:11px;');
+});
+</script>
+</body>
+</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
